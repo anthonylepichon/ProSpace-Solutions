@@ -1,0 +1,257 @@
+{
+  "spaces": [
+  {
+    "id": "wagram-opera",
+    "title": "Espace Wagram Opéra",
+    "city": "Paris 8e",
+    "address": "14 Avenue de Wagram, 75008 Paris",
+    "capacity": 12,
+    "priceHour": 45,
+    "priceHalfDay": 160,
+    "priceDay": 280,
+    "rating": 4.8,
+    "reviews": 34,
+    "amenities": ["wifi", "visioconference", "pmr", "cafe", "screen4k"],
+    "image": "espace-wagram-opera-paris.webp",
+    "imageAlt": "Salle de réunion lumineuse de l'Espace Wagram Opéra à Paris",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "espace-wagram-opera-paris-detail.webp",
+      "espace-wagram-opera-salle-reunion.webp",
+      "espace-wagram-opera-table-reunion.webp"
+    ],
+    "imageAlts": [
+      "Vue générale de l'Espace Wagram Opéra",
+      "Salle de réunion de l'Espace Wagram Opéra",
+      "Table de réunion de l'Espace Wagram Opéra"
+    ],
+    "description": "Au cœur du 8e arrondissement, à deux pas de l'Arc de Triomphe, l'Espace Wagram Opéra offre un cadre premium pour vos réunions stratégiques et présentations clients. La salle est équipée d'un mobilier haut de gamme, d'une acoustique soignée et d'une lumière naturelle généreuse grâce à ses larges baies vitrées. Idéal pour les comités de direction, les sessions de négociation et les workshops en petit groupe.",
+    "equipment": [
+      "WiFi Fibre 1 Gb/s",
+      "Écran 4K 86\"",
+      "Visioconférence intégrée",
+      "Tableau blanc interactif",
+      "Accès PMR complet",
+      "Climatisation réversible",
+      "Café & eau inclus",
+      "Parking sécurisé -1"
+    ]
+  },
+  {
+    "id": "republique-atelier",
+    "title": "Atelier République",
+    "city": "Paris 11e",
+    "address": "28 Rue Oberkampf, 75011 Paris",
+    "capacity": 8,
+    "priceHour": 35,
+    "priceHalfDay": 120,
+    "priceDay": 210,
+    "rating": 4.6,
+    "reviews": 51,
+    "amenities": ["wifi", "screen4k"],
+    "image": "atelier-republique-paris.webp",
+    "imageAlt": "Loft de travail de l'Atelier République à Paris",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "atelier-republique-paris-detail.webp",
+      "atelier-republique-espace-travail.webp",
+      "atelier-republique-salle-reunion.webp"
+    ],
+    "imageAlts": [
+      "Vue générale de l'Atelier République",
+      "Espace de travail de l'Atelier République",
+      "Salle de réunion de l'Atelier République"
+    ],
+    "description": "Espace créatif et modulable installé dans un loft rénové du quartier de la République. Baigné de lumière zénithale, l'Atelier convient aux workshops collaboratifs, séances de design thinking ou sessions de formation en petits groupes. Son aménagement flexible permet de passer d'une configuration classe à un espace debout en quelques minutes.",
+    "equipment": [
+      "WiFi Fibre 500 Mb/s",
+      "Écran 4K 75\"",
+      "Tableau blanc magnétique",
+      "Cuisine équipée",
+      "Terrasse privative",
+      "Lumière naturelle zénithale"
+    ]
+  },
+  {
+    "id": "lyon-confluence",
+    "title": "Confluence Executive Suite",
+    "city": "Lyon 2e",
+    "address": "12 Quai Perrache, 69002 Lyon",
+    "capacity": 20,
+    "priceHour": 55,
+    "priceHalfDay": 195,
+    "priceDay": 340,
+    "rating": 4.9,
+    "reviews": 22,
+    "amenities": ["wifi", "pmr", "screen4k"],
+    "image": "confluence-executive-suite-lyon.webp",
+    "imageAlt": "Salle de réunion de la Confluence Executive Suite à Lyon",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "confluence-executive-suite-lyon-detail.webp",
+      "confluence-executive-suite-salle-reunion.webp",
+      "confluence-executive-suite-mobilier.webp"
+    ],
+    "imageAlts": [
+      "Vue générale de la Confluence Executive Suite",
+      "Salle de réunion de la Confluence Executive Suite",
+      "Mobilier de la Confluence Executive Suite"
+    ],
+    "description": "Suite prestige avec vue sur la Saône. Conçue pour accueillir séminaires, assemblées générales et grands événements d'entreprise dans un cadre architectural remarquable. Équipements de dernière génération et service conciergerie inclus.",
+    "equipment": [
+      "WiFi Fibre 10 Gb/s",
+      "Double écran 4K 98\"",
+      "Accès PMR complet",
+      "Catering sur demande",
+      "Parking privatif 10 places",
+      "Service conciergerie",
+      "Système son Bose intégré"
+    ]
+  },
+  {
+    "id": "bordeaux-chartrons",
+    "title": "Les Chartrons Board Room",
+    "city": "Bordeaux",
+    "address": "5 Quai des Chartrons, 33300 Bordeaux",
+    "capacity": 16,
+    "priceHour": 40,
+    "priceHalfDay": 145,
+    "priceDay": 250,
+    "rating": 4.7,
+    "reviews": 18,
+    "amenities": ["wifi", "pmr"],
+    "image": "chartrons-board-room-bordeaux-carte.webp",
+    "imageAlt": "Salle de conseil Les Chartrons Board Room à Bordeaux",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "chartrons-board-room-bordeaux.webp",
+      "chartrons-board-room-fauteuils.webp",
+      "chartrons-board-room-salle-reunion.webp"
+    ],
+    "imageAlts": [
+      "Vue générale des Chartrons Board Room",
+      "Fauteuils des Chartrons Board Room",
+      "Salle de réunion des Chartrons Board Room"
+    ],
+    "description": "Salle de conseil avec vue sur les quais classés au patrimoine UNESCO. Un cadre d'exception pour vos conseils d'administration et événements corporate. Mobilier en bois massif, acoustique maîtrisée et terrasse privative pour les pauses.",
+    "equipment": [
+      "WiFi Fibre 1 Gb/s",
+      "Projecteur HD 4000 lumens",
+      "Accès PMR",
+      "Terrasse privative 25m²",
+      "Cave à vins sur demande",
+      "Service traiteur local"
+    ]
+  },
+  {
+    "id": "nantes-ile",
+    "title": "Île de Nantes Studio",
+    "city": "Nantes",
+    "address": "3 Bd de la Prairie-au-Duc, 44200 Nantes",
+    "capacity": 6,
+    "priceHour": 28,
+    "priceHalfDay": 95,
+    "priceDay": 170,
+    "rating": 4.5,
+    "reviews": 63,
+    "amenities": ["wifi", "screen4k"],
+    "image": "ile-nantes-studio-carte.webp",
+    "imageAlt": "Studio de travail de l'Île de Nantes Studio",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "ile-nantes-studio.webp",
+      "ile-nantes-studio-fauteuils.webp",
+      "ile-nantes-studio-espace-travail.webp"
+    ],
+    "imageAlts": [
+      "Vue générale de l'Île de Nantes Studio",
+      "Fauteuils de l'Île de Nantes Studio",
+      "Espace de travail de l'Île de Nantes Studio"
+    ],
+    "description": "Studio contemporain sur l'Île de Nantes, quartier créatif en pleine transformation urbaine. Idéal pour les petites équipes agiles, entretiens ou points d'avancement en format intime. Lumière naturelle et connexion ultra-rapide.",
+    "equipment": [
+      "WiFi Fibre 500 Mb/s",
+      "Écran 4K 65\"",
+      "Tableau blanc",
+      "Kitchenette équipée",
+      "Lumière naturelle",
+      "Vélos à disposition"
+    ]
+  },
+  {
+    "id": "marseille-vieux-port",
+    "title": "Vieux-Port Panorama",
+    "city": "Marseille",
+    "address": "1 Place aux Huiles, 13001 Marseille",
+    "capacity": 14,
+    "priceHour": 38,
+    "priceHalfDay": 135,
+    "priceDay": 235,
+    "rating": 4.4,
+    "reviews": 29,
+    "amenities": ["wifi", "pmr"],
+    "image": "vieux-port-panorama-marseille-carte.webp",
+    "imageAlt": "Salle de réunion du Vieux-Port Panorama à Marseille",
+    "imageWidth": 800,
+    "imageHeight": 520,
+    "images": [
+      "vieux-port-panorama-marseille.webp",
+      "vieux-port-panorama-salle-reunion.webp",
+      "vieux-port-panorama-mobilier.webp"
+    ],
+    "imageAlts": [
+      "Vue générale du Vieux-Port Panorama",
+      "Salle de réunion du Vieux-Port Panorama",
+      "Mobilier du Vieux-Port Panorama"
+    ],
+    "description": "Face au Vieux-Port de Marseille, cette salle lumineuse offre une vue panoramique sur les navettes et le Fort Saint-Jean. Un cadre inspirant pour vos réunions d'équipe, séminaires régionaux ou lancements de projets.",
+    "equipment": [
+      "WiFi Fibre 1 Gb/s",
+      "Écran OLED 80\"",
+      "Accès PMR",
+      "Vue panoramique Vieux-Port",
+      "Service traiteur disponible",
+      "Climatisation"
+    ]
+  }
+  ],
+  "defaultFavorites": [
+    "wagram-opera",
+    "lyon-confluence"
+  ],
+  "destinations": [
+    {
+      "label": "Paris",
+      "city": "Paris 8e"
+    },
+    {
+      "label": "Lyon",
+      "city": "Lyon 2e"
+    },
+    {
+      "label": "Bordeaux",
+      "city": "Bordeaux"
+    },
+    {
+      "label": "Nantes",
+      "city": "Nantes"
+    },
+    {
+      "label": "Marseille",
+      "city": "Marseille"
+    },
+    {
+      "label": "Toulouse",
+      "city": ""
+    },
+    {
+      "label": "Lille",
+      "city": ""
+    }
+  ]
+}
