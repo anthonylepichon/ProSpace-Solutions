@@ -1,0 +1,173 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/layout/_header.scss
+// Rôle : Définir la structure et les grandes zones communes des pages. Ce fichier concerne header.
+// Tâches :
+// - Regrouper les règles SCSS relatives à header.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #CONTENEUR-HEADER
+// Cette zone regroupe les règles liées à règles #conteneur-header.
+// ---------------------------------------------------------
+#conteneur-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-SITE
+// Cette zone regroupe les règles liées à règles .en-tete-site.
+// ---------------------------------------------------------
+.en-tete-site {
+  height: 64px;
+  background: $couleur-bleu-nuit;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-SITE__CONTENU
+// Cette zone regroupe les règles liées à règles .en-tete-site__contenu.
+// ---------------------------------------------------------
+.en-tete-site__contenu {
+  display: flex;
+  height: 64px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE
+// Cette zone regroupe les règles liées à règles .identite-site.
+// ---------------------------------------------------------
+.identite-site {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: $couleur-blanc;
+  font-family: $police-titres;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 28px;
+  text-decoration: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE__SYMBOLE
+// Cette zone regroupe les règles liées à règles .identite-site__symbole.
+// ---------------------------------------------------------
+.identite-site__symbole {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  background: $couleur-bleu;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.3), 0 2px 4px -2px rgba(2, 132, 199, 0.3);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE__SYMBOLE IMG
+// Cette zone regroupe les règles liées à règles .identite-site__symbole img.
+// ---------------------------------------------------------
+.identite-site__symbole img {
+  width: 17px;
+  height: 17px;
+  filter: brightness(0) invert(1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE__NOM STRONG
+// Cette zone regroupe les règles liées à règles .identite-site__nom strong.
+// ---------------------------------------------------------
+.identite-site__nom strong {
+  color: $couleur-cyan;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .NAVIGATION-SITE
+// Cette zone regroupe les règles liées à règles .navigation-site.
+// ---------------------------------------------------------
+.navigation-site {
+  display: block;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .NAVIGATION-SITE__LISTE
+// Cette zone regroupe les règles liées à règles .navigation-site__liste.
+// ---------------------------------------------------------
+.navigation-site__liste {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .NAVIGATION-SITE__LIEN
+// Cette zone regroupe les règles liées à règles .navigation-site__lien.
+// ---------------------------------------------------------
+.navigation-site__lien {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: $rayon-petit;
+  color: $couleur-ardoise-300;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  transition: color $transition-rapide, background-color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .NAVIGATION-SITE__LIEN:HOVER
+// Cette zone regroupe les règles liées à règles .navigation-site__lien:hover.
+// ---------------------------------------------------------
+.navigation-site__lien:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: $couleur-blanc;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .NAVIGATION-SITE__LIEN--ACTIF
+// Cette zone regroupe les règles liées à règles .navigation-site__lien--actif.
+// ---------------------------------------------------------
+.navigation-site__lien--actif {
+  background: rgba(255, 255, 255, 0.1);
+  color: $couleur-cyan;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .COMPTEUR-FAVORIS
+// Cette zone regroupe les règles liées à règles .compteur-favoris.
+// ---------------------------------------------------------
+.compteur-favoris {
+  display: inline-flex;
+  min-width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  background: $couleur-bleu;
+  border-radius: 999px;
+  color: $couleur-blanc;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}

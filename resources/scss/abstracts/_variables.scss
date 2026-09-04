@@ -1,0 +1,46 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/abstracts/_variables.scss
+// Rôle : Définir les outils et valeurs partagés par les feuilles de styles. Ce fichier concerne variables.
+// Tâches :
+// - Regrouper les règles SCSS relatives à variables.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : VARIABLES PARTAGÉES
+// Cette zone regroupe les règles liées à variables partagées.
+// ---------------------------------------------------------
+$couleur-bleu-nuit: #0f172a;
+$couleur-bleu-nuit-adoucie: #1e293b;
+$couleur-bleu: #0284c7;
+$couleur-bleu-survol: #0369a1;
+$couleur-bleu-actif: #075985;
+$couleur-cyan: #38bdf8;
+$couleur-ciel-clair: #f0f9ff;
+$couleur-bordure-bleue: #bae6fd;
+$couleur-blanc-casse: #f8fafc;
+$couleur-blanc: #ffffff;
+$couleur-ardoise-100: #f1f5f9;
+$couleur-ardoise-200: #e2e8f0;
+$couleur-ardoise-300: #cbd5e1;
+$couleur-ardoise-400: #94a3b8;
+$couleur-texte-secondaire: #64748b;
+$couleur-erreur: #f43f5e;
+$couleur-erreur-foncee: #e11d48;
+$couleur-erreur-claire: #fff1f2;
+$couleur-succes-claire: #d1fae5;
+$couleur-etoile: #fbbf24;
+$police-titres: "Outfit", Arial, sans-serif;
+$police-texte: "DM Sans", Arial, sans-serif;
+$police-chasse-fixe: "JetBrains Mono", Consolas, monospace;
+$police-adaptee: "OpenDyslexic", Arial, sans-serif;
+$largeur-conteneur: 1280px;
+$rayon-petit: 10px;
+$rayon-moyen: 16px;
+$rayon-grand: 16px;
+$ombre-legere: 0 1px 2px rgba(15, 23, 42, 0.05);
+$transition-rapide: 150ms ease;
+$transition-carte: 200ms ease;

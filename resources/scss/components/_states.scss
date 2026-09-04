@@ -1,0 +1,145 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/components/_states.scss
+// Rôle : Définir la présentation d’un composant réutilisable. Ce fichier concerne states.
+// Tâches :
+// - Regrouper les règles SCSS relatives à states.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-ETAT
+// Cette zone regroupe les règles liées à règles .panneau-etat.
+// ---------------------------------------------------------
+.panneau-etat {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 112px 30px;
+  background: transparent;
+  border: 0;
+  color: $couleur-ardoise-400;
+  text-align: center;
+}
+
+.panneau-etat h2,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-ETAT H3
+// Cette zone regroupe les règles liées à règles .panneau-etat h3.
+// ---------------------------------------------------------
+.panneau-etat h3 {
+  margin: 0 0 4px;
+  color: $couleur-texte-secondaire;
+  font-family: $police-texte;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-ETAT P
+// Cette zone regroupe les règles liées à règles .panneau-etat p.
+// ---------------------------------------------------------
+.panneau-etat p {
+  color: $couleur-ardoise-400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #AUCUN-RESULTAT
+// Cette zone regroupe les règles liées à règles #aucun-resultat.
+// ---------------------------------------------------------
+#aucun-resultat {
+  gap: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #AUCUN-RESULTAT .PANNEAU-ETAT__ICONE-RECHERCHE
+// Cette zone regroupe les règles liées à règles #aucun-resultat .panneau-etat__icone-recherche.
+// ---------------------------------------------------------
+#aucun-resultat .panneau-etat__icone-recherche {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: $couleur-ardoise-100;
+  border-radius: $rayon-grand;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #AUCUN-RESULTAT .PANNEAU-ETAT__ICONE-RECHERCHE IMG
+// Cette zone regroupe les règles liées à règles #aucun-resultat .panneau-etat__icone-recherche img.
+// ---------------------------------------------------------
+#aucun-resultat .panneau-etat__icone-recherche img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+  opacity: 0.5;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #AUCUN-RESULTAT H3
+// Cette zone regroupe les règles liées à règles #aucun-resultat h3.
+// ---------------------------------------------------------
+#aucun-resultat h3 {
+  margin-bottom: 4px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.panneau-etat p,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-ETAT H2
+// Cette zone regroupe les règles liées à règles .panneau-etat h2.
+// ---------------------------------------------------------
+.panneau-etat h2 {
+  margin-bottom: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-ETAT--ERREUR
+// Cette zone regroupe les règles liées à règles .panneau-etat--erreur.
+// ---------------------------------------------------------
+.panneau-etat--erreur {
+  background: $couleur-erreur-claire;
+  border: 1px solid #fecdd3;
+  border-radius: $rayon-grand;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .INDICATEUR-CHARGEMENT
+// Cette zone regroupe les règles liées à règles .indicateur-chargement.
+// ---------------------------------------------------------
+.indicateur-chargement {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $couleur-bordure-bleue;
+  border-top-color: $couleur-bleu;
+  border-radius: 50%;
+  animation: rotation 0.8s linear infinite;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES @KEYFRAMES ROTATION
+// Cette zone regroupe les règles liées à règles @keyframes rotation.
+// ---------------------------------------------------------
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}

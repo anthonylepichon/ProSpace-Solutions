@@ -1,0 +1,384 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/components/_cards.scss
+// Rôle : Définir la présentation d’un composant réutilisable. Ce fichier concerne cards.
+// Tâches :
+// - Regrouper les règles SCSS relatives à cards.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GRILLE-ESPACES
+// Cette zone regroupe les règles liées à règles .grille-espaces.
+// ---------------------------------------------------------
+.grille-espaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE
+// Cette zone regroupe les règles liées à règles .carte-espace.
+// ---------------------------------------------------------
+.carte-espace {
+  @include surface-carte;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform $transition-carte, box-shadow $transition-carte;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE:HOVER
+// Cette zone regroupe les règles liées à règles .carte-espace:hover.
+// ---------------------------------------------------------
+.carte-espace:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__VISUEL
+// Cette zone regroupe les règles liées à règles .carte-espace__visuel.
+// ---------------------------------------------------------
+.carte-espace__visuel {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__VISUEL::AFTER
+// Cette zone regroupe les règles liées à règles .carte-espace__visuel::after.
+// ---------------------------------------------------------
+.carte-espace__visuel::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 64px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__VISUEL > IMG
+// Cette zone regroupe les règles liées à règles .carte-espace__visuel > img.
+// ---------------------------------------------------------
+.carte-espace__visuel > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE:HOVER .CARTE-ESPACE__VISUEL > IMG
+// Cette zone regroupe les règles liées à règles .carte-espace:hover .carte-espace__visuel > img.
+// ---------------------------------------------------------
+.carte-espace:hover .carte-espace__visuel > img {
+  transform: scale(1.05);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON-FAVORI
+// Cette zone regroupe les règles liées à règles .bouton-favori.
+// ---------------------------------------------------------
+.bouton-favori {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.85);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  transition: color $transition-rapide, background-color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON-FAVORI IMG
+// Cette zone regroupe les règles liées à règles .bouton-favori img.
+// ---------------------------------------------------------
+.bouton-favori img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON-FAVORI:HOVER IMG
+// Cette zone regroupe les règles liées à règles .bouton-favori:hover img.
+// ---------------------------------------------------------
+.bouton-favori:hover img {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(91%) saturate(2759%) hue-rotate(326deg) brightness(103%) contrast(91%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON-FAVORI--ACTIF
+// Cette zone regroupe les règles liées à règles .bouton-favori--actif.
+// ---------------------------------------------------------
+.bouton-favori--actif {
+  background: $couleur-erreur;
+  box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.3);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON-FAVORI--ACTIF IMG
+// Cette zone regroupe les règles liées à règles .bouton-favori--actif img.
+// ---------------------------------------------------------
+.bouton-favori--actif img {
+  filter: brightness(0) invert(1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__CONTENU
+// Cette zone regroupe les règles liées à règles .carte-espace__contenu.
+// ---------------------------------------------------------
+.carte-espace__contenu {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__TITRE
+// Cette zone regroupe les règles liées à règles .carte-espace__titre.
+// ---------------------------------------------------------
+.carte-espace__titre {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.375;
+}
+
+.carte-espace__localisation,
+.carte-espace__evaluation,
+.carte-espace__capacite,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PASTILLE-EQUIPEMENT
+// Cette zone regroupe les règles liées à règles .pastille-equipement.
+// ---------------------------------------------------------
+.pastille-equipement {
+  display: inline-flex;
+  align-items: center;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__LOCALISATION
+// Cette zone regroupe les règles liées à règles .carte-espace__localisation.
+// ---------------------------------------------------------
+.carte-espace__localisation {
+  gap: 6px;
+  margin: 0 0 12px;
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__LOCALISATION IMG
+// Cette zone regroupe les règles liées à règles .carte-espace__localisation img.
+// ---------------------------------------------------------
+.carte-espace__localisation img {
+  width: 13px;
+  height: 13px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__EVALUATION
+// Cette zone regroupe les règles liées à règles .carte-espace__evaluation.
+// ---------------------------------------------------------
+.carte-espace__evaluation {
+  gap: 10px;
+  margin-bottom: 12px;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.evaluation,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EVALUATION__ETOILES
+// Cette zone regroupe les règles liées à règles .evaluation__etoiles.
+// ---------------------------------------------------------
+.evaluation__etoiles {
+  display: inline-flex;
+  align-items: center;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EVALUATION__ETOILES
+// Cette zone regroupe les règles liées à règles .evaluation__etoiles.
+// ---------------------------------------------------------
+.evaluation__etoiles {
+  gap: 2px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__EVALUATION STRONG
+// Cette zone regroupe les règles liées à règles .carte-espace__evaluation strong.
+// ---------------------------------------------------------
+.carte-espace__evaluation strong {
+  color: $couleur-bleu-nuit;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__CARACTERISTIQUES
+// Cette zone regroupe les règles liées à règles .carte-espace__caracteristiques.
+// ---------------------------------------------------------
+.carte-espace__caracteristiques {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__CAPACITE
+// Cette zone regroupe les règles liées à règles .carte-espace__capacite.
+// ---------------------------------------------------------
+.carte-espace__capacite {
+  gap: 6px;
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__CAPACITE IMG
+// Cette zone regroupe les règles liées à règles .carte-espace__capacite img.
+// ---------------------------------------------------------
+.carte-espace__capacite img {
+  width: 13px;
+  height: 13px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__SEPARATEUR
+// Cette zone regroupe les règles liées à règles .carte-espace__separateur.
+// ---------------------------------------------------------
+.carte-espace__separateur {
+  margin: 0 2px;
+  color: $couleur-ardoise-300;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__SEPARATEUR::BEFORE
+// Cette zone regroupe les règles liées à règles .carte-espace__separateur::before.
+// ---------------------------------------------------------
+.carte-espace__separateur::before {
+  content: "·";
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PASTILLE-EQUIPEMENT
+// Cette zone regroupe les règles liées à règles .pastille-equipement.
+// ---------------------------------------------------------
+.pastille-equipement {
+  gap: 4px;
+  padding: 2px 8px;
+  background: $couleur-ardoise-100;
+  border-radius: 999px;
+  color: $couleur-texte-secondaire;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PASTILLE-EQUIPEMENT IMG
+// Cette zone regroupe les règles liées à règles .pastille-equipement img.
+// ---------------------------------------------------------
+.pastille-equipement img {
+  width: 11px;
+  height: 11px;
+  filter: brightness(0) saturate(100%) invert(44%) sepia(16%) saturate(645%) hue-rotate(176deg) brightness(92%) contrast(88%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__PIED
+// Cette zone regroupe les règles liées à règles .carte-espace__pied.
+// ---------------------------------------------------------
+.carte-espace__pied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid $couleur-ardoise-100;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__PRIX
+// Cette zone regroupe les règles liées à règles .carte-espace__prix.
+// ---------------------------------------------------------
+.carte-espace__prix {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE__PRIX STRONG
+// Cette zone regroupe les règles liées à règles .carte-espace__prix strong.
+// ---------------------------------------------------------
+.carte-espace__prix strong {
+  color: $couleur-bleu;
+  font-family: $police-chasse-fixe;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 640px) {
+  .carte-espace {
+    width: calc(50% - 12px);
+  }
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 1024px) {
+  .carte-espace {
+    width: calc(33.333% - 16px);
+  }
+}
