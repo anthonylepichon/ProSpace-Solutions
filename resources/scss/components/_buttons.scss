@@ -1,0 +1,175 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/components/_buttons.scss
+// Rôle : Définir la présentation d’un composant réutilisable. Ce fichier concerne buttons.
+// Tâches :
+// - Regrouper les règles SCSS relatives à buttons.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON
+// Cette zone regroupe les règles liées à règles .bouton.
+// ---------------------------------------------------------
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: $rayon-moyen;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $transition-rapide, border-color $transition-rapide, color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--PRIMAIRE
+// Cette zone regroupe les règles liées à règles .bouton--primaire.
+// ---------------------------------------------------------
+.bouton--primaire {
+  background: $couleur-bleu;
+  box-shadow: 0 1px 2px rgba(2, 132, 199, 0.2);
+  color: $couleur-blanc;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--PRIMAIRE:HOVER
+// Cette zone regroupe les règles liées à règles .bouton--primaire:hover.
+// ---------------------------------------------------------
+.bouton--primaire:hover {
+  background: $couleur-bleu-survol;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--PRIMAIRE:ACTIVE
+// Cette zone regroupe les règles liées à règles .bouton--primaire:active.
+// ---------------------------------------------------------
+.bouton--primaire:active {
+  background: $couleur-bleu-actif;
+}
+
+.bouton--danger,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--RETIRER
+// Cette zone regroupe les règles liées à règles .bouton--retirer.
+// ---------------------------------------------------------
+.bouton--retirer {
+  background: $couleur-blanc;
+  border: 1px solid #fecdd3;
+  color: #e11d48;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--DANGER
+// Cette zone regroupe les règles liées à règles .bouton--danger.
+// ---------------------------------------------------------
+.bouton--danger {
+  padding: 10px 16px;
+  font-weight: 500;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--RETIRER
+// Cette zone regroupe les règles liées à règles .bouton--retirer.
+// ---------------------------------------------------------
+.bouton--retirer {
+  padding: 10px 12px;
+  color: $couleur-texte-secondaire;
+}
+
+.bouton--danger:hover,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--RETIRER:HOVER
+// Cette zone regroupe les règles liées à règles .bouton--retirer:hover.
+// ---------------------------------------------------------
+.bouton--retirer:hover {
+  background: $couleur-erreur-claire;
+  border-color: #fda4af;
+  color: $couleur-erreur;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI
+// Cette zone regroupe les règles liées à règles .bouton--favori.
+// ---------------------------------------------------------
+.bouton--favori {
+  width: 100%;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background: $couleur-blanc;
+  border: 2px solid $couleur-ardoise-200;
+  color: #475569;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI:HOVER
+// Cette zone regroupe les règles liées à règles .bouton--favori:hover.
+// ---------------------------------------------------------
+.bouton--favori:hover {
+  background: $couleur-ciel-clair;
+  border-color: $couleur-bleu;
+  color: $couleur-bleu;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI-ACTIF
+// Cette zone regroupe les règles liées à règles .bouton--favori-actif.
+// ---------------------------------------------------------
+.bouton--favori-actif {
+  background: $couleur-erreur-claire;
+  border-color: #fb7185;
+  color: #e11d48;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--DANGER IMG
+// Cette zone regroupe les règles liées à règles .bouton--danger img.
+// ---------------------------------------------------------
+.bouton--danger img {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(93%) saturate(3426%) hue-rotate(335deg) brightness(92%) contrast(93%);
+}
+
+.bouton--retirer img,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI IMG
+// Cette zone regroupe les règles liées à règles .bouton--favori img.
+// ---------------------------------------------------------
+.bouton--favori img {
+  filter: brightness(0) saturate(100%) invert(44%) sepia(16%) saturate(645%) hue-rotate(176deg) brightness(92%) contrast(88%);
+}
+
+.bouton--retirer:hover img,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI-ACTIF IMG
+// Cette zone regroupe les règles liées à règles .bouton--favori-actif img.
+// ---------------------------------------------------------
+.bouton--favori-actif img {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(91%) saturate(2759%) hue-rotate(326deg) brightness(103%) contrast(91%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .BOUTON--FAVORI:HOVER IMG
+// Cette zone regroupe les règles liées à règles .bouton--favori:hover img.
+// ---------------------------------------------------------
+.bouton--favori:hover img {
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}

@@ -1,0 +1,102 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/components/_forms.scss
+// Rôle : Définir la présentation d’un composant réutilisable. Ce fichier concerne forms.
+// Tâches :
+// - Regrouper les règles SCSS relatives à forms.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+label,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES LEGEND
+// Cette zone regroupe les règles liées à règles legend.
+// ---------------------------------------------------------
+legend {
+  color: $couleur-bleu-nuit;
+  font-weight: 600;
+}
+
+select,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+
+// ---------------------------------------------------------
+// Zone : RÈGLES TEXTAREA
+// Cette zone regroupe les règles liées à règles textarea.
+// ---------------------------------------------------------
+textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  background: $couleur-blanc;
+  border: 1px solid $couleur-ardoise-200;
+  border-radius: $rayon-moyen;
+  color: $couleur-bleu-nuit;
+  font-size: 14px;
+  line-height: 20px;
+  transition: border-color $transition-rapide, box-shadow $transition-rapide, background-color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES TEXTAREA
+// Cette zone regroupe les règles liées à règles textarea.
+// ---------------------------------------------------------
+textarea {
+  min-height: 0;
+  resize: none;
+}
+
+select:hover,
+input:hover,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES TEXTAREA:HOVER
+// Cette zone regroupe les règles liées à règles textarea:hover.
+// ---------------------------------------------------------
+textarea:hover {
+  border-color: $couleur-ardoise-300;
+}
+
+select:focus,
+input:focus,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES TEXTAREA:FOCUS
+// Cette zone regroupe les règles liées à règles textarea:focus.
+// ---------------------------------------------------------
+textarea:focus {
+  border-color: $couleur-cyan;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES [ARIA-INVALID="TRUE"]
+// Cette zone regroupe les règles liées à règles [aria-invalid="true"].
+// ---------------------------------------------------------
+[aria-invalid="true"] {
+  background: $couleur-erreur-claire !important;
+  border-color: #fb7185 !important;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .ERREUR-FORMULAIRE
+// Cette zone regroupe les règles liées à règles .erreur-formulaire.
+// ---------------------------------------------------------
+.erreur-formulaire {
+  margin: 4px 0 0;
+  color: $couleur-erreur;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
