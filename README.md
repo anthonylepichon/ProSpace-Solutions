@@ -4,6 +4,8 @@ ProSpace Solutions est une application web Front-End B2B permettant de recherche
 
 Le dépôt GitHub du projet est disponible à l'adresse suivante : [anthonylepichon/ProSpace-Solutions](https://github.com/anthonylepichon/ProSpace-Solutions).
 
+Le site publié peut être consulté à cette adresse : [ProSpace Solutions sur GitHub Pages](https://anthonylepichon.github.io/ProSpace-Solutions/).
+
 ## Fonctionnalités
 
 - recherche des espaces par ville, capacité et équipements ;
@@ -89,6 +91,52 @@ Pour recompiler automatiquement les styles pendant le développement :
 npx sass --watch resources/main.scss:assets/css/main.css
 ```
 
+## Publication avec GitHub Pages
+
+La version destinée à la publication est conservée sur la branche `main`. Les nouvelles fonctionnalités sont d'abord réalisées sur `develop`, puis intégrées à `main` avec une Pull Request :
+
+```text
+develop → Pull Request → main → GitHub Pages
+```
+
+Avant la fusion, les modifications doivent être enregistrées et envoyées sur GitHub :
+
+```bash
+git switch develop
+git add .
+git commit -m "Finaliser la version de publication"
+git push origin develop
+```
+
+Sur GitHub, créer ensuite une Pull Request avec `main` comme branche de base et `develop` comme branche à comparer. Après vérification, fusionner la Pull Request, puis actualiser la branche locale :
+
+```bash
+git switch main
+git pull origin main
+```
+
+Avec l'offre gratuite de GitHub, le dépôt doit être public pour utiliser GitHub Pages. La visibilité se modifie dans **Settings → General → Danger Zone → Change repository visibility**. Il faut vérifier avant cette opération qu'aucun secret, fichier `.env` ou document privé n'est présent dans le dépôt ou son historique.
+
+La publication se configure ensuite dans **Settings → Pages → Build and deployment** avec les valeurs suivantes :
+
+- **Source :** `Deploy from a branch` ;
+- **Branch :** `main` ;
+- **Folder :** `/(root)`.
+
+Le fichier `index.html` se trouvant à la racine, le dossier `/docs` ne doit pas être choisi comme source. Après l'enregistrement de la configuration, GitHub construit et publie automatiquement le site. L'adresse attendue est :
+
+```text
+https://anthonylepichon.github.io/ProSpace-Solutions/
+```
+
+Une fiche dynamique peut être contrôlée directement avec :
+
+```text
+https://anthonylepichon.github.io/ProSpace-Solutions/pages/espace.html?id=wagram-opera
+```
+
+Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement la version mise à jour. Il faut alors vérifier le catalogue, les favoris, le formulaire, le carrousel de l'équipe, les images et l'absence d'erreurs dans la console du navigateur.
+
 ## Source de données
 
 Le projet ne consomme pas d'API distante. Ses données sont réparties dans deux fichiers JSON locaux chargés avec `fetch` :
@@ -171,16 +219,52 @@ L'entité HTML `&amp;` est utilisée pour représenter correctement le caractèr
 
 ## Tests Lighthouse
 
-Le cahier des charges fixe un objectif supérieur à 90 pour le SEO et l'accessibilité. Aucun rapport Lighthouse mesuré n'est actuellement enregistré dans le dépôt ; les valeurs ne sont donc pas inventées dans ce document.
+Le cahier des charges fixe un objectif supérieur à 90 pour le SEO et l'accessibilité. Les audits ont été effectués avec Lighthouse sur la version publiée du site, en affichage Desktop et Mobile.
 
-| Page | Accessibilité | SEO | Capture |
-| --- | ---: | ---: | --- |
-| Accueil | À mesurer | À mesurer | À ajouter |
-| Fiche espace | À mesurer | À mesurer | À ajouter |
-| Mes espaces | À mesurer | À mesurer | À ajouter |
-| Contact | À mesurer | À mesurer | À ajouter |
+| Page | Accessibilité Desktop | SEO Desktop | Accessibilité Mobile | SEO Mobile |
+| --- | ---: | ---: | ---: | ---: |
+| Accueil | 96 | 100 | 96 | 100 |
+| Fiche espace | 94 | 100 | 94 | 100 |
+| Mes espaces | 93 | 100 | 93 | 100 |
+| Contact | 90 | 100 | 90 | 100 |
 
-Les audits doivent être lancés depuis Chrome DevTools sur un serveur local ou sur la version déployée. Les scores et les captures devront ensuite remplacer les mentions « À mesurer » et « À ajouter ».
+Toutes les pages obtiennent 100 en SEO. Les pages Accueil, Fiche espace et Mes espaces dépassent 90 en accessibilité. La page Contact atteint 90, mais ne dépasse pas encore strictement l'objectif fixé par le cahier des charges.
+
+### Captures Desktop
+
+#### Page Accueil
+
+![Audit Lighthouse Desktop de la page Accueil : accessibilité 96 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Accueil.png)
+
+#### Page Contact
+
+![Audit Lighthouse Desktop de la page Contact : accessibilité 90 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Contact.png)
+
+#### Page Fiche espace
+
+![Audit Lighthouse Desktop de la page Fiche espace : accessibilité 94 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Espaces.png)
+
+#### Page Mes espaces
+
+![Audit Lighthouse Desktop de la page Mes espaces : accessibilité 93 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Favoris.png)
+
+### Captures Mobile
+
+#### Page Accueil
+
+![Audit Lighthouse Mobile de la page Accueil : accessibilité 96 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Accueil.png)
+
+#### Page Contact
+
+![Audit Lighthouse Mobile de la page Contact : accessibilité 90 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Contact.png)
+
+#### Page Fiche espace
+
+![Audit Lighthouse Mobile de la page Fiche espace : accessibilité 94 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Espaces.png)
+
+#### Page Mes espaces
+
+![Audit Lighthouse Mobile de la page Mes espaces : accessibilité 93 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Favoris.png)
 
 ## Technologies utilisées
 
