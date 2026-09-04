@@ -1,0 +1,21 @@
+// Rôle : Assembler l’ensemble des feuilles de styles SCSS du projet.
+// Tâches : Importer les fondations, composants, structures et styles de pages dans l’ordre requis.
+// Liens avec les autres fichiers :
+// - assets/css/main.css est le résultat compilé utilisé par les pages HTML.
+// - Tous les fichiers partiels du dossier resources/scss sont réunis ici.
+
+@use "scss/base/reset";
+@use "scss/base/typography";
+@use "scss/base/accessibility";
+@use "scss/layout/layout";
+@use "scss/layout/header";
+@use "scss/layout/footer";
+@use "scss/components/buttons";
+@use "scss/components/cards";
+@use "scss/components/forms";
+@use "scss/components/states";
+@use "scss/components/carousel";
+@use "scss/pages/home";
+@use "scss/pages/space";
+@use "scss/pages/saved";
+@use "scss/pages/contact";

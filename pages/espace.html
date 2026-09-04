@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Consultez les équipements, les photos et les tarifs d'un espace de travail ProSpace Solutions.">
+  <title>Fiche espace de travail | ProSpace Solutions</title>
+  <link rel="icon" href="../assets/favicon/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" sizes="any">
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
+
+  <!-- Zone HEADER : Cette div reçoit le fichier header.html chargé par commun.js. -->
+  <div id="conteneur-header"></div>
+
+  <main class="page-espace conteneur">
+    <article id="fiche-espace" hidden>
+      <!-- Zone : FIL D'ARIANE -->
+      <nav class="fil-ariane" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><span id="ville-espace"></span></li>
+          <li><span id="titre-espace-fil-ariane" aria-current="page"></span></li>
+        </ol>
+      </nav>
+
+      <div class="en-tete-espace">
+        <h1 id="titre-espace"></h1>
+        <div class="en-tete-espace__metadonnees">
+          <p>
+            <img src="../assets/icons/icone-localisation.svg" alt="Localisation">
+            <span id="adresse-espace"></span>
+          </p>
+          <p class="en-tete-espace__evaluation">
+            <span class="evaluation__etoiles" id="etoiles-espace"></span>
+            <strong id="note-espace"></strong>
+            <span>· <span id="nombre-avis-espace"></span> avis vérifiés</span>
+            <span class="visuellement-cache" id="libelle-note-espace"></span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Section : GALERIE DE PHOTOS -->
+      <section class="galerie-espace" aria-label="Galerie de l'espace">
+        <div class="galerie-espace__principale" id="galerie-principale"></div>
+        <div class="galerie-espace__secondaire" id="galerie-secondaire"></div>
+      </section>
+
+      <div class="disposition-detail-espace">
+        <div class="contenu-detail-espace">
+          <section>
+            <h2 id="titre-a-propos">À propos de cet espace</h2>
+            <p class="description-espace" id="description-espace"></p>
+          </section>
+
+          <section>
+            <h2 id="titre-equipements">Équipements inclus</h2>
+            <ul class="liste-equipements" id="liste-equipements"></ul>
+          </section>
+
+          <section class="panneau-capacite">
+            <h2 id="titre-capacite">Capacité &amp; Configuration</h2>
+            <div>
+              <img src="../assets/icons/icone-utilisateurs.svg" alt="Capacité d'accueil">
+              <p>
+                Jusqu'à <strong><span id="capacite-espace"></span> personnes</strong><br>
+                <span class="panneau-capacite__configuration">Configuration modulable : théâtre, classe, U, boardroom —
+                  sur demande.</span>
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="carte-tarifs">
+          <h2 id="titre-tarifs">Tarifs</h2>
+          <table>
+            <caption class="visuellement-cache">Tarifs de location de l'espace</caption>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <span>
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif horaire">
+                    À l'heure
+                  </span>
+                </th>
+                <td><strong id="prix-heure"></strong></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span>
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif demi-journée">
+                    Demi-journée (4h)
+                  </span>
+                </th>
+                <td><strong id="prix-demi-journee"></strong></td>
+              </tr>
+              <tr class="carte-tarifs__mise-en-avant">
+                <th scope="row">
+                  <span>
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif journalier">
+                    Journée complète
+                  </span>
+                </th>
+                <td><strong id="prix-journee"></strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="carte-tarifs__actions">
+            <button class="bouton bouton--favori" type="button" id="bouton-favori-espace">
+              <img src="../assets/icons/icone-favori.svg" alt="Favori">
+              <span id="libelle-favori">Sauvegarder en Favoris</span>
+            </button>
+            <a class="bouton bouton--primaire" href="./contact.html" id="lien-contact-espace">
+              <img src="../assets/icons/icone-telephone.svg" alt="Téléphone">
+              Contacter l'équipe
+            </a>
+          </div>
+          <p class="carte-tarifs__note">Réponse garantie sous 2h ouvrées · Sans engagement</p>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+  <div id="conteneur-footer"></div>
+
+  <!-- Zone : SCRIPTS JAVASCRIPT, Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+  <script src="../assets/js/commun.js"></script>
+  <script src="../assets/js/espace.js"></script>
+</body>
+
+</html>

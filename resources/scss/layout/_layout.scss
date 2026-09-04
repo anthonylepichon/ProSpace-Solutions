@@ -1,0 +1,79 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/layout/_layout.scss
+// Rôle : Définir la structure et les grandes zones communes des pages. Ce fichier concerne layout.
+// Tâches :
+// - Regrouper les règles SCSS relatives à layout.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CONTENEUR
+// Cette zone regroupe les règles liées à règles .conteneur.
+// ---------------------------------------------------------
+.conteneur {
+  width: 100%;
+  max-width: $largeur-conteneur;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .ICONE
+// Cette zone regroupe les règles liées à règles .icone.
+// ---------------------------------------------------------
+.icone {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .ICONE--PRIMAIRE
+// Cette zone regroupe les règles liées à règles .icone--primaire.
+// ---------------------------------------------------------
+.icone--primaire {
+  filter: invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .ICONE--ETOILE
+// Cette zone regroupe les règles liées à règles .icone--etoile.
+// ---------------------------------------------------------
+.icone--etoile {
+  width: 13px;
+  height: 13px;
+  filter: invert(69%) sepia(99%) saturate(1394%) hue-rotate(357deg) brightness(99%) contrast(95%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .ICONE--ETOILE-VIDE
+// Cette zone regroupe les règles liées à règles .icone--etoile-vide.
+// ---------------------------------------------------------
+.icone--etoile-vide {
+  width: 13px;
+  height: 13px;
+  filter: brightness(0) saturate(100%) invert(90%) sepia(7%) saturate(623%) hue-rotate(177deg) brightness(95%) contrast(89%);
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 640px) {
+  .conteneur {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}

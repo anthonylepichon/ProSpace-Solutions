@@ -1,0 +1,112 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/base/_accessibility.scss
+// Rôle : Définir les styles fondamentaux communs à tout le site. Ce fichier concerne accessibility.
+// Tâches :
+// - Regrouper les règles SCSS relatives à accessibility.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES [HIDDEN]
+// Cette zone regroupe les règles liées à règles [hidden].
+// ---------------------------------------------------------
+[hidden] {
+  display: none !important;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .VISUELLEMENT-CACHE
+// Cette zone regroupe les règles liées à règles .visuellement-cache.
+// ---------------------------------------------------------
+.visuellement-cache {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LOGO
+// Cette zone regroupe les règles liées à règles .logo.
+// ---------------------------------------------------------
+.logo {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 10px 16px;
+  transform: translateY(-150%);
+  background: $couleur-blanc;
+  border: 2px solid $couleur-bleu;
+  border-radius: 12px;
+  color: $couleur-bleu-nuit;
+  font-weight: 700;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LOGO:FOCUS
+// Cette zone regroupe les règles liées à règles .logo:focus.
+// ---------------------------------------------------------
+.logo:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES TEXTAREA:FOCUS-VISIBLE
+// Cette zone regroupe les règles liées à règles textarea:focus-visible.
+// ---------------------------------------------------------
+textarea:focus-visible {
+  @include contour-navigation-clavier;
+}
+
+.police-adaptee,
+.police-adaptee button,
+.police-adaptee input,
+.police-adaptee select,
+.police-adaptee textarea,
+.police-adaptee h1,
+.police-adaptee h2,
+.police-adaptee h3,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .POLICE-ADAPTEE H4
+// Cette zone regroupe les règles liées à règles .police-adaptee h4.
+// ---------------------------------------------------------
+.police-adaptee h4 {
+  font-family: $police-adaptee;
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

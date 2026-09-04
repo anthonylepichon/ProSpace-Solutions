@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contactez ProSpace Solutions pour une demande d'information, un devis ou un projet d'espace de travail professionnel en France.">
+    <title>Contact et devis pour votre espace de travail | ProSpace Solutions</title>
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" sizes="any">
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+    <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
+
+    <!-- Zone HEADER : Ce conteneur reçoit le fichier header.html chargé par commun.js. -->
+    <div id="conteneur-header"></div>
+
+    <main>
+        <!-- Section : BANNIERE -->
+        <section class="banniere-contact">
+            <div class="conteneur banniere-contact__contenu">
+                <p class="surtitre">
+                    <img src="../assets/icons/icone-message.svg" alt="Message">
+                    Nous écrire
+                </p>
+                <h1 id="titre-contact">Contactez <span>nos équipes</span></h1>
+                <p>
+                    Une question, une demande de devis ou un projet à discuter ? Notre équipe vous répond sous 2h
+                    ouvrées.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section CONTACT -->
+        <section class="section-contact conteneur">
+            <div class="disposition-contact">
+                <div class="carte-formulaire-contact">
+                    <div id="contenu-formulaire">
+                        <div class="carte-formulaire-contact__en-tete">
+                            <h2 id="titre-formulaire">Formulaire de contact</h2>
+                            <p><span>*</span> Champs obligatoires</p>
+                        </div>
+
+                        <p class="visuellement-cache" id="statut-preremplissage" aria-live="polite"></p>
+
+                        <p class="resume-formulaire" id="resume-erreurs" hidden></p>
+
+                        <form id="formulaire-contact" novalidate>
+                            <div class="ligne-formulaire">
+                                <div class="champ-formulaire">
+                                    <label for="nom">Nom complet <span>*</span></label>
+                                    <input type="text" id="nom" name="nom" autocomplete="name"
+                                        placeholder="Marie Dupont" required aria-describedby="erreur-nom">
+                                    <p class="erreur-formulaire" id="erreur-nom" hidden></p>
+                                </div>
+
+                                <div class="champ-formulaire">
+                                    <label for="courriel">Email professionnel <span>*</span></label>
+                                    <input type="email" id="courriel" name="email" autocomplete="email"
+                                        inputmode="email" placeholder="m.dupont@entreprise.fr" required
+                                        aria-describedby="erreur-courriel">
+                                    <p class="erreur-formulaire" id="erreur-courriel" hidden></p>
+                                </div>
+                            </div>
+
+                            <div class="ligne-formulaire">
+                                <div class="champ-formulaire">
+                                    <label for="entreprise">Entreprise <span>*</span></label>
+                                    <input type="text" id="entreprise" name="entreprise" autocomplete="organization"
+                                        placeholder="Acme SAS" required aria-describedby="erreur-entreprise">
+                                    <p class="erreur-formulaire" id="erreur-entreprise" hidden></p>
+                                </div>
+
+                                <div class="champ-formulaire">
+                                    <label for="telephone">Téléphone</label>
+                                    <input type="tel" id="telephone" name="telephone" autocomplete="tel" inputmode="tel"
+                                        placeholder="+33 6 12 34 56 78">
+                                </div>
+                            </div>
+
+                            <div class="champ-formulaire">
+                                <label for="sujet">Sujet<span class="visuellement-cache"> (obligatoire)</span></label>
+                                <select id="sujet" name="sujet" required aria-describedby="erreur-sujet">
+                                    <option value="">Sélectionnez un sujet…</option>
+                                    <option value="Demande d'information">Demande d'information</option>
+                                    <option value="Demande de devis">Demande de devis</option>
+                                    <option value="Réservation">Réservation</option>
+                                    <option value="Partenariat">Partenariat</option>
+                                    <option value="Réclamation">Réclamation</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                                <p class="erreur-formulaire" id="erreur-sujet" hidden></p>
+                            </div>
+
+                            <div class="champ-formulaire">
+                                <label for="message">Message <span>*</span></label>
+                                <textarea id="message" name="message" rows="6"
+                                    placeholder="Décrivez votre projet ou votre question…" required
+                                    aria-describedby="erreur-message"></textarea>
+                                <p class="erreur-formulaire" id="erreur-message" hidden></p>
+                            </div>
+
+                            <div class="champ-formulaire champ-formulaire--case-a-cocher">
+                                <input type="checkbox" id="consentement" name="consentement" required
+                                    aria-describedby="texte-consentement erreur-consentement">
+                                <label for="consentement" id="texte-consentement">
+                                    J'accepte que mes données personnelles soient traitées conformément à la
+                                    <a href="#confidentialite">politique de confidentialité</a> de ProSpace Solutions.
+                                    <span>*</span>
+                                </label>
+                                <p class="erreur-formulaire" id="erreur-consentement" hidden></p>
+                            </div>
+
+                            <button class="bouton bouton--primaire formulaire-contact__envoi" type="submit">
+                                <img src="../assets/icons/icone-envoyer.svg" alt="Envoyer">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Section CONFIRMATION -->
+                    <section class="panneau-confirmation-contact" id="confirmation-contact" aria-live="polite" hidden>
+                        <img src="../assets/icons/icone-validation.svg" alt="Message envoyé avec succès">
+                        <h2>Message envoyé !</h2>
+                        <p>
+                            Merci <strong id="confirmation-nom"></strong>, nous avons bien reçu votre message. Notre
+                            équipe vous
+                            contactera sous 2h ouvrées à l'adresse
+                            <strong id="confirmation-courriel"></strong>.
+                        </p>
+                        <button class="bouton bouton--primaire" type="button" id="nouveau-message">
+                            <img src="../assets/icons/icone-fleche-droite.svg" alt="Flèche vers la droite">
+                            Nouveau message
+                        </button>
+                    </section>
+                </div>
+
+                <aside class="colonne-laterale-contact" aria-label="Informations de contact">
+                    <!-- Section INFORMATIONS -->
+                    <section class="carte-entreprise">
+                        <h2 id="titre-entreprise">ProSpace Solutions</h2>
+                        <p class="carte-entreprise__surtitre">Informations entreprise</p>
+                        <address>
+                            <ul class="liste-informations-entreprise">
+                                <li>
+                                    <img src="../assets/icons/icone-localisation.svg" alt="Adresse">
+                                    <div><strong>Adresse</strong><span>14 Avenue de Wagram<br>75008 Paris</span></div>
+                                </li>
+                                <li>
+                                    <img src="../assets/icons/icone-telephone.svg" alt="Téléphone">
+                                    <div><strong>Téléphone</strong><a href="tel:+33142567890">+33 1 42 56 78 90</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="../assets/icons/icone-email.svg" alt="E-mail">
+                                    <div><strong>Email</strong><a
+                                            href="mailto:contact@prospace-solutions.fr">contact@prospace-solutions.fr</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="../assets/icons/icone-horaires.svg" alt="Horaires">
+                                    <div><strong>Horaires</strong><span>Lun – Ven : 9h00 – 18h00</span></div>
+                                </li>
+                                <li>
+                                    <img src="../assets/icons/icone-monde.svg" alt="Présence nationale">
+                                    <div><strong>Présence</strong><span>6 villes en France</span></div>
+                                </li>
+                                <li>
+                                    <img src="../assets/icons/icone-entreprise.svg" alt="Entreprise">
+                                    <div><strong>SIRET</strong><span>853 204 119 00024</span></div>
+                                </li>
+                            </ul>
+                        </address>
+                    </section>
+
+                    <!-- Section REPONSE -->
+                    <section class="carte-reponse">
+                        <img src="../assets/icons/icone-horaires.svg" alt="Délai de réponse">
+                        <div>
+                            <h2 id="titre-reponse">Réponse rapide garantie</h2>
+                            <p>
+                                Notre équipe s'engage à vous répondre sous <strong>2 heures ouvrées</strong>.
+                                Pour les urgences, appelez le +33 1 42 56 78 90.
+                            </p>
+                        </div>
+                    </section>
+
+                    <figure class="carte-temoignage">
+                        <p class="carte-temoignage__evaluation">
+                            <span class="carte-temoignage__etoiles">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 1 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 2 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 3 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 4 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 5 sur 5">
+                            </span>
+                            <strong>4.8 / 5</strong>
+                            <span class="visuellement-cache">Note de 4,8 sur 5</span>
+                        </p>
+                        <blockquote>
+                            "L'équipe ProSpace est réactive et à l'écoute. Notre réservation a été confirmée en moins
+                            d'une heure,
+                            parfait pour notre séminaire de dernière minute."
+                        </blockquote>
+                        <figcaption>— Charlotte M., DAF chez Nexeo Group</figcaption>
+                    </figure>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Section  EQUIPE -->
+        <section class="section-equipe">
+            <div class="conteneur">
+                <div class="section-equipe__en-tete">
+                    <p class="surtitre">L'équipe</p>
+                    <h2 id="titre-equipe">Des experts à votre service</h2>
+                    <p>
+                        Une équipe de professionnels passionnés, disponibles pour vous accompagner dans tous vos projets
+                        d'espaces
+                        de travail.
+                    </p>
+                </div>
+
+                <div class="carrousel-equipe">
+                    <ul class="carrousel-equipe__liste" id="liste-equipe"></ul>
+
+                    <div class="carrousel-equipe__commandes" id="commandes-equipe" hidden>
+                        <button class="carrousel-equipe__fleche" type="button" id="equipe-precedente"
+                            aria-label="Afficher les membres précédents">
+                            <img src="../assets/icons/icone-precedent.svg" alt="Membre précédent">
+                        </button>
+                        <div class="carrousel-equipe__points" id="navigation-equipe">
+                        </div>
+                        <button class="carrousel-equipe__fleche" type="button" id="equipe-suivante"
+                            aria-label="Afficher les membres suivants">
+                            <img src="../assets/icons/icone-suivant.svg" alt="Membre suivant">
+                        </button>
+                    </div>
+                    <p class="visuellement-cache" id="statut-equipe" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section LOCALISATION -->
+        <section class="section-localisation conteneur">
+            <div class="carte-localisation">
+                <img src="../assets/icons/icone-localisation.svg" alt="Localisation">
+                <div>
+                    <h2 id="titre-acces-siege">14 Avenue de Wagram, 75008 Paris</h2>
+                    <p>Siège social · Ligne 2 &amp; 6 — Wagram · RER C — Invalides</p>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=14+Avenue+de+Wagram+75008+Paris"
+                    target="_blank" rel="noopener noreferrer">
+                    <img src="../assets/icons/icone-monde.svg" alt="Voir sur Google Maps">
+                    Voir sur Google Maps <span class="visuellement-cache">(nouvel onglet)</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+    <div id="conteneur-footer"></div>
+
+    <!-- Zone JAVASCRIPT : Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+    <script src="../assets/js/commun.js"></script>
+    <script src="../assets/js/contact.js"></script>
+</body>
+
+</html>

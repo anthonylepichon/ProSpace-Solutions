@@ -1,0 +1,637 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/pages/_space.scss
+// Rôle : Définir les styles propres à une page du site. Ce fichier concerne space.
+// Tâches :
+// - Regrouper les règles SCSS relatives à space.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACE
+// Cette zone regroupe les règles liées à règles .page-espace.
+// ---------------------------------------------------------
+.page-espace {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE OL
+// Cette zone regroupe les règles liées à règles .fil-ariane ol.
+// ---------------------------------------------------------
+.fil-ariane ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: $couleur-ardoise-400;
+  font-size: 14px;
+  line-height: 20px;
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE LI
+// Cette zone regroupe les règles liées à règles .fil-ariane li.
+// ---------------------------------------------------------
+.fil-ariane li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE LI:NOT(:LAST-CHILD)::AFTER
+// Cette zone regroupe les règles liées à règles .fil-ariane li:not(:last-child)::after.
+// ---------------------------------------------------------
+.fil-ariane li:not(:last-child)::after {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("../images/icone-suivant.svg") center / 14px 14px no-repeat;
+  content: "";
+  opacity: 0.6;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE A
+// Cette zone regroupe les règles liées à règles .fil-ariane a.
+// ---------------------------------------------------------
+.fil-ariane a {
+  color: $couleur-ardoise-400;
+  text-decoration: none;
+  transition: color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE A:HOVER
+// Cette zone regroupe les règles liées à règles .fil-ariane a:hover.
+// ---------------------------------------------------------
+.fil-ariane a:hover {
+  color: $couleur-bleu;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE LI:NTH-LAST-CHILD(2)
+// Cette zone regroupe les règles liées à règles .fil-ariane li:nth-last-child(2).
+// ---------------------------------------------------------
+.fil-ariane li:nth-last-child(2) {
+  color: $couleur-texte-secondaire;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .FIL-ARIANE LI:LAST-CHILD
+// Cette zone regroupe les règles liées à règles .fil-ariane li:last-child.
+// ---------------------------------------------------------
+.fil-ariane li:last-child {
+  color: $couleur-bleu-nuit;
+  font-weight: 500;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE
+// Cette zone regroupe les règles liées à règles .en-tete-espace.
+// ---------------------------------------------------------
+.en-tete-espace {
+  margin-bottom: 28px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE H1
+// Cette zone regroupe les règles liées à règles .en-tete-espace h1.
+// ---------------------------------------------------------
+.en-tete-espace h1 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__METADONNEES
+// Cette zone regroupe les règles liées à règles .en-tete-espace__metadonnees.
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: $couleur-texte-secondaire;
+}
+
+.en-tete-espace__metadonnees p,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__EVALUATION
+// Cette zone regroupe les règles liées à règles .en-tete-espace__evaluation.
+// ---------------------------------------------------------
+.en-tete-espace__evaluation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__METADONNEES > P:FIRST-CHILD > IMG
+// Cette zone regroupe les règles liées à règles .en-tete-espace__metadonnees > p:first-child > img.
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees > p:first-child > img {
+  width: 15px;
+  height: 15px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__METADONNEES > P:FIRST-CHILD > IMG
+// Cette zone regroupe les règles liées à règles .en-tete-espace__metadonnees > p:first-child > img.
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees > p:first-child > img {
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__EVALUATION
+// Cette zone regroupe les règles liées à règles .en-tete-espace__evaluation.
+// ---------------------------------------------------------
+.en-tete-espace__evaluation {
+  gap: 8px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .EN-TETE-ESPACE__EVALUATION STRONG
+// Cette zone regroupe les règles liées à règles .en-tete-espace__evaluation strong.
+// ---------------------------------------------------------
+.en-tete-espace__evaluation strong {
+  color: $couleur-bleu-nuit;
+  font-weight: 700;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE
+// Cette zone regroupe les règles liées à règles .galerie-espace.
+// ---------------------------------------------------------
+.galerie-espace {
+  display: flex;
+  gap: 12px;
+  height: 260px;
+  margin-bottom: 48px;
+  overflow: hidden;
+  border-radius: $rayon-grand;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE__PRINCIPALE
+// Cette zone regroupe les règles liées à règles .galerie-espace__principale.
+// ---------------------------------------------------------
+.galerie-espace__principale {
+  width: calc(66.666% - 4px);
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE__SECONDAIRE
+// Cette zone regroupe les règles liées à règles .galerie-espace__secondaire.
+// ---------------------------------------------------------
+.galerie-espace__secondaire {
+  display: flex;
+  width: calc(33.333% - 8px);
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE__SECONDAIRE IMG
+// Cette zone regroupe les règles liées à règles .galerie-espace__secondaire img.
+// ---------------------------------------------------------
+.galerie-espace__secondaire img {
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE IMG
+// Cette zone regroupe les règles liées à règles .galerie-espace img.
+// ---------------------------------------------------------
+.galerie-espace img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .GALERIE-ESPACE IMG:HOVER
+// Cette zone regroupe les règles liées à règles .galerie-espace img:hover.
+// ---------------------------------------------------------
+.galerie-espace img:hover {
+  transform: scale(1.05);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .DISPOSITION-DETAIL-ESPACE
+// Cette zone regroupe les règles liées à règles .disposition-detail-espace.
+// ---------------------------------------------------------
+.disposition-detail-espace {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CONTENU-DETAIL-ESPACE
+// Cette zone regroupe les règles liées à règles .contenu-detail-espace.
+// ---------------------------------------------------------
+.contenu-detail-espace {
+  flex: 1;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CONTENU-DETAIL-ESPACE SECTION:NOT(:LAST-CHILD)
+// Cette zone regroupe les règles liées à règles .contenu-detail-espace section:not(:last-child).
+// ---------------------------------------------------------
+.contenu-detail-espace section:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CONTENU-DETAIL-ESPACE H2
+// Cette zone regroupe les règles liées à règles .contenu-detail-espace h2.
+// ---------------------------------------------------------
+.contenu-detail-espace h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .DESCRIPTION-ESPACE
+// Cette zone regroupe les règles liées à règles .description-espace.
+// ---------------------------------------------------------
+.description-espace {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LISTE-EQUIPEMENTS
+// Cette zone regroupe les règles liées à règles .liste-equipements.
+// ---------------------------------------------------------
+.liste-equipements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LISTE-EQUIPEMENTS LI
+// Cette zone regroupe les règles liées à règles .liste-equipements li.
+// ---------------------------------------------------------
+.liste-equipements li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: $couleur-blanc;
+  border: 1px solid $couleur-ardoise-100;
+  border-radius: $rayon-moyen;
+  color: #334155;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LISTE-EQUIPEMENTS IMG
+// Cette zone regroupe les règles liées à règles .liste-equipements img.
+// ---------------------------------------------------------
+.liste-equipements img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE
+// Cette zone regroupe les règles liées à règles .panneau-capacite.
+// ---------------------------------------------------------
+.panneau-capacite {
+  padding: 24px;
+  background: $couleur-ciel-clair;
+  border: 1px solid $couleur-bordure-bleue;
+  border-radius: $rayon-grand;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE H2
+// Cette zone regroupe les règles liées à règles .panneau-capacite h2.
+// ---------------------------------------------------------
+.panneau-capacite h2 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE > DIV
+// Cette zone regroupe les règles liées à règles .panneau-capacite > div.
+// ---------------------------------------------------------
+.panneau-capacite > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE > DIV > IMG
+// Cette zone regroupe les règles liées à règles .panneau-capacite > div > img.
+// ---------------------------------------------------------
+.panneau-capacite > div > img {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE P
+// Cette zone regroupe les règles liées à règles .panneau-capacite p.
+// ---------------------------------------------------------
+.panneau-capacite p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE STRONG
+// Cette zone regroupe les règles liées à règles .panneau-capacite strong.
+// ---------------------------------------------------------
+.panneau-capacite strong {
+  color: $couleur-bleu-nuit;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PANNEAU-CAPACITE__CONFIGURATION
+// Cette zone regroupe les règles liées à règles .panneau-capacite__configuration.
+// ---------------------------------------------------------
+.panneau-capacite__configuration {
+  display: inline-block;
+  margin-top: 2px;
+  color: $couleur-texte-secondaire;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS
+// Cette zone regroupe les règles liées à règles .carte-tarifs.
+// ---------------------------------------------------------
+.carte-tarifs {
+  @include surface-carte;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(203, 213, 225, 0.6), 0 8px 10px -6px rgba(203, 213, 225, 0.6);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS H2
+// Cette zone regroupe les règles liées à règles .carte-tarifs h2.
+// ---------------------------------------------------------
+.carte-tarifs h2 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TABLE
+// Cette zone regroupe les règles liées à règles .carte-tarifs table.
+// ---------------------------------------------------------
+.carte-tarifs table {
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.carte-tarifs th,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TD
+// Cette zone regroupe les règles liées à règles .carte-tarifs td.
+// ---------------------------------------------------------
+.carte-tarifs td {
+  padding: 12px 0;
+  border-bottom: 1px solid $couleur-ardoise-100;
+}
+
+.carte-tarifs tr:last-child th,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TR:LAST-CHILD TD
+// Cette zone regroupe les règles liées à règles .carte-tarifs tr:last-child td.
+// ---------------------------------------------------------
+.carte-tarifs tr:last-child td {
+  border-bottom: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TH
+// Cette zone regroupe les règles liées à règles .carte-tarifs th.
+// ---------------------------------------------------------
+.carte-tarifs th {
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TH SPAN
+// Cette zone regroupe les règles liées à règles .carte-tarifs th span.
+// ---------------------------------------------------------
+.carte-tarifs th span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TH IMG
+// Cette zone regroupe les règles liées à règles .carte-tarifs th img.
+// ---------------------------------------------------------
+.carte-tarifs th img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS TD
+// Cette zone regroupe les règles liées à règles .carte-tarifs td.
+// ---------------------------------------------------------
+.carte-tarifs td {
+  color: $couleur-bleu-nuit;
+  font-family: $police-chasse-fixe;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TH
+// Cette zone regroupe les règles liées à règles .carte-tarifs__mise-en-avant th.
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant th {
+  color: $couleur-bleu-nuit;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TH IMG
+// Cette zone regroupe les règles liées à règles .carte-tarifs__mise-en-avant th img.
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant th img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TD
+// Cette zone regroupe les règles liées à règles .carte-tarifs__mise-en-avant td.
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant td {
+  color: $couleur-bleu;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions.
+// ---------------------------------------------------------
+.carte-tarifs__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions .bouton.
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton {
+  width: 100%;
+  gap: 10px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--FAVORI
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions .bouton--favori.
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--favori {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--PRIMAIRE
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions .bouton--primaire.
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--primaire {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.25);
+  font-weight: 700;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON IMG
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions .bouton img.
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton img {
+  width: 17px;
+  height: 17px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--PRIMAIRE IMG
+// Cette zone regroupe les règles liées à règles .carte-tarifs__actions .bouton--primaire img.
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--primaire img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-TARIFS__NOTE
+// Cette zone regroupe les règles liées à règles .carte-tarifs__note.
+// ---------------------------------------------------------
+.carte-tarifs__note {
+  margin: 16px 0 0;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 1.625;
+  text-align: center;
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 640px) {
+  .en-tete-espace h1 {
+    font-size: 36px;
+  }
+
+  .galerie-espace {
+    height: 400px;
+  }
+
+  .liste-equipements li {
+    width: calc(50% - 6px);
+  }
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 1024px) {
+  .disposition-detail-espace {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contenu-detail-espace {
+    width: calc(66.666% - 14px);
+  }
+
+  .carte-tarifs {
+    position: sticky;
+    top: 112px;
+    width: calc(33.333% - 26px);
+    flex: 0 0 calc(33.333% - 26px);
+  }
+}

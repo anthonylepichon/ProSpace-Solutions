@@ -1,0 +1,255 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/layout/_footer.scss
+// Rôle : Définir la structure et les grandes zones communes des pages. Ce fichier concerne footer.
+// Tâches :
+// - Regrouper les règles SCSS relatives à footer.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE
+// Cette zone regroupe les règles liées à règles .pied-page.
+// ---------------------------------------------------------
+.pied-page {
+  margin-top: 96px;
+  padding: 56px 0;
+  background: $couleur-bleu-nuit;
+  color: $couleur-ardoise-400;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__COLONNES
+// Cette zone regroupe les règles liées à règles .pied-page__colonnes.
+// ---------------------------------------------------------
+.pied-page__colonnes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__PRESENTATION
+// Cette zone regroupe les règles liées à règles .pied-page__presentation.
+// ---------------------------------------------------------
+.pied-page__presentation {
+  width: 100%;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__NAVIGATION
+// Cette zone regroupe les règles liées à règles .pied-page__navigation.
+// ---------------------------------------------------------
+.pied-page__navigation {
+  width: calc(50% - 20px);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE--PIED-PAGE
+// Cette zone regroupe les règles liées à règles .identite-site--pied-page.
+// ---------------------------------------------------------
+.identite-site--pied-page {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE--PIED-PAGE .IDENTITE-SITE__SYMBOLE
+// Cette zone regroupe les règles liées à règles .identite-site--pied-page .identite-site__symbole.
+// ---------------------------------------------------------
+.identite-site--pied-page .identite-site__symbole {
+  width: 28px;
+  height: 28px;
+  flex-basis: 28px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .IDENTITE-SITE--PIED-PAGE .IDENTITE-SITE__SYMBOLE IMG
+// Cette zone regroupe les règles liées à règles .identite-site--pied-page .identite-site__symbole img.
+// ---------------------------------------------------------
+.identite-site--pied-page .identite-site__symbole img {
+  width: 15px;
+  height: 15px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE H2:NOT(.IDENTITE-SITE)
+// Cette zone regroupe les règles liées à règles .pied-page h2:not(.identite-site).
+// ---------------------------------------------------------
+.pied-page h2:not(.identite-site) {
+  margin: 0 0 16px;
+  color: $couleur-blanc;
+  font-family: $police-texte;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__PRESENTATION > P
+// Cette zone regroupe les règles liées à règles .pied-page__presentation > p.
+// ---------------------------------------------------------
+.pied-page__presentation > p {
+  max-width: 200px;
+  margin: 0;
+  color: $couleur-texte-secondaire;
+  font-size: 12px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__CONTACT
+// Cette zone regroupe les règles liées à règles .pied-page__contact.
+// ---------------------------------------------------------
+.pied-page__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  color: $couleur-cyan;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  transition: color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__CONTACT IMG
+// Cette zone regroupe les règles liées à règles .pied-page__contact img.
+// ---------------------------------------------------------
+.pied-page__contact img {
+  width: 12px;
+  height: 12px;
+  filter: brightness(0) saturate(100%) invert(73%) sepia(67%) saturate(1266%) hue-rotate(166deg) brightness(100%) contrast(95%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__NAVIGATION UL
+// Cette zone regroupe les règles liées à règles .pied-page__navigation ul.
+// ---------------------------------------------------------
+.pied-page__navigation ul {
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__NAVIGATION LI + LI
+// Cette zone regroupe les règles liées à règles .pied-page__navigation li + li.
+// ---------------------------------------------------------
+.pied-page__navigation li + li {
+  margin-top: 8px;
+}
+
+.pied-page__navigation a,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__NAVIGATION SPAN
+// Cette zone regroupe les règles liées à règles .pied-page__navigation span.
+// ---------------------------------------------------------
+.pied-page__navigation span {
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  transition: color $transition-rapide;
+}
+
+.pied-page__navigation a:hover,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__CONTACT:HOVER
+// Cette zone regroupe les règles liées à règles .pied-page__contact:hover.
+// ---------------------------------------------------------
+.pied-page__contact:hover {
+  color: $couleur-cyan;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__BAS
+// Cette zone regroupe les règles liées à règles .pied-page__bas.
+// ---------------------------------------------------------
+.pied-page__bas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid $couleur-bleu-nuit-adoucie;
+  color: #475569;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__BAS P
+// Cette zone regroupe les règles liées à règles .pied-page__bas p.
+// ---------------------------------------------------------
+.pied-page__bas p {
+  margin: 0;
+  color: inherit;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PIED-PAGE__ACCESSIBILITE
+// Cette zone regroupe les règles liées à règles .pied-page__accessibilite.
+// ---------------------------------------------------------
+.pied-page__accessibilite {
+  display: flex;
+  align-items: center;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #BOUTON-POLICE-ADAPTEE
+// Cette zone regroupe les règles du bouton de police adaptée.
+// ---------------------------------------------------------
+#bouton-police-adaptee {
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color $transition-rapide;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES #BOUTON-POLICE-ADAPTEE:HOVER
+// Cette zone regroupe les règles de survol du bouton de police adaptée.
+// ---------------------------------------------------------
+#bouton-police-adaptee:hover {
+  color: $couleur-cyan;
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 640px) {
+  .pied-page__presentation,
+  .pied-page__navigation {
+    width: calc(25% - 30px);
+  }
+
+  .pied-page__bas {
+    flex-direction: row;
+    text-align: left;
+  }
+}

@@ -1,0 +1,393 @@
+// ---------------------------------------------------------
+// Fichier : resources/scss/pages/_saved.scss
+// Rôle : Définir les styles propres à une page du site. Ce fichier concerne saved.
+// Tâches :
+// - Regrouper les règles SCSS relatives à saved.
+// - Conserver une présentation cohérente sur les différentes tailles d’écran.
+// Liens avec les autres fichiers :
+// - resources/scss/main.scss importe ce fichier lors de la compilation.
+// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
+// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ---------------------------------------------------------
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes {
+  max-width: 1024px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__EN-TETE
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__en-tete.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__en-tete {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__EN-TETE H1
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__en-tete h1.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__en-tete h1 {
+  margin: 0 0 4px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 36px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__EN-TETE P
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__en-tete p.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__en-tete p {
+  margin: 0;
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__ETAT-VIDE
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__etat-vide.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__etat-vide {
+  gap: 0;
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__ICONE-VIDE
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__icone-vide.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__icone-vide {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-bottom: 24px;
+  margin-left: auto;
+  background: $couleur-ardoise-100;
+  border-radius: 24px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__ICONE-VIDE IMG
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__icone-vide img.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__icone-vide img {
+  width: 36px;
+  height: 36px;
+  opacity: 0.25;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__COEUR-INTEGRE
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__coeur-integre.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__coeur-integre {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__ETAT-VIDE H2
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__etat-vide h2.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__etat-vide h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .PAGE-ESPACES-SAUVEGARDES__ETAT-VIDE P
+// Cette zone regroupe les règles liées à règles .page-espaces-sauvegardes__etat-vide p.
+// ---------------------------------------------------------
+.page-espaces-sauvegardes__etat-vide p {
+  max-width: 320px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 14px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .LISTE-ESPACES-SAUVEGARDES
+// Cette zone regroupe les règles liées à règles .liste-espaces-sauvegardes.
+// ---------------------------------------------------------
+.liste-espaces-sauvegardes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde {
+  @include surface-carte;
+  display: flex;
+  overflow: hidden;
+  transition: box-shadow $transition-carte;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE:HOVER
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde:hover.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde:hover {
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__VISUEL
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__visuel.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__visuel {
+  width: 144px;
+  flex: 0 0 144px;
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__VISUEL IMG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__visuel img.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__visuel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE:HOVER .CARTE-ESPACE-SAUVEGARDE__VISUEL IMG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde:hover .carte-espace-sauvegarde__visuel img.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde:hover .carte-espace-sauvegarde__visuel img {
+  transform: scale(1.05);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__CONTENU
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__contenu.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__contenu {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__INFORMATIONS
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__informations.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__informations {
+  min-width: 0;
+  flex: 1;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__TITRE
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__titre.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__titre {
+  margin: 0 0 4px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carte-espace-sauvegarde__localisation,
+.carte-espace-sauvegarde__capacite,
+.carte-espace-sauvegarde__prix,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__EVALUATION
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__evaluation.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__evaluation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__LOCALISATION
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__localisation.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__localisation {
+  margin: 0 0 10px;
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.carte-espace-sauvegarde__localisation img,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__CAPACITE IMG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__capacite img.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__capacite img {
+  width: 13px;
+  height: 13px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__CAPACITE IMG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__capacite img.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__capacite img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__CARACTERISTIQUES
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__caracteristiques.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__caracteristiques {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.carte-espace-sauvegarde__capacite,
+.carte-espace-sauvegarde__prix,
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__EVALUATION
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__evaluation.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__evaluation {
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__PRIX
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__prix.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__prix {
+  align-items: baseline;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__PRIX STRONG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__prix strong.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__prix strong {
+  color: $couleur-bleu;
+  font-family: $police-chasse-fixe;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__PRIX > SPAN
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__prix > span.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__prix > span {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__EVALUATION
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__evaluation.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__evaluation {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__ACTIONS
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__actions.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__ACTIONS .BOUTON
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__actions .bouton.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__actions .bouton {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+// ---------------------------------------------------------
+// Zone : RÈGLES .CARTE-ESPACE-SAUVEGARDE__ACTIONS .BOUTON--RETIRER IMG
+// Cette zone regroupe les règles liées à règles .carte-espace-sauvegarde__actions .bouton--retirer img.
+// ---------------------------------------------------------
+.carte-espace-sauvegarde__actions .bouton--retirer img {
+  width: 15px;
+  height: 15px;
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (min-width: 640px) {
+  .carte-espace-sauvegarde__visuel {
+    width: 208px;
+    flex-basis: 208px;
+  }
+
+  .carte-espace-sauvegarde__contenu {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
+// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ---------------------------------------------------------
+@media (max-width: 639px) {
+  .carte-espace-sauvegarde__actions .bouton--retirer span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
