@@ -344,19 +344,16 @@
 
   /*
    * ---------------------------------------------------------
-   * Rôle : Appliquer aux filtres les paramètres présents dans l’adresse.
+   * Rôle : Appliquer au filtre la ville présente dans l’adresse.
    * Paramètres :
    * - Aucun.
    * Retour : Aucune valeur.
    * ---------------------------------------------------------
    */
-  function appliquerParametresUrl() {
+  function appliquerVilleDepuisUrl() {
     const parametres = new URLSearchParams(window.location.search);
     const ville = parametres.get("ville");
-    const capacite = parametres.get("capacite");
-    const equipements = parametres.getAll("equipement");
     let villeValide = false;
-    let capaciteValide = false;
 
     filtreVille.querySelectorAll("option").forEach(function (option) {
       if (option.value === ville) {
@@ -364,27 +361,9 @@
       }
     });
 
-    filtreCapacite.querySelectorAll("option").forEach(function (option) {
-      if (option.value === capacite) {
-        capaciteValide = true;
-      }
-    });
-
     if (ville && villeValide) {
       filtreVille.value = ville;
     }
-
-    if (capacite && capaciteValide) {
-      filtreCapacite.value = capacite;
-    }
-
-    equipements.forEach(function (equipement) {
-      formulaireFiltres.querySelectorAll(".filtre-equipement").forEach(function (caseCochee) {
-        if (caseCochee.value === equipement) {
-          caseCochee.checked = true;
-        }
-      });
-    });
   }
 
   /*
@@ -405,7 +384,7 @@
     try {
       espaces = await ProSpace.chargerEspaces();
       afficherVilles();
-      appliquerParametresUrl();
+      appliquerVilleDepuisUrl();
       afficherResultats();
     } catch (erreur) {
       erreurChargement.hidden = false;
