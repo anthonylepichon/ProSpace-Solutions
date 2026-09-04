@@ -1,0 +1,38 @@
+<!--
+  Fichier : assets/html/header.html
+  Rôle : Définir l’en-tête commun chargé dans toutes les pages.
+  Tâches :
+  - Afficher l’identité visuelle de ProSpace Solutions.
+  - Proposer la navigation principale et le compteur des espaces sauvegardés.
+  Liens avec les autres fichiers :
+  - assets/js/commun.js charge ce fragment et remplace la racine des liens.
+  - resources/scss/layout/_header.scss définit sa présentation.
+-->
+
+<header class="en-tete-site">
+  <div class="conteneur en-tete-site__contenu">
+    <a class="identite-site" href="{{racine}}/index.html" aria-label="Accueil ProSpace Solutions">
+      <span class="identite-site__symbole">
+        <img src="{{racine}}/assets/images/icone-batiment.svg" alt="">
+      </span>
+      <span class="identite-site__nom">ProSpace <strong>Solutions</strong></span>
+    </a>
+
+    <nav class="navigation-site" id="navigation-principale" aria-label="Navigation principale">
+      <ul class="navigation-site__liste">
+        <li>
+          <a class="navigation-site__lien" id="navigation-accueil" href="{{racine}}/index.html">Accueil</a>
+        </li>
+        <li>
+          <a class="navigation-site__lien" id="navigation-mes-espaces" href="{{racine}}/pages/mes-espaces.html">
+            Mes Espaces
+            <span class="compteur-favoris" data-favorites-count hidden>0</span>
+          </a>
+        </li>
+        <li>
+          <a class="navigation-site__lien" id="navigation-contact" href="{{racine}}/pages/contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
