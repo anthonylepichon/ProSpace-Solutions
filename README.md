@@ -4,6 +4,8 @@ ProSpace Solutions est une application web Front-End B2B permettant de recherche
 
 Le dépôt GitHub du projet est disponible à l'adresse suivante : [anthonylepichon/ProSpace-Solutions](https://github.com/anthonylepichon/ProSpace-Solutions).
 
+Le site publié peut être consulté à cette adresse : [ProSpace Solutions sur GitHub Pages](https://anthonylepichon.github.io/ProSpace-Solutions/).
+
 ## Fonctionnalités
 
 - recherche des espaces par ville, capacité et équipements ;
@@ -88,6 +90,52 @@ Pour recompiler automatiquement les styles pendant le développement :
 ```bash
 npx sass --watch resources/main.scss:assets/css/main.css
 ```
+
+## Publication avec GitHub Pages
+
+La version destinée à la publication est conservée sur la branche `main`. Les nouvelles fonctionnalités sont d'abord réalisées sur `develop`, puis intégrées à `main` avec une Pull Request :
+
+```text
+develop → Pull Request → main → GitHub Pages
+```
+
+Avant la fusion, les modifications doivent être enregistrées et envoyées sur GitHub :
+
+```bash
+git switch develop
+git add .
+git commit -m "Finaliser la version de publication"
+git push origin develop
+```
+
+Sur GitHub, créer ensuite une Pull Request avec `main` comme branche de base et `develop` comme branche à comparer. Après vérification, fusionner la Pull Request, puis actualiser la branche locale :
+
+```bash
+git switch main
+git pull origin main
+```
+
+Avec l'offre gratuite de GitHub, le dépôt doit être public pour utiliser GitHub Pages. La visibilité se modifie dans **Settings → General → Danger Zone → Change repository visibility**. Il faut vérifier avant cette opération qu'aucun secret, fichier `.env` ou document privé n'est présent dans le dépôt ou son historique.
+
+La publication se configure ensuite dans **Settings → Pages → Build and deployment** avec les valeurs suivantes :
+
+- **Source :** `Deploy from a branch` ;
+- **Branch :** `main` ;
+- **Folder :** `/(root)`.
+
+Le fichier `index.html` se trouvant à la racine, le dossier `/docs` ne doit pas être choisi comme source. Après l'enregistrement de la configuration, GitHub construit et publie automatiquement le site. L'adresse attendue est :
+
+```text
+https://anthonylepichon.github.io/ProSpace-Solutions/
+```
+
+Une fiche dynamique peut être contrôlée directement avec :
+
+```text
+https://anthonylepichon.github.io/ProSpace-Solutions/pages/espace.html?id=wagram-opera
+```
+
+Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement la version mise à jour. Il faut alors vérifier le catalogue, les favoris, le formulaire, le carrousel de l'équipe, les images et l'absence d'erreurs dans la console du navigateur.
 
 ## Source de données
 
