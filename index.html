@@ -1,128 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-      content="Trouvez et comparez des salles de réunion, bureaux privatifs et espaces de travail B2B disponibles dans les grandes villes françaises.">
-    <title>Espaces de travail B2B en France | ProSpace Solutions</title>
-    <link rel="icon" href="./assets/favicon/favicon.ico" sizes="16x16 32x32 48x48">
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" sizes="any">
-    <link rel="icon" type="image/png" href="./assets/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="./assets/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png" sizes="180x180">
-    <link rel="stylesheet" href="./assets/css/main.css">
-  </head>
-  <body>
-    <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
 
-    <!-- Zone : Cette div reçoit le fichier header.html chargé par commun.js. -->
-    <div id="conteneur-header"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Trouvez et comparez des salles de réunion, bureaux privatifs et espaces de travail B2B disponibles dans les grandes villes françaises.">
+  <title>Espaces de travail B2B en France | ProSpace Solutions</title>
+  <link rel="icon" href="./assets/favicon/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" sizes="any">
+  <link rel="icon" type="image/png" href="./assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./assets/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
 
-    <main id="contenu-principal">
-      <!-- Section : BANNIERE   -->
-      <section class="banniere-accueil">
-        <img class="banniere-accueil__image" src="./assets/images/espace-travail-location-france-hero.webp" alt="" fetchpriority="high" decoding="async">
-        <div class="conteneur banniere-accueil__contenu">
-          <p class="surtitre">
-            <img src="./assets/icons/icone-batiment.svg" alt=""> Location B2B en France
-          </p>
-          <h1 id="titre-accueil">Trouvez votre espace de travail idéal <span>en France</span></h1>
-          <p class="banniere-accueil__introduction">
-            Salles de réunion, bureaux privatifs et espaces premium disponibles à la demande dans les grandes villes
-            françaises.
-          </p>
-          <ul class="banniere-accueil__avantages">
-            <li>
-              <img src="./assets/icons/icone-validation.svg" alt=""> Réservation instantanée
-            </li>
-            <li>
-              <img src="./assets/icons/icone-validation.svg" alt=""> Annulation flexible
-            </li>
-            <li>
-              <img src="./assets/icons/icone-validation.svg" alt=""> Support dédié
-            </li>
-          </ul>
-        </div>
-      </section>
+<body>
+  <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
 
-      <!-- Section : FILTRE -->
-      <section class="barre-filtres">
-        <div class="conteneur">
-          <form class="filtres" id="formulaire-filtres">
-            <h2 class="filtres__titre" id="titre-filtres">
-              <img src="./assets/icons/icone-filtres.svg" alt=""> Filtrer
-            </h2>
-            <span class="filtres__separateur"></span>
+  <!-- Zone HEADER : Cette div reçoit le fichier header.html chargé par commun.js. -->
+  <div id="conteneur-header"></div>
 
-            <div class="filtres__listes-deroulantes">
-              <label class="visuellement-cache" for="filtre-ville">Ville</label>
-              <select id="filtre-ville" name="ville">
-                <option value="">Toutes les villes</option>
-              </select>
+  <main id="contenu-principal">
+    <!-- Section : BANNIERE   -->
+    <section class="banniere-accueil">
+      <img class="banniere-accueil__image" src="./assets/images/espace-travail-location-france-hero.webp" alt=""
+        fetchpriority="high" decoding="async">
+      <div class="conteneur banniere-accueil__contenu">
+        <p class="surtitre">
+          <img src="./assets/icons/icone-batiment.svg" alt=""> Location B2B en France
+        </p>
+        <h1 id="titre-accueil">Trouvez votre espace de travail idéal <span>en France</span></h1>
+        <p class="banniere-accueil__introduction">
+          Salles de réunion, bureaux privatifs et espaces premium disponibles à la demande dans les grandes villes
+          françaises.
+        </p>
+        <ul class="banniere-accueil__avantages">
+          <li>
+            <img src="./assets/icons/icone-validation.svg" alt=""> Réservation instantanée
+          </li>
+          <li>
+            <img src="./assets/icons/icone-validation.svg" alt=""> Annulation flexible
+          </li>
+          <li>
+            <img src="./assets/icons/icone-validation.svg" alt=""> Support dédié
+          </li>
+        </ul>
+      </div>
+    </section>
 
-              <label class="visuellement-cache" for="filtre-capacite">Capacité</label>
-              <select id="filtre-capacite" name="capacite">
-                <option value="">Toutes capacités</option>
-                <option value="1-5">1 – 5 personnes</option>
-                <option value="6-10">6 – 10 personnes</option>
-                <option value="11-20">11 – 20 personnes</option>
-                <option value="20-plus">20+ personnes</option>
-              </select>
-            </div>
+    <!-- Section : FILTRE -->
+    <section class="barre-filtres">
+      <div class="conteneur">
+        <form class="filtres" id="formulaire-filtres">
+          <h2 class="filtres__titre" id="titre-filtres">
+            <img src="./assets/icons/icone-filtres.svg" alt=""> Filtrer
+          </h2>
+          <span class="filtres__separateur"></span>
 
-            <span class="filtres__separateur filtres__separateur--equipements"></span>
+          <div class="filtres__listes-deroulantes">
+            <label class="visuellement-cache" for="filtre-ville">Ville</label>
+            <select id="filtre-ville" name="ville">
+              <option value="">Toutes les villes</option>
+            </select>
 
-            <fieldset class="filtres__equipements">
-              <legend class="visuellement-cache">Équipements requis</legend>
-              <label><input type="checkbox" name="equipement[]" data-equipment-filter value="wifi"> WiFi Fibre</label>
-              <label><input type="checkbox" name="equipement[]" data-equipment-filter value="visioconference"> Visioconférence</label>
-              <label><input type="checkbox" name="equipement[]" data-equipment-filter value="pmr"> Accès PMR</label>
-              <label><input type="checkbox" name="equipement[]" data-equipment-filter value="cafe"> Café</label>
-              <label><input type="checkbox" name="equipement[]" data-equipment-filter value="screen4k"> Écran 4K</label>
-            </fieldset>
+            <label class="visuellement-cache" for="filtre-capacite">Capacité</label>
+            <select id="filtre-capacite" name="capacite">
+              <option value="">Toutes capacités</option>
+              <option value="1-5">1 – 5 personnes</option>
+              <option value="6-10">6 – 10 personnes</option>
+              <option value="11-20">11 – 20 personnes</option>
+              <option value="20-plus">20+ personnes</option>
+            </select>
+          </div>
 
-            <p class="resume-resultats" id="resume-resultats" aria-live="polite" aria-atomic="true" hidden></p>
-          </form>
-        </div>
-      </section>
+          <span class="filtres__separateur filtres__separateur--equipements"></span>
 
-      <!-- Section : CATALOGUE -->
-      <section class="section-catalogue conteneur" id="espaces-disponibles" aria-busy="false">
-        <div class="section-catalogue__en-tete">
-          <h2 id="titre-resultats">Espaces disponibles</h2>
-        </div>
+          <fieldset class="filtres__equipements">
+            <legend class="visuellement-cache">Équipements requis</legend>
+            <label><input type="checkbox" name="equipement[]" data-equipment-filter value="wifi"> WiFi Fibre</label>
+            <label><input type="checkbox" name="equipement[]" data-equipment-filter value="visioconference">
+              Visioconférence</label>
+            <label><input type="checkbox" name="equipement[]" data-equipment-filter value="pmr"> Accès PMR</label>
+            <label><input type="checkbox" name="equipement[]" data-equipment-filter value="cafe"> Café</label>
+            <label><input type="checkbox" name="equipement[]" data-equipment-filter value="screen4k"> Écran 4K</label>
+          </fieldset>
 
-        <div class="panneau-etat" id="chargement-catalogue" aria-live="polite" aria-atomic="true" hidden>
-          <span class="indicateur-chargement"></span>
-          <p>Chargement des espaces disponibles…</p>
-        </div>
+          <p class="resume-resultats" id="resume-resultats" aria-live="polite" aria-atomic="true" hidden></p>
+        </form>
+      </div>
+    </section>
 
-        <div class="panneau-etat panneau-etat--erreur" id="erreur-catalogue" hidden>
+    <!-- Section : CATALOGUE -->
+    <section class="section-catalogue conteneur" id="espaces-disponibles" aria-busy="false">
+      <div class="section-catalogue__en-tete">
+        <h2 id="titre-resultats">Espaces disponibles</h2>
+      </div>
+
+      <div class="panneau-etat" id="chargement-catalogue" aria-live="polite" aria-atomic="true" hidden>
+        <span class="indicateur-chargement"></span>
+        <p>Chargement des espaces disponibles…</p>
+      </div>
+
+      <div class="panneau-etat panneau-etat--erreur" id="erreur-catalogue" hidden>
+        <img src="./assets/icons/icone-recherche.svg" alt="">
+        <h3 id="titre-erreur-catalogue">Les filtres sont temporairement indisponibles</h3>
+        <p>Le catalogue reste consultable. Vérifiez votre connexion, puis réessayez.</p>
+        <button class="bouton bouton--primaire" type="button" id="reessayer-catalogue">Réessayer</button>
+      </div>
+
+      <div class="panneau-etat" id="aucun-resultat" hidden>
+        <span class="panneau-etat__icone-recherche">
           <img src="./assets/icons/icone-recherche.svg" alt="">
-          <h3 id="titre-erreur-catalogue">Les filtres sont temporairement indisponibles</h3>
-          <p>Le catalogue reste consultable. Vérifiez votre connexion, puis réessayez.</p>
-          <button class="bouton bouton--primaire" type="button" id="reessayer-catalogue">Réessayer</button>
-        </div>
+        </span>
+        <h3>Aucun espace ne correspond à vos critères</h3>
+        <p>Modifiez vos filtres pour afficher plus de résultats.</p>
+      </div>
 
-        <div class="panneau-etat" id="aucun-resultat" hidden>
-          <span class="panneau-etat__icone-recherche">
-            <img src="./assets/icons/icone-recherche.svg" alt="">
-          </span>
-          <h3>Aucun espace ne correspond à vos critères</h3>
-          <p>Modifiez vos filtres pour afficher plus de résultats.</p>
-        </div>
+      <div class="grille-espaces" id="liste-espaces"></div>
+    </section>
+  </main>
 
-        <div class="grille-espaces" id="liste-espaces"></div>
-      </section>
-    </main>
+  <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+  <div id="conteneur-footer"></div>
 
-    <!-- Cette div reçoit le fichier footer.html chargé par commun.js. -->
-    <div id="conteneur-footer"></div>
-
-    <!-- Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
-    <script src="./assets/js/commun.js"></script>
-    <script src="./assets/js/catalogue.js"></script>
-  </body>
+  <!-- Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+  <script src="./assets/js/commun.js"></script>
+  <script src="./assets/js/catalogue.js"></script>
+</body>
 
 </html>
