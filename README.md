@@ -219,16 +219,52 @@ L'entité HTML `&amp;` est utilisée pour représenter correctement le caractèr
 
 ## Tests Lighthouse
 
-Le cahier des charges fixe un objectif supérieur à 90 pour le SEO et l'accessibilité. Aucun rapport Lighthouse mesuré n'est actuellement enregistré dans le dépôt ; les valeurs ne sont donc pas inventées dans ce document.
+Le cahier des charges fixe un objectif supérieur à 90 pour le SEO et l'accessibilité. Les audits ont été effectués avec Lighthouse sur la version publiée du site, en affichage Desktop et Mobile.
 
-| Page | Accessibilité | SEO | Capture |
-| --- | ---: | ---: | --- |
-| Accueil | À mesurer | À mesurer | À ajouter |
-| Fiche espace | À mesurer | À mesurer | À ajouter |
-| Mes espaces | À mesurer | À mesurer | À ajouter |
-| Contact | À mesurer | À mesurer | À ajouter |
+| Page | Accessibilité Desktop | SEO Desktop | Accessibilité Mobile | SEO Mobile |
+| --- | ---: | ---: | ---: | ---: |
+| Accueil | 96 | 100 | 96 | 100 |
+| Fiche espace | 94 | 100 | 94 | 100 |
+| Mes espaces | 93 | 100 | 93 | 100 |
+| Contact | 90 | 100 | 90 | 100 |
 
-Les audits doivent être lancés depuis Chrome DevTools sur un serveur local ou sur la version déployée. Les scores et les captures devront ensuite remplacer les mentions « À mesurer » et « À ajouter ».
+Toutes les pages obtiennent 100 en SEO. Les pages Accueil, Fiche espace et Mes espaces dépassent 90 en accessibilité. La page Contact atteint 90, mais ne dépasse pas encore strictement l'objectif fixé par le cahier des charges.
+
+### Captures Desktop
+
+#### Page Accueil
+
+![Audit Lighthouse Desktop de la page Accueil : accessibilité 96 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Accueil.png)
+
+#### Page Contact
+
+![Audit Lighthouse Desktop de la page Contact : accessibilité 90 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Contact.png)
+
+#### Page Fiche espace
+
+![Audit Lighthouse Desktop de la page Fiche espace : accessibilité 94 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Espaces.png)
+
+#### Page Mes espaces
+
+![Audit Lighthouse Desktop de la page Mes espaces : accessibilité 93 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Desktop%20-%20Page%20Favoris.png)
+
+### Captures Mobile
+
+#### Page Accueil
+
+![Audit Lighthouse Mobile de la page Accueil : accessibilité 96 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Accueil.png)
+
+#### Page Contact
+
+![Audit Lighthouse Mobile de la page Contact : accessibilité 90 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Contact.png)
+
+#### Page Fiche espace
+
+![Audit Lighthouse Mobile de la page Fiche espace : accessibilité 94 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Espaces.png)
+
+#### Page Mes espaces
+
+![Audit Lighthouse Mobile de la page Mes espaces : accessibilité 93 et SEO 100](documents/conceptualisation/LightHouse/LightHouse%20Mobile%20-%20Page%20Favoris.png)
 
 ## Technologies utilisées
 
