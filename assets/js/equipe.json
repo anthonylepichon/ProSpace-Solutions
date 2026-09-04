@@ -1,0 +1,52 @@
+{
+  "membres": [
+    {
+      "nom": "Alexandre Moreau",
+      "fonction": "CEO & Co-fondateur",
+      "photo": "alexandre-moreau-ceo-prospace.webp",
+      "email": "alexandre.moreau@prospace-solutions.fr"
+    },
+    {
+      "nom": "Sophie Leclerc",
+      "fonction": "Directrice Commerciale",
+      "photo": "sophie-leclerc-directrice-commerciale.webp",
+      "email": "sophie.leclerc@prospace-solutions.fr"
+    },
+    {
+      "nom": "Thomas Bergeron",
+      "fonction": "Responsable Partenariats",
+      "photo": "thomas-bergeron-responsable-partenariats.webp",
+      "email": "thomas.bergeron@prospace-solutions.fr"
+    },
+    {
+      "nom": "Marine Dubois",
+      "fonction": "Chargée de Clientèle Senior",
+      "photo": "marine-dubois-chargee-clientele.webp",
+      "email": "marine.dubois@prospace-solutions.fr"
+    },
+    {
+      "nom": "Julien Fontaine",
+      "fonction": "Directeur Technique",
+      "photo": "julien-fontaine-directeur-technique.webp",
+      "email": "julien.fontaine@prospace-solutions.fr"
+    },
+    {
+      "nom": "Camille Roux",
+      "fonction": "Responsable Marketing",
+      "photo": "camille-roux-responsable-marketing.webp",
+      "email": "camille.roux@prospace-solutions.fr"
+    },
+    {
+      "nom": "Élodie Garnier",
+      "fonction": "Chargée des Opérations",
+      "photo": "elodie-garnier-chargee-operations.webp",
+      "email": "elodie.garnier@prospace-solutions.fr"
+    },
+    {
+      "nom": "Nicolas Vidal",
+      "fonction": "Responsable Support",
+      "photo": "nicolas-vidal-responsable-support.webp",
+      "email": "nicolas.vidal@prospace-solutions.fr"
+    }
+  ]
+}

@@ -86,8 +86,8 @@
       return capacite >= 11 && capacite <= 20;
     }
 
-    if (filtre === "20-plus") {
-      return capacite >= 20;
+    if (filtre === "21-plus") {
+      return capacite >= 21;
     }
 
     return true;
@@ -244,8 +244,9 @@
     const image = document.createElement("img");
     image.src = ProSpace.cheminRessource("assets/images/" + espace.image);
     image.alt = espace.imageAlt;
+    image.width = espace.imageWidth;
+    image.height = espace.imageHeight;
     image.loading = "lazy";
-    image.decoding = "async";
 
     const boutonFavori = creerElement("button", "bouton-favori");
     boutonFavori.type = "button";

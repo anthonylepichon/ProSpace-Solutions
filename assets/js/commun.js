@@ -324,9 +324,22 @@
    * ---------------------------------------------------------
    */
   function creerIcone(nom, classeSupplementaire) {
+    const textesAlternatifs = {
+      accessibilite: "Accès PMR",
+      ecran: "Écran 4K",
+      email: "E-mail",
+      etoile: "Étoile vide",
+      "etoile-pleine": "Étoile pleine",
+      favori: "Favori",
+      localisation: "Localisation",
+      supprimer: "Supprimer",
+      utilisateurs: "Capacité d'accueil",
+      validation: "Validation",
+      wifi: "Fibre"
+    };
     const icone = document.createElement("img");
     icone.src = cheminRessource("assets/icons/icone-" + nom + ".svg");
-    icone.alt = "";
+    icone.alt = textesAlternatifs[nom] || nom.replaceAll("-", " ");
     icone.width = 20;
     icone.height = 20;
     icone.className = "icone" + (classeSupplementaire ? " " + classeSupplementaire : "");

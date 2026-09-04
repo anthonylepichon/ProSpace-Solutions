@@ -118,8 +118,9 @@
     const image = document.createElement("img");
     image.src = ProSpace.cheminRessource("assets/images/" + espace.image);
     image.alt = espace.imageAlt;
+    image.width = espace.imageWidth;
+    image.height = espace.imageHeight;
     image.loading = "lazy";
-    image.decoding = "async";
     visuel.appendChild(image);
 
     const contenu = creerElement("div", "carte-espace-sauvegarde__contenu");

@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
   <meta name="description"
     content="Consultez les équipements, les photos et les tarifs d'un espace de travail ProSpace Solutions.">
   <title>Fiche espace de travail | ProSpace Solutions</title>
@@ -22,7 +21,7 @@
   <!-- Zone HEADER : Cette div reçoit le fichier header.html chargé par commun.js. -->
   <div id="conteneur-header"></div>
 
-  <main class="page-espace conteneur" id="haut-de-page">
+  <main class="page-espace conteneur">
     <article id="fiche-espace" hidden>
       <!-- Zone : FIL D'ARIANE -->
       <nav class="fil-ariane" aria-label="Fil d'Ariane">
@@ -37,7 +36,7 @@
         <h1 id="titre-espace"></h1>
         <div class="en-tete-espace__metadonnees">
           <p>
-            <img src="../assets/icons/icone-localisation.svg" alt="">
+            <img src="../assets/icons/icone-localisation.svg" alt="Localisation">
             <span id="adresse-espace"></span>
           </p>
           <p class="en-tete-espace__evaluation">
@@ -70,7 +69,7 @@
           <section class="panneau-capacite">
             <h2 id="titre-capacite">Capacité &amp; Configuration</h2>
             <div>
-              <img src="../assets/icons/icone-utilisateurs.svg" alt="">
+              <img src="../assets/icons/icone-utilisateurs.svg" alt="Capacité d'accueil">
               <p>
                 Jusqu'à <strong><span id="capacite-espace"></span> personnes</strong><br>
                 <span class="panneau-capacite__configuration">Configuration modulable : théâtre, classe, U, boardroom —
@@ -88,7 +87,7 @@
               <tr>
                 <th scope="row">
                   <span>
-                    <img src="../assets/icons/icone-horaires.svg" alt="">
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif horaire">
                     À l'heure
                   </span>
                 </th>
@@ -97,7 +96,7 @@
               <tr>
                 <th scope="row">
                   <span>
-                    <img src="../assets/icons/icone-horaires.svg" alt="">
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif demi-journée">
                     Demi-journée (4h)
                   </span>
                 </th>
@@ -106,7 +105,7 @@
               <tr class="carte-tarifs__mise-en-avant">
                 <th scope="row">
                   <span>
-                    <img src="../assets/icons/icone-horaires.svg" alt="">
+                    <img src="../assets/icons/icone-horaires.svg" alt="Tarif journalier">
                     Journée complète
                   </span>
                 </th>
@@ -117,11 +116,11 @@
 
           <div class="carte-tarifs__actions">
             <button class="bouton bouton--favori" type="button" id="bouton-favori-espace">
-              <img src="../assets/icons/icone-favori.svg" alt="">
+              <img src="../assets/icons/icone-favori.svg" alt="Favori">
               <span id="libelle-favori">Sauvegarder en Favoris</span>
             </button>
             <a class="bouton bouton--primaire" href="./contact.html" id="lien-contact-espace">
-              <img src="../assets/icons/icone-telephone.svg" alt="">
+              <img src="../assets/icons/icone-telephone.svg" alt="Téléphone">
               Contacter l'équipe
             </a>
           </div>

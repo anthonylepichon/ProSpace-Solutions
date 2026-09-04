@@ -47,15 +47,18 @@
    * - conteneur : Élément HTML qui recevra le contenu.
    * - nomFichier : Nom du fichier image.
    * - texteAlternatif : Description alternative de l’image.
+   * - largeur : Largeur intrinsèque de l’image.
+   * - hauteur : Hauteur intrinsèque de l’image.
    * Retour : Aucune valeur.
    * ---------------------------------------------------------
    */
-  function ajouterImage(conteneur, nomFichier, texteAlternatif) {
+  function ajouterImage(conteneur, nomFichier, texteAlternatif, largeur, hauteur) {
     const image = document.createElement("img");
     image.src = window.ProSpace.cheminRessource("assets/images/" + nomFichier);
     image.alt = texteAlternatif;
+    image.width = largeur;
+    image.height = hauteur;
     image.loading = "lazy";
-    image.decoding = "async";
 
     conteneur.appendChild(image);
   }
@@ -178,16 +181,10 @@
       "Découvrez " + espace.title + " à " + espace.city +
       ", un espace professionnel équipé pour accueillir jusqu'à " + espace.capacity + " personnes.";
     const metaDescription = document.querySelector('meta[name="description"]');
-    const lienCanonique = document.querySelector('link[rel="canonical"]');
 
     document.title =
       espace.title + " - Salle de réunion " + espace.capacity + " personnes | ProSpace Solutions";
     metaDescription.setAttribute("content", description);
-
-    if (lienCanonique) {
-      lienCanonique.href =
-        "https://prospace-solutions.fr/pages/espace.html?id=" + encodeURIComponent(espace.id);
-    }
   }
 
   /*
@@ -214,17 +211,23 @@
     ajouterImage(
       document.getElementById("galerie-principale"),
       espace.images[0],
-      espace.imageAlts[0]
+      espace.imageAlts[0],
+      espace.imageWidth,
+      espace.imageHeight
     );
     ajouterImage(
       document.getElementById("galerie-secondaire"),
       espace.images[1] || espace.images[0],
-      espace.imageAlts[1]
+      espace.imageAlts[1],
+      espace.imageWidth,
+      espace.imageHeight
     );
     ajouterImage(
       document.getElementById("galerie-secondaire"),
       espace.images[2] || espace.images[0],
-      espace.imageAlts[2]
+      espace.imageAlts[2],
+      espace.imageWidth,
+      espace.imageHeight
     );
 
     document.querySelector(".galerie-espace").setAttribute(

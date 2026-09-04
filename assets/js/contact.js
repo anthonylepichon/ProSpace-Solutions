@@ -8,6 +8,7 @@
  * Liens avec les autres fichiers :
  * - pages/contact.html fournit le formulaire et les conteneurs.
  * - assets/js/commun.js fournit les chemins vers les ressources.
+ * - assets/js/equipe.json fournit les informations des membres de l'équipe.
  * ---------------------------------------------------------
  */
 
@@ -34,57 +35,6 @@
     document.getElementById("sujet"),
     document.getElementById("message"),
     document.getElementById("consentement")
-  ];
-
-  const equipe = [
-    {
-      nom: "Alexandre Moreau",
-      fonction: "CEO & Co-fondateur",
-      photo: "alexandre-moreau-ceo-prospace.webp",
-      email: "alexandre.moreau@prospace-solutions.fr"
-    },
-    {
-      nom: "Sophie Leclerc",
-      fonction: "Directrice Commerciale",
-      photo: "sophie-leclerc-directrice-commerciale.webp",
-      email: "sophie.leclerc@prospace-solutions.fr"
-    },
-    {
-      nom: "Thomas Bergeron",
-      fonction: "Responsable Partenariats",
-      photo: "thomas-bergeron-responsable-partenariats.webp",
-      email: "thomas.bergeron@prospace-solutions.fr"
-    },
-    {
-      nom: "Marine Dubois",
-      fonction: "Chargée de Clientèle Senior",
-      photo: "marine-dubois-chargee-clientele.webp",
-      email: "marine.dubois@prospace-solutions.fr"
-    },
-    {
-      nom: "Julien Fontaine",
-      fonction: "Directeur Technique",
-      photo: "julien-fontaine-directeur-technique.webp",
-      email: "julien.fontaine@prospace-solutions.fr"
-    },
-    {
-      nom: "Camille Roux",
-      fonction: "Responsable Marketing",
-      photo: "camille-roux-responsable-marketing.webp",
-      email: "camille.roux@prospace-solutions.fr"
-    },
-    {
-      nom: "Élodie Garnier",
-      fonction: "Chargée des Opérations",
-      photo: "elodie-garnier-chargee-operations.webp",
-      email: "elodie.garnier@prospace-solutions.fr"
-    },
-    {
-      nom: "Nicolas Vidal",
-      fonction: "Responsable Support",
-      photo: "nicolas-vidal-responsable-support.webp",
-      email: "nicolas.vidal@prospace-solutions.fr"
-    }
   ];
 
   /*
@@ -346,9 +296,56 @@
   const statutEquipe = document.getElementById("statut-equipe");
   const boutonPrecedent = document.getElementById("equipe-precedente");
   const boutonSuivant = document.getElementById("equipe-suivante");
+  const commandesEquipe = document.getElementById("commandes-equipe");
+  let equipe = [];
   let indexEquipe = 0;
   const nombreVisible = 4;
   let animationEnCours = false;
+
+  /*
+   * ---------------------------------------------------------
+   * Rôle : Charger les membres de l'équipe depuis le fichier JSON.
+   * Paramètres :
+   * - Aucun.
+   * Retour : Une promesse contenant la liste des membres.
+   * ---------------------------------------------------------
+   */
+  async function chargerEquipe() {
+    const reponse = await fetch(
+      window.ProSpace.cheminRessource("assets/js/equipe.json")
+    );
+
+    if (!reponse.ok) {
+      throw new Error("Impossible de charger les membres de l'équipe.");
+    }
+
+    const donnees = await reponse.json();
+
+    if (!Array.isArray(donnees.membres) || donnees.membres.length === 0) {
+      throw new Error("La liste des membres de l'équipe est vide ou invalide.");
+    }
+
+    return donnees.membres;
+  }
+
+  /*
+   * ---------------------------------------------------------
+   * Rôle : Afficher un message si les membres ne peuvent pas être chargés.
+   * Paramètres :
+   * - Aucun.
+   * Retour : Aucune valeur.
+   * ---------------------------------------------------------
+   */
+  function afficherErreurEquipe() {
+    const message = document.createElement("li");
+    message.className = "panneau-etat";
+    message.textContent = "L'équipe ne peut pas être affichée pour le moment.";
+
+    viderElement(listeEquipe);
+    listeEquipe.appendChild(message);
+    commandesEquipe.hidden = true;
+    statutEquipe.textContent = message.textContent;
+  }
 
   /*
    * ---------------------------------------------------------
@@ -379,7 +376,6 @@
     photo.width = 400;
     photo.height = 400;
     photo.loading = "lazy";
-    photo.decoding = "async";
 
     nom.textContent = membre.nom;
     fonction.textContent = membre.fonction;
@@ -517,13 +513,20 @@
    * Retour : Aucune valeur.
    * ---------------------------------------------------------
    */
-  function initialiserCarousel() {
-    if (!listeEquipe || !navigationEquipe || !boutonPrecedent || !boutonSuivant) {
+  async function initialiserCarousel() {
+    if (!listeEquipe || !navigationEquipe || !boutonPrecedent || !boutonSuivant || !commandesEquipe) {
       return;
     }
 
-    creerNavigationEquipe();
-    afficherEquipe();
+    try {
+      equipe = await chargerEquipe();
+      creerNavigationEquipe();
+      afficherEquipe();
+      commandesEquipe.hidden = false;
+    } catch (erreur) {
+      afficherErreurEquipe();
+      return;
+    }
 
     boutonPrecedent.addEventListener("click", function () {
       afficherEquipeAvecTransition((indexEquipe - 1 + equipe.length) % equipe.length);

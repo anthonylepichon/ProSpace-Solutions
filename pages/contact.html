@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
     <meta name="description"
         content="Contactez ProSpace Solutions pour une demande d'information, un devis ou un projet d'espace de travail professionnel en France.">
     <title>Contact et devis pour votre espace de travail | ProSpace Solutions</title>
@@ -22,12 +21,12 @@
     <!-- Zone HEADER : Ce conteneur reçoit le fichier header.html chargé par commun.js. -->
     <div id="conteneur-header"></div>
 
-    <main id="haut-de-page">
+    <main>
         <!-- Section : BANNIERE -->
         <section class="banniere-contact">
             <div class="conteneur banniere-contact__contenu">
                 <p class="surtitre">
-                    <img src="../assets/icons/icone-message.svg" alt="">
+                    <img src="../assets/icons/icone-message.svg" alt="Message">
                     Nous écrire
                 </p>
                 <h1 id="titre-contact">Contactez <span>nos équipes</span></h1>
@@ -52,7 +51,7 @@
 
                         <p class="resume-formulaire" id="resume-erreurs" hidden></p>
 
-                        <form id="formulaire-contact">
+                        <form id="formulaire-contact" novalidate>
                             <div class="ligne-formulaire">
                                 <div class="champ-formulaire">
                                     <label for="nom">Nom complet <span>*</span></label>
@@ -119,7 +118,7 @@
                             </div>
 
                             <button class="bouton bouton--primaire formulaire-contact__envoi" type="submit">
-                                <img src="../assets/icons/icone-envoyer.svg" alt="">
+                                <img src="../assets/icons/icone-envoyer.svg" alt="Envoyer">
                                 Envoyer le message
                             </button>
                         </form>
@@ -127,7 +126,7 @@
 
                     <!-- Section CONFIRMATION -->
                     <section class="panneau-confirmation-contact" id="confirmation-contact" aria-live="polite" hidden>
-                        <img src="../assets/icons/icone-validation.svg" alt="">
+                        <img src="../assets/icons/icone-validation.svg" alt="Message envoyé avec succès">
                         <h2>Message envoyé !</h2>
                         <p>
                             Merci <strong id="confirmation-nom"></strong>, nous avons bien reçu votre message. Notre
@@ -136,7 +135,7 @@
                             <strong id="confirmation-courriel"></strong>.
                         </p>
                         <button class="bouton bouton--primaire" type="button" id="nouveau-message">
-                            <img src="../assets/icons/icone-fleche-droite.svg" alt="">
+                            <img src="../assets/icons/icone-fleche-droite.svg" alt="Flèche vers la droite">
                             Nouveau message
                         </button>
                     </section>
@@ -150,30 +149,30 @@
                         <address>
                             <ul class="liste-informations-entreprise">
                                 <li>
-                                    <img src="../assets/icons/icone-localisation.svg" alt="">
+                                    <img src="../assets/icons/icone-localisation.svg" alt="Adresse">
                                     <div><strong>Adresse</strong><span>14 Avenue de Wagram<br>75008 Paris</span></div>
                                 </li>
                                 <li>
-                                    <img src="../assets/icons/icone-telephone.svg" alt="">
+                                    <img src="../assets/icons/icone-telephone.svg" alt="Téléphone">
                                     <div><strong>Téléphone</strong><a href="tel:+33142567890">+33 1 42 56 78 90</a>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="../assets/icons/icone-email.svg" alt="">
+                                    <img src="../assets/icons/icone-email.svg" alt="E-mail">
                                     <div><strong>Email</strong><a
                                             href="mailto:contact@prospace-solutions.fr">contact@prospace-solutions.fr</a>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="../assets/icons/icone-horaires.svg" alt="">
+                                    <img src="../assets/icons/icone-horaires.svg" alt="Horaires">
                                     <div><strong>Horaires</strong><span>Lun – Ven : 9h00 – 18h00</span></div>
                                 </li>
                                 <li>
-                                    <img src="../assets/icons/icone-monde.svg" alt="">
+                                    <img src="../assets/icons/icone-monde.svg" alt="Présence nationale">
                                     <div><strong>Présence</strong><span>6 villes en France</span></div>
                                 </li>
                                 <li>
-                                    <img src="../assets/icons/icone-entreprise.svg" alt="">
+                                    <img src="../assets/icons/icone-entreprise.svg" alt="Entreprise">
                                     <div><strong>SIRET</strong><span>853 204 119 00024</span></div>
                                 </li>
                             </ul>
@@ -182,7 +181,7 @@
 
                     <!-- Section REPONSE -->
                     <section class="carte-reponse">
-                        <img src="../assets/icons/icone-horaires.svg" alt="">
+                        <img src="../assets/icons/icone-horaires.svg" alt="Délai de réponse">
                         <div>
                             <h2 id="titre-reponse">Réponse rapide garantie</h2>
                             <p>
@@ -195,11 +194,11 @@
                     <figure class="carte-temoignage">
                         <p class="carte-temoignage__evaluation">
                             <span class="carte-temoignage__etoiles">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 1 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 2 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 3 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 4 sur 5">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 5 sur 5">
                             </span>
                             <strong>4.8 / 5</strong>
                             <span class="visuellement-cache">Note de 4,8 sur 5</span>
@@ -231,16 +230,16 @@
                 <div class="carrousel-equipe">
                     <ul class="carrousel-equipe__liste" id="liste-equipe"></ul>
 
-                    <div class="carrousel-equipe__commandes">
+                    <div class="carrousel-equipe__commandes" id="commandes-equipe" hidden>
                         <button class="carrousel-equipe__fleche" type="button" id="equipe-precedente"
                             aria-label="Afficher les membres précédents">
-                            <img src="../assets/icons/icone-precedent.svg" alt="">
+                            <img src="../assets/icons/icone-precedent.svg" alt="Membre précédent">
                         </button>
                         <div class="carrousel-equipe__points" id="navigation-equipe">
                         </div>
                         <button class="carrousel-equipe__fleche" type="button" id="equipe-suivante"
                             aria-label="Afficher les membres suivants">
-                            <img src="../assets/icons/icone-suivant.svg" alt="">
+                            <img src="../assets/icons/icone-suivant.svg" alt="Membre suivant">
                         </button>
                     </div>
                     <p class="visuellement-cache" id="statut-equipe" aria-live="polite"></p>
@@ -251,14 +250,14 @@
         <!-- Section LOCALISATION -->
         <section class="section-localisation conteneur">
             <div class="carte-localisation">
-                <img src="../assets/icons/icone-localisation.svg" alt="">
+                <img src="../assets/icons/icone-localisation.svg" alt="Localisation">
                 <div>
                     <h2 id="titre-acces-siege">14 Avenue de Wagram, 75008 Paris</h2>
                     <p>Siège social · Ligne 2 &amp; 6 — Wagram · RER C — Invalides</p>
                 </div>
                 <a href="https://www.google.com/maps/search/?api=1&amp;query=14+Avenue+de+Wagram+75008+Paris"
                     target="_blank" rel="noopener noreferrer">
-                    <img src="../assets/icons/icone-monde.svg" alt="">
+                    <img src="../assets/icons/icone-monde.svg" alt="Voir sur Google Maps">
                     Voir sur Google Maps <span class="visuellement-cache">(nouvel onglet)</span>
                 </a>
             </div>

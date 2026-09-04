@@ -171,3 +171,40 @@
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
+
+// ---------------------------------------------------------
+// Zone : ADAPTATION DE L'EN-TÊTE AUX PETITS ÉCRANS
+// Cette zone conserve les trois liens de navigation sans défilement horizontal.
+// ---------------------------------------------------------
+@media (max-width: 639px) {
+  .en-tete-site__contenu {
+    gap: 8px;
+  }
+
+  .identite-site__nom {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .navigation-site__liste {
+    gap: 0;
+  }
+
+  .navigation-site__lien {
+    gap: 4px;
+    padding: 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 374px) {
+  .navigation-site__lien {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 12px;
+  }
+}

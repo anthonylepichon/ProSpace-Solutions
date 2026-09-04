@@ -61,23 +61,10 @@
   background: $couleur-bleu-actif;
 }
 
-.bouton--danger,
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .BOUTON--RETIRER
-// Cette zone regroupe les règles liées à règles .bouton--retirer.
-// ---------------------------------------------------------
-.bouton--retirer {
+.bouton--danger {
   background: $couleur-blanc;
   border: 1px solid #fecdd3;
   color: #e11d48;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .BOUTON--DANGER
-// Cette zone regroupe les règles liées à règles .bouton--danger.
-// ---------------------------------------------------------
-.bouton--danger {
   padding: 10px 16px;
   font-weight: 500;
 }
@@ -87,6 +74,8 @@
 // Cette zone regroupe les règles liées à règles .bouton--retirer.
 // ---------------------------------------------------------
 .bouton--retirer {
+  background: $couleur-blanc;
+  border: 1px solid #fecdd3;
   padding: 10px 12px;
   color: $couleur-texte-secondaire;
 }
