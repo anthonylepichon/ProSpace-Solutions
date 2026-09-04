@@ -12,8 +12,6 @@
  */
 
 (function () {
-  "use strict";
-
   /*
    * ---------------------------------------------------------
    * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE
@@ -27,17 +25,19 @@
 
   /*
    * ---------------------------------------------------------
-   * Rôle : Renseigner tous les éléments correspondant à un sélecteur.
+   * Rôle : Renseigner un élément à partir de son identifiant.
    * Paramètres :
-   * - selecteur : Sélecteur CSS des éléments visés.
+   * - identifiant : Identifiant de l’élément visé.
    * - valeur : Valeur à afficher.
    * Retour : Aucune valeur.
    * ---------------------------------------------------------
    */
-  function renseignerTexte(selecteur, valeur) {
-    document.querySelectorAll(selecteur).forEach(function (element) {
+  function renseignerTexte(identifiant, valeur) {
+    const element = document.getElementById(identifiant);
+
+    if (element) {
       element.textContent = String(valeur);
-    });
+    }
   }
 
   /*
@@ -69,7 +69,7 @@
    * ---------------------------------------------------------
    */
   function afficherEtoiles(espace) {
-    const conteneur = document.querySelector("[data-space-stars]");
+    const conteneur = document.getElementById("etoiles-espace");
 
     for (let index = 1; index <= 5; index += 1) {
       const estPleine = index <= Math.round(espace.rating);
@@ -82,7 +82,7 @@
     }
 
     renseignerTexte(
-      "[data-space-rating-label]",
+      "libelle-note-espace",
       "Note de " + espace.rating + " sur 5, calculée à partir de " + espace.reviews + " avis vérifiés"
     );
   }
@@ -129,7 +129,7 @@
    */
   function mettreAJourBoutonFavori(espace) {
     const estFavori = espaceEstFavori(espace.id);
-    const libelle = boutonFavori.querySelector("[data-favorite-label]");
+    const libelle = document.getElementById("libelle-favori");
     const icone = boutonFavori.querySelector("img");
 
     boutonFavori.classList.toggle("bouton--favori-actif", estFavori);
@@ -139,7 +139,7 @@
 
     if (icone) {
       icone.src = window.ProSpace.cheminRessource(
-        "assets/images/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
+        "assets/icons/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
       );
     }
   }
@@ -199,30 +199,30 @@
    * ---------------------------------------------------------
    */
   function afficherEspace(espace) {
-    renseignerTexte("[data-space-title]", espace.title);
-    renseignerTexte("[data-space-title-breadcrumb]", espace.title);
-    renseignerTexte("[data-space-city]", espace.city);
-    renseignerTexte("[data-space-address]", espace.address);
-    renseignerTexte("[data-space-rating]", espace.rating);
-    renseignerTexte("[data-space-reviews]", espace.reviews);
-    renseignerTexte("[data-space-description]", espace.description);
-    renseignerTexte("[data-space-capacity]", espace.capacity);
-    renseignerTexte("[data-price-hour]", espace.priceHour + "€");
-    renseignerTexte("[data-price-half-day]", espace.priceHalfDay + "€");
-    renseignerTexte("[data-price-day]", espace.priceDay + "€");
+    renseignerTexte("titre-espace", espace.title);
+    renseignerTexte("titre-espace-fil-ariane", espace.title);
+    renseignerTexte("ville-espace", espace.city);
+    renseignerTexte("adresse-espace", espace.address);
+    renseignerTexte("note-espace", espace.rating);
+    renseignerTexte("nombre-avis-espace", espace.reviews);
+    renseignerTexte("description-espace", espace.description);
+    renseignerTexte("capacite-espace", espace.capacity);
+    renseignerTexte("prix-heure", espace.priceHour + "€");
+    renseignerTexte("prix-demi-journee", espace.priceHalfDay + "€");
+    renseignerTexte("prix-journee", espace.priceDay + "€");
 
     ajouterImage(
-      document.querySelector("[data-gallery-main]"),
+      document.getElementById("galerie-principale"),
       espace.images[0],
       espace.imageAlts[0]
     );
     ajouterImage(
-      document.querySelector("[data-gallery-secondary]"),
+      document.getElementById("galerie-secondaire"),
       espace.images[1] || espace.images[0],
       espace.imageAlts[1]
     );
     ajouterImage(
-      document.querySelector("[data-gallery-secondary]"),
+      document.getElementById("galerie-secondaire"),
       espace.images[2] || espace.images[0],
       espace.imageAlts[2]
     );

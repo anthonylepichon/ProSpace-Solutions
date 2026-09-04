@@ -517,7 +517,7 @@ textarea:focus-visible {
   align-items: center;
 }
 
-[data-font-toggle] {
+#bouton-police-adaptee {
   min-height: 0;
   padding: 0;
   background: transparent;
@@ -530,7 +530,7 @@ textarea:focus-visible {
   transition: color 150ms ease;
 }
 
-[data-font-toggle]:hover {
+#bouton-police-adaptee:hover {
   color: #38bdf8;
 }
 

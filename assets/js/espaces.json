@@ -17,7 +17,7 @@
     "imageWidth": 800,
     "imageHeight": 520,
     "images": [
-      "espace-wagram-opera-paris-detail.webp",
+      "espace-wagram-opera-paris.webp",
       "espace-wagram-opera-salle-reunion.webp",
       "espace-wagram-opera-table-reunion.webp"
     ],
@@ -55,7 +55,7 @@
     "imageWidth": 800,
     "imageHeight": 520,
     "images": [
-      "atelier-republique-paris-detail.webp",
+      "atelier-republique-paris.webp",
       "atelier-republique-espace-travail.webp",
       "atelier-republique-salle-reunion.webp"
     ],
@@ -91,7 +91,7 @@
     "imageWidth": 800,
     "imageHeight": 520,
     "images": [
-      "confluence-executive-suite-lyon-detail.webp",
+      "confluence-executive-suite-lyon.webp",
       "confluence-executive-suite-salle-reunion.webp",
       "confluence-executive-suite-mobilier.webp"
     ],
@@ -123,7 +123,7 @@
     "rating": 4.7,
     "reviews": 18,
     "amenities": ["wifi", "pmr"],
-    "image": "chartrons-board-room-bordeaux-carte.webp",
+    "image": "chartrons-board-room-bordeaux.webp",
     "imageAlt": "Salle de conseil Les Chartrons Board Room à Bordeaux",
     "imageWidth": 800,
     "imageHeight": 520,
@@ -159,7 +159,7 @@
     "rating": 4.5,
     "reviews": 63,
     "amenities": ["wifi", "screen4k"],
-    "image": "ile-nantes-studio-carte.webp",
+    "image": "ile-nantes-studio.webp",
     "imageAlt": "Studio de travail de l'Île de Nantes Studio",
     "imageWidth": 800,
     "imageHeight": 520,
@@ -195,7 +195,7 @@
     "rating": 4.4,
     "reviews": 29,
     "amenities": ["wifi", "pmr"],
-    "image": "vieux-port-panorama-marseille-carte.webp",
+    "image": "vieux-port-panorama-marseille.webp",
     "imageAlt": "Salle de réunion du Vieux-Port Panorama à Marseille",
     "imageWidth": 800,
     "imageHeight": 520,

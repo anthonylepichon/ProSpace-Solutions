@@ -12,8 +12,6 @@
  */
 
 (function () {
-  "use strict";
-
   /*
    * ---------------------------------------------------------
    * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE
@@ -106,7 +104,7 @@
   function lireEquipementsSelectionnes() {
     const equipements = [];
 
-    formulaireFiltres.querySelectorAll("[data-equipment-filter]:checked").forEach(function (caseCochee) {
+    formulaireFiltres.querySelectorAll(".filtre-equipement:checked").forEach(function (caseCochee) {
       equipements.push(caseCochee.value);
     });
 
@@ -227,7 +225,7 @@
 
     if (icone) {
       icone.src = ProSpace.cheminRessource(
-        "assets/images/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
+        "assets/icons/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
       );
     }
   }
@@ -381,7 +379,7 @@
     }
 
     equipements.forEach(function (equipement) {
-      formulaireFiltres.querySelectorAll("[data-equipment-filter]").forEach(function (caseCochee) {
+      formulaireFiltres.querySelectorAll(".filtre-equipement").forEach(function (caseCochee) {
         if (caseCochee.value === equipement) {
           caseCochee.checked = true;
         }

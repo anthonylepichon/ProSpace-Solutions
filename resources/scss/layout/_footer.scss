@@ -214,10 +214,10 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES [DATA-FONT-TOGGLE]
-// Cette zone regroupe les règles liées à règles [data-font-toggle].
+// Zone : RÈGLES #BOUTON-POLICE-ADAPTEE
+// Cette zone regroupe les règles du bouton de police adaptée.
 // ---------------------------------------------------------
-[data-font-toggle] {
+#bouton-police-adaptee {
   min-height: 0;
   padding: 0;
   background: transparent;
@@ -231,10 +231,10 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES [DATA-FONT-TOGGLE]:HOVER
-// Cette zone regroupe les règles liées à règles [data-font-toggle]:hover.
+// Zone : RÈGLES #BOUTON-POLICE-ADAPTEE:HOVER
+// Cette zone regroupe les règles de survol du bouton de police adaptée.
 // ---------------------------------------------------------
-[data-font-toggle]:hover {
+#bouton-police-adaptee:hover {
   color: $couleur-cyan;
 }
 

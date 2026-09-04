@@ -12,8 +12,6 @@
  */
 
 (function () {
-  "use strict";
-
   /*
    * ---------------------------------------------------------
    * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE

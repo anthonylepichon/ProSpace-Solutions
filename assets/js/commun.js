@@ -13,8 +13,6 @@
  */
 
 (function () {
-  "use strict";
-
   /*
    * ---------------------------------------------------------
    * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE
@@ -230,7 +228,7 @@
 
   /*
    * ---------------------------------------------------------
-   * Rôle : Actualiser tous les compteurs de favoris visibles.
+   * Rôle : Actualiser le compteur de favoris visible.
    * Paramètres :
    * - Aucun.
    * Retour : Aucune valeur.
@@ -238,22 +236,24 @@
    */
   function mettreAJourCompteursFavoris() {
     const nombreFavoris = lireFavoris().length;
-    const compteurs = document.querySelectorAll("[data-favorites-count]");
+    const compteur = document.getElementById("compteur-favoris");
 
-    compteurs.forEach(function (compteur) {
-      let texteCompteur = "aucun espace sauvegardé";
+    if (!compteur) {
+      return;
+    }
 
-      if (nombreFavoris > 0) {
-        texteCompteur = nombreFavoris + " espace" + (nombreFavoris > 1 ? "s" : "") + " sauvegardé" + (nombreFavoris > 1 ? "s" : "");
-      }
+    let texteCompteur = "aucun espace sauvegardé";
 
-      compteur.textContent = String(nombreFavoris);
-      compteur.hidden = nombreFavoris === 0;
-      compteur.parentElement.setAttribute(
-        "aria-label",
-        "Mes espaces, " + texteCompteur
-      );
-    });
+    if (nombreFavoris > 0) {
+      texteCompteur = nombreFavoris + " espace" + (nombreFavoris > 1 ? "s" : "") + " sauvegardé" + (nombreFavoris > 1 ? "s" : "");
+    }
+
+    compteur.textContent = String(nombreFavoris);
+    compteur.hidden = nombreFavoris === 0;
+    compteur.parentElement.setAttribute(
+      "aria-label",
+      "Mes espaces, " + texteCompteur
+    );
   }
 
   /*
@@ -325,7 +325,7 @@
    */
   function creerIcone(nom, classeSupplementaire) {
     const icone = document.createElement("img");
-    icone.src = cheminRessource("assets/images/icone-" + nom + ".svg");
+    icone.src = cheminRessource("assets/icons/icone-" + nom + ".svg");
     icone.alt = "";
     icone.width = 20;
     icone.height = 20;
@@ -342,35 +342,33 @@
    * ---------------------------------------------------------
    */
   async function initialiserDestinations() {
-    const listesDestinations = document.querySelectorAll("[data-destinations]");
+    const listeDestinations = document.getElementById("liste-destinations");
 
-    if (listesDestinations.length === 0) {
+    if (!listeDestinations) {
       return;
     }
 
     try {
       const donnees = await chargerDonnees();
 
-      listesDestinations.forEach(function (liste) {
-        liste.textContent = "";
+      listeDestinations.textContent = "";
 
-        donnees.destinations.forEach(function (destination) {
-          const elementListe = document.createElement("li");
-          let elementDestination;
+      donnees.destinations.forEach(function (destination) {
+        const elementListe = document.createElement("li");
+        let elementDestination;
 
-          if (destination.city) {
-            elementDestination = document.createElement("a");
-            elementDestination.href = cheminRessource(
-              "index.html?ville=" + encodeURIComponent(destination.city) + "#espaces-disponibles"
-            );
-          } else {
-            elementDestination = document.createElement("span");
-          }
+        if (destination.city) {
+          elementDestination = document.createElement("a");
+          elementDestination.href = cheminRessource(
+            "index.html?ville=" + encodeURIComponent(destination.city) + "#espaces-disponibles"
+          );
+        } else {
+          elementDestination = document.createElement("span");
+        }
 
-          elementDestination.textContent = "Espaces à " + destination.label;
-          elementListe.appendChild(elementDestination);
-          liste.appendChild(elementListe);
-        });
+        elementDestination.textContent = "Espaces à " + destination.label;
+        elementListe.appendChild(elementDestination);
+        listeDestinations.appendChild(elementListe);
       });
     } catch (erreur) {
       return;
@@ -388,19 +386,21 @@
   function appliquerPoliceAdaptee(active) {
     document.body.classList.toggle("police-adaptee", active);
 
-    document.querySelectorAll("[data-font-toggle]").forEach(function (bouton) {
+    const bouton = document.getElementById("bouton-police-adaptee");
+
+    if (bouton) {
       bouton.setAttribute(
         "aria-label",
         active ? "Désactiver la police adaptée" : "Activer la police adaptée"
       );
-      const statut = bouton.querySelector("[data-font-toggle-status]");
+      const statut = document.getElementById("statut-police-adaptee");
 
       if (statut) {
         statut.textContent = active
           ? " — police adaptée activée"
           : " — activer la police adaptée";
       }
-    });
+    }
   }
 
   /*
@@ -422,7 +422,9 @@
 
     appliquerPoliceAdaptee(policeActive);
 
-    document.querySelectorAll("[data-font-toggle]").forEach(function (bouton) {
+    const bouton = document.getElementById("bouton-police-adaptee");
+
+    if (bouton) {
       bouton.addEventListener("click", function () {
         policeActive = !document.body.classList.contains("police-adaptee");
         appliquerPoliceAdaptee(policeActive);
@@ -433,7 +435,7 @@
           return;
         }
       });
-    });
+    }
   }
 
   /*

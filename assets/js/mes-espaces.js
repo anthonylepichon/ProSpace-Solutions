@@ -12,8 +12,6 @@
  */
 
 (function () {
-  "use strict";
-
   /*
    * ---------------------------------------------------------
    * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE
@@ -160,13 +158,13 @@
 
     const boutonRetirer = creerElement("button", "bouton bouton--retirer");
     boutonRetirer.type = "button";
-    boutonRetirer.dataset.removeFavorite = espace.id;
+    boutonRetirer.value = espace.id;
     boutonRetirer.setAttribute("aria-label", "Retirer " + espace.title + " de mes espaces");
     boutonRetirer.appendChild(ProSpace.creerIcone("supprimer"));
     boutonRetirer.appendChild(creerElement("span", "", "Retirer"));
     boutonRetirer.addEventListener("click", function () {
       actionEnCours = "retirer";
-      ProSpace.basculerFavori(espace.id);
+      ProSpace.basculerFavori(boutonRetirer.value);
     });
 
     actions.appendChild(lienFiche);
@@ -192,7 +190,7 @@
     }
 
     if (nombreFavoris > 0 && actionEnCours === "retirer") {
-      const premierBoutonRetirer = listeSelection.querySelector("[data-remove-favorite]");
+      const premierBoutonRetirer = listeSelection.querySelector(".bouton--retirer");
 
       if (premierBoutonRetirer) {
         premierBoutonRetirer.focus();

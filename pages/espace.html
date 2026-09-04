@@ -28,38 +28,38 @@
       <nav class="fil-ariane" aria-label="Fil d'Ariane">
         <ol>
           <li><a href="../index.html">Accueil</a></li>
-          <li><span data-space-city></span></li>
-          <li><span aria-current="page" data-space-title-breadcrumb></span></li>
+          <li><span id="ville-espace"></span></li>
+          <li><span id="titre-espace-fil-ariane" aria-current="page"></span></li>
         </ol>
       </nav>
 
       <div class="en-tete-espace">
-        <h1 data-space-title></h1>
+        <h1 id="titre-espace"></h1>
         <div class="en-tete-espace__metadonnees">
           <p>
             <img src="../assets/icons/icone-localisation.svg" alt="">
-            <span data-space-address></span>
+            <span id="adresse-espace"></span>
           </p>
           <p class="en-tete-espace__evaluation">
-            <span class="evaluation__etoiles" data-space-stars></span>
-            <strong data-space-rating></strong>
-            <span>· <span data-space-reviews></span> avis vérifiés</span>
-            <span class="visuellement-cache" data-space-rating-label></span>
+            <span class="evaluation__etoiles" id="etoiles-espace"></span>
+            <strong id="note-espace"></strong>
+            <span>· <span id="nombre-avis-espace"></span> avis vérifiés</span>
+            <span class="visuellement-cache" id="libelle-note-espace"></span>
           </p>
         </div>
       </div>
 
       <!-- Section : GALERIE DE PHOTOS -->
       <section class="galerie-espace" aria-label="Galerie de l'espace">
-        <div class="galerie-espace__principale" data-gallery-main></div>
-        <div class="galerie-espace__secondaire" data-gallery-secondary></div>
+        <div class="galerie-espace__principale" id="galerie-principale"></div>
+        <div class="galerie-espace__secondaire" id="galerie-secondaire"></div>
       </section>
 
       <div class="disposition-detail-espace">
         <div class="contenu-detail-espace">
           <section>
             <h2 id="titre-a-propos">À propos de cet espace</h2>
-            <p class="description-espace" data-space-description></p>
+            <p class="description-espace" id="description-espace"></p>
           </section>
 
           <section>
@@ -72,7 +72,7 @@
             <div>
               <img src="../assets/icons/icone-utilisateurs.svg" alt="">
               <p>
-                Jusqu'à <strong><span data-space-capacity></span> personnes</strong><br>
+                Jusqu'à <strong><span id="capacite-espace"></span> personnes</strong><br>
                 <span class="panneau-capacite__configuration">Configuration modulable : théâtre, classe, U, boardroom —
                   sur demande.</span>
               </p>
@@ -92,7 +92,7 @@
                     À l'heure
                   </span>
                 </th>
-                <td><strong data-price-hour></strong></td>
+                <td><strong id="prix-heure"></strong></td>
               </tr>
               <tr>
                 <th scope="row">
@@ -101,7 +101,7 @@
                     Demi-journée (4h)
                   </span>
                 </th>
-                <td><strong data-price-half-day></strong></td>
+                <td><strong id="prix-demi-journee"></strong></td>
               </tr>
               <tr class="carte-tarifs__mise-en-avant">
                 <th scope="row">
@@ -110,7 +110,7 @@
                     Journée complète
                   </span>
                 </th>
-                <td><strong data-price-day></strong></td>
+                <td><strong id="prix-journee"></strong></td>
               </tr>
             </tbody>
           </table>
@@ -118,7 +118,7 @@
           <div class="carte-tarifs__actions">
             <button class="bouton bouton--favori" type="button" id="bouton-favori-espace">
               <img src="../assets/icons/icone-favori.svg" alt="">
-              <span data-favorite-label>Sauvegarder en Favoris</span>
+              <span id="libelle-favori">Sauvegarder en Favoris</span>
             </button>
             <a class="bouton bouton--primaire" href="./contact.html" id="lien-contact-espace">
               <img src="../assets/icons/icone-telephone.svg" alt="">
