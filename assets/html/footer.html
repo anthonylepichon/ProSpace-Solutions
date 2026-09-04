@@ -1,0 +1,73 @@
+<!--
+  Fichier : assets/html/footer.html
+  Rôle : Définir le pied de page commun chargé dans toutes les pages.
+  Tâches :
+  - Présenter la marque, les destinations, les services et les liens légaux.
+  - Afficher les destinations alimentées par les données du catalogue.
+  Liens avec les autres fichiers :
+  - assets/js/commun.js charge ce fragment, remplace la racine des liens et complète les destinations.
+  - resources/scss/layout/_footer.scss définit sa présentation.
+-->
+
+<footer class="pied-page">
+    <div class="conteneur">
+        <div class="pied-page__colonnes">
+            <section class="pied-page__presentation">
+                <h2 class="identite-site identite-site--pied-page" id="titre-pied-marque">
+                    <span class="identite-site__symbole">
+                        <img src="{{racine}}/assets/icons/icone-batiment.svg" alt="">
+                    </span>
+                    <span class="identite-site__nom">ProSpace <strong>Solutions</strong></span>
+                </h2>
+                <p>Location d'espaces professionnels en France pour les entreprises et indépendants exigeants.</p>
+                <a class="pied-page__contact" href="{{racine}}/pages/contact.html">
+                    <img src="{{racine}}/assets/icons/icone-email.svg" alt="">
+                    Nous contacter
+                </a>
+            </section>
+
+            <nav class="pied-page__navigation">
+                <h2 id="titre-destinations">Destinations</h2>
+                <ul data-destinations></ul>
+            </nav>
+
+            <nav class="pied-page__navigation">
+                <h2 id="titre-services">Services</h2>
+                <ul>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Salles de réunion</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces de coworking</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Salles de formation</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Bureaux privatifs</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Studios visio</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces événementiels</a></li>
+                </ul>
+            </nav>
+
+            <section class="pied-page__navigation">
+                <h2 id="titre-acces">Légal &amp; accès</h2>
+                <ul>
+                    <li><span>Mentions légales</span></li>
+                    <li><span>CGU &amp; CGV</span></li>
+                    <li><a id="confidentialite" href="{{racine}}/pages/contact.html#confidentialite">Politique de
+                            confidentialité</a></li>
+                    <li><span>Gestion des cookies</span></li>
+                    <li><a href="{{racine}}/pages/contact.html#accessibilite">Déclaration d'accessibilité</a></li>
+                    <li><a href="{{racine}}/index.html">Sitemap</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="pied-page__bas">
+            <p>© 2025 ProSpace Solutions SAS — Tous droits réservés</p>
+            <div class="pied-page__accessibilite" id="accessibilite">
+                <p>
+                    Conformité RGAA 4.1 ·
+                    <button type="button" data-font-toggle>
+                        <span>Accessibilité : partiellement conforme</span>
+                        <span class="visuellement-cache" data-font-toggle-status> — activer la police adaptée</span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
