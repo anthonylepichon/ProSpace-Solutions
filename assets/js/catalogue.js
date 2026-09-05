@@ -1,6 +1,5 @@
 /*
  * ---------------------------------------------------------
- * Fichier : assets/js/catalogue.js
  * Rôle : Gérer le catalogue dynamique de la page d’accueil.
  * Tâches :
  * - Charger, filtrer et afficher les espaces disponibles.
@@ -14,8 +13,8 @@
 (function () {
   /*
    * ---------------------------------------------------------
-   * Zone : DONNÉES ET ÉLÉMENTS DE LA PAGE
-   * Cette zone prépare les constantes, l’état et les éléments HTML utilisés par le script.
+   * DONNÉES ET ÉLÉMENTS DE LA PAGE
+   * Cette zone prépare les variables, l’état et les éléments HTML utilisés par le script.
    * ---------------------------------------------------------
    */
   const formulaireFiltres = document.getElementById("formulaire-filtres");
@@ -35,30 +34,6 @@
     pmr: { libelle: "PMR", icone: "accessibilite" },
     screen4k: { libelle: "4K", icone: "ecran" }
   };
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Créer un élément HTML et renseigner ses propriétés courantes.
-   * Paramètres :
-   * - type : Nom de la balise HTML à créer.
-   * - classe : Classe CSS facultative de l’élément.
-   * - texte : Texte facultatif à insérer.
-   * Retour : L’élément HTML créé.
-   * ---------------------------------------------------------
-   */
-  function creerElement(type, classe, texte) {
-    const element = document.createElement(type);
-
-    if (classe) {
-      element.className = classe;
-    }
-
-    if (typeof texte === "string") {
-      element.textContent = texte;
-    }
-
-    return element;
-  }
 
   /*
    * ---------------------------------------------------------
@@ -103,10 +78,15 @@
    */
   function lireEquipementsSelectionnes() {
     const equipements = [];
+    const casesEquipements = document.querySelectorAll(".filtre-equipement");
 
-    formulaireFiltres.querySelectorAll(".filtre-equipement:checked").forEach(function (caseCochee) {
-      equipements.push(caseCochee.value);
-    });
+    for (let index = 0; index < casesEquipements.length; index++) {
+      const caseEquipement = casesEquipements[index];
+
+      if (caseEquipement.checked) {
+        equipements.push(caseEquipement.value);
+      }
+    }
 
     return equipements;
   }
@@ -126,18 +106,21 @@
       filtreVille.remove(1);
     }
 
-    espaces.forEach(function (espace) {
-      if (!villes.includes(espace.city)) {
+    for (let index = 0; index < espaces.length; index++) {
+      const espace = espaces[index];
+
+      if (villes.indexOf(espace.city) === -1) {
         villes.push(espace.city);
       }
-    });
+    }
 
-    villes.forEach(function (ville) {
+    for (let index = 0; index < villes.length; index++) {
+      const ville = villes[index];
       const option = document.createElement("option");
       option.value = ville;
       option.textContent = ville;
       filtreVille.appendChild(option);
-    });
+    }
   }
 
   /*
@@ -154,7 +137,8 @@
     const equipements = lireEquipementsSelectionnes();
     const resultat = [];
 
-    espaces.forEach(function (espace) {
+    for (let indexEspace = 0; indexEspace < espaces.length; indexEspace++) {
+      const espace = espaces[indexEspace];
       let correspond = true;
 
       if (ville && espace.city !== ville) {
@@ -165,69 +149,20 @@
         correspond = false;
       }
 
-      equipements.forEach(function (equipement) {
-        if (!espace.amenities.includes(equipement)) {
+      for (let indexEquipement = 0; indexEquipement < equipements.length; indexEquipement++) {
+        const equipement = equipements[indexEquipement];
+
+        if (espace.amenities.indexOf(equipement) === -1) {
           correspond = false;
         }
-      });
+      }
 
       if (correspond) {
         resultat.push(espace);
       }
-    });
+    }
 
     return resultat;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Créer la représentation visuelle et textuelle d’une note.
-   * Paramètres :
-   * - note : Note numérique à représenter.
-   * Retour : Le groupe HTML contenant la note et ses étoiles.
-   * ---------------------------------------------------------
-   */
-  function creerEtoiles(note) {
-    const groupe = creerElement("span", "evaluation");
-    const etoiles = creerElement("span", "evaluation__etoiles");
-
-    for (let index = 1; index <= 5; index += 1) {
-      const estPleine = index <= Math.round(note);
-      const icone = ProSpace.creerIcone(
-        estPleine ? "etoile-pleine" : "etoile",
-        estPleine ? "icone--etoile" : "icone--etoile-vide"
-      );
-
-      etoiles.appendChild(icone);
-    }
-
-    groupe.appendChild(etoiles);
-    return groupe;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Mettre à jour le libellé et l’apparence d’un bouton favori.
-   * Paramètres :
-   * - bouton : Bouton de favori à actualiser.
-   * - espace : Objet contenant les données de l’espace.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function mettreAJourBoutonFavori(bouton, espace) {
-    const estFavori = ProSpace.lireFavoris().includes(espace.id);
-    const icone = bouton.querySelector("img");
-    bouton.classList.toggle("bouton-favori--actif", estFavori);
-    bouton.setAttribute(
-      "aria-label",
-      (estFavori ? "Retirer " : "Ajouter ") + espace.title + (estFavori ? " des favoris" : " aux favoris")
-    );
-
-    if (icone) {
-      icone.src = ProSpace.cheminRessource(
-        "assets/icons/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
-      );
-    }
   }
 
   /*
@@ -238,67 +173,66 @@
    * Retour : La carte HTML créée.
    * ---------------------------------------------------------
    */
-  function creerCarteEspace(espace) {
-    const carte = creerElement("article", "carte-espace");
-    const visuel = creerElement("div", "carte-espace__visuel");
+  function creerCarteCatalogue(espace) {
+    const carte = ProSpace.creerElement("article", "carte-espace");
+    const visuel = ProSpace.creerElement("div", "carte-espace__visuel");
     const image = document.createElement("img");
-    image.src = ProSpace.cheminRessource("assets/images/" + espace.image);
-    image.alt = espace.imageAlt;
-    image.width = espace.imageWidth;
-    image.height = espace.imageHeight;
+    image.src = ProSpace.cheminRessource("assets/images/" + espace.cardImage.src);
+    image.alt = espace.cardImage.alt;
+    image.width = espace.cardImage.width;
+    image.height = espace.cardImage.height;
     image.loading = "lazy";
 
-    const boutonFavori = creerElement("button", "bouton-favori");
+    const boutonFavori = ProSpace.creerElement("button", "bouton-favori");
     boutonFavori.type = "button";
-    boutonFavori.appendChild(ProSpace.creerIcone("favori"));
-    mettreAJourBoutonFavori(boutonFavori, espace);
+    boutonFavori.appendChild(ProSpace.creerIcone("favori", "", true));
+    ProSpace.mettreAJourBoutonFavori(boutonFavori, espace, "bouton-favori--actif");
     boutonFavori.addEventListener("click", function () {
       ProSpace.basculerFavori(espace.id);
-      mettreAJourBoutonFavori(boutonFavori, espace);
+      ProSpace.mettreAJourBoutonFavori(boutonFavori, espace, "bouton-favori--actif");
     });
 
     visuel.appendChild(image);
     visuel.appendChild(boutonFavori);
 
-    const contenu = creerElement("div", "carte-espace__contenu");
-    const titre = creerElement("h3", "carte-espace__titre", espace.title);
-    const ville = creerElement("p", "carte-espace__localisation");
+    const contenu = ProSpace.creerElement("div", "carte-espace__contenu");
+    const titre = ProSpace.creerElement("h3", "carte-espace__titre", espace.title);
+    const ville = ProSpace.creerElement("p", "carte-espace__localisation");
     ville.appendChild(ProSpace.creerIcone("localisation", "icone--primaire"));
-    ville.appendChild(document.createTextNode(espace.city));
+    ville.appendChild(document.createTextNode(espace.displayCity));
 
-    const avis = creerElement("div", "carte-espace__evaluation");
-    avis.appendChild(creerEtoiles(espace.rating));
-    avis.appendChild(creerElement("strong", "", String(espace.rating)));
-    avis.appendChild(creerElement("span", "", "(" + espace.reviews + " avis)"));
+    const avis = ProSpace.creerElement("div", "carte-espace__evaluation");
+    avis.appendChild(ProSpace.creerEtoiles(espace.rating, false));
+    avis.appendChild(ProSpace.creerElement("strong", "", String(espace.rating)));
+    avis.appendChild(ProSpace.creerElement("span", "", "(" + espace.reviews + " avis)"));
 
-    const caracteristiques = creerElement("div", "carte-espace__caracteristiques");
-    const capacite = creerElement("span", "carte-espace__capacite");
+    const caracteristiques = ProSpace.creerElement("div", "carte-espace__caracteristiques");
+    const capacite = ProSpace.creerElement("span", "carte-espace__capacite");
     capacite.appendChild(ProSpace.creerIcone("utilisateurs"));
     capacite.appendChild(document.createTextNode(espace.capacity + " pers."));
     caracteristiques.appendChild(capacite);
 
-    const separateur = creerElement("span", "carte-espace__separateur");
+    const separateur = ProSpace.creerElement("span", "carte-espace__separateur");
     caracteristiques.appendChild(separateur);
 
-    espace.amenities.forEach(function (equipement) {
+    for (let index = 0; index < espace.amenities.length; index++) {
+      const equipement = espace.amenities[index];
       const information = libellesEquipements[equipement];
 
-      if (!information) {
-        return;
+      if (information) {
+        const pastille = ProSpace.creerElement("span", "pastille-equipement");
+        pastille.appendChild(ProSpace.creerIcone(information.icone, "", true));
+        pastille.appendChild(document.createTextNode(information.libelle));
+        caracteristiques.appendChild(pastille);
       }
+    }
 
-      const pastille = creerElement("span", "pastille-equipement");
-      pastille.appendChild(ProSpace.creerIcone(information.icone));
-      pastille.appendChild(document.createTextNode(information.libelle));
-      caracteristiques.appendChild(pastille);
-    });
+    const pied = ProSpace.creerElement("div", "carte-espace__pied");
+    const prix = ProSpace.creerElement("p", "carte-espace__prix");
+    prix.appendChild(ProSpace.creerElement("strong", "", espace.priceHour + "€"));
+    prix.appendChild(ProSpace.creerElement("span", "", "/heure"));
 
-    const pied = creerElement("div", "carte-espace__pied");
-    const prix = creerElement("p", "carte-espace__prix");
-    prix.appendChild(creerElement("strong", "", espace.priceHour + "€"));
-    prix.appendChild(creerElement("span", "", "/heure"));
-
-    const lien = creerElement("a", "bouton bouton--primaire", "Voir la fiche");
+    const lien = ProSpace.creerElement("a", "bouton bouton--primaire", "Voir la fiche");
     lien.href = ProSpace.cheminRessource("pages/espace.html?id=" + encodeURIComponent(espace.id));
     lien.setAttribute("aria-label", "Voir la fiche de " + espace.title);
 
@@ -328,18 +262,31 @@
     listeEspaces.textContent = "";
     aucunResultat.hidden = nombre !== 0;
 
-    espacesFiltres.forEach(function (espace) {
-      listeEspaces.appendChild(creerCarteEspace(espace));
-    });
+    for (let index = 0; index < espacesFiltres.length; index++) {
+      const espace = espacesFiltres[index];
+      listeEspaces.appendChild(creerCarteCatalogue(espace));
+    }
 
-    const libelleResultats =
-      nombre + " espace" + (nombre !== 1 ? "s" : "") + " disponible" + (nombre !== 1 ? "s" : "");
-    const filtresActifs = Boolean(
-      filtreVille.value || filtreCapacite.value || lireEquipementsSelectionnes().length
-    );
+    let libelleResultats = nombre + " espace disponible";
+
+    if (nombre !== 1) {
+      libelleResultats = nombre + " espaces disponibles";
+    }
+
+    let filtresActifs = false;
+
+    if (filtreVille.value || filtreCapacite.value || lireEquipementsSelectionnes().length > 0) {
+      filtresActifs = true;
+    }
 
     titreResultats.textContent = libelleResultats;
-    resumeResultats.textContent = filtresActifs ? libelleResultats : "";
+
+    if (filtresActifs) {
+      resumeResultats.textContent = libelleResultats;
+    } else {
+      resumeResultats.textContent = "";
+    }
+
     resumeResultats.hidden = !filtresActifs;
   }
 
@@ -355,12 +302,15 @@
     const parametres = new URLSearchParams(window.location.search);
     const ville = parametres.get("ville");
     let villeValide = false;
+    const options = filtreVille.querySelectorAll("option");
 
-    filtreVille.querySelectorAll("option").forEach(function (option) {
+    for (let index = 0; index < options.length; index++) {
+      const option = options[index];
+
       if (option.value === ville) {
         villeValide = true;
       }
-    });
+    }
 
     if (ville && villeValide) {
       filtreVille.value = ville;
@@ -391,9 +341,9 @@
       erreurChargement.hidden = false;
       resumeResultats.textContent = "Chargement impossible";
       resumeResultats.hidden = false;
-    } finally {
-      chargement.hidden = true;
     }
+
+    chargement.hidden = true;
   }
 
   formulaireFiltres.addEventListener("change", afficherResultats);

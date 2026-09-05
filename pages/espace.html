@@ -24,6 +24,12 @@
   <div id="conteneur-header"></div>
 
   <main class="page-espace conteneur">
+    <div class="panneau-etat panneau-etat--erreur" id="erreur-fiche-espace" aria-live="polite" hidden>
+      <h1>Impossible de charger cet espace</h1>
+      <p>Vérifiez votre connexion, puis réessayez.</p>
+      <button class="bouton bouton--primaire" type="button" id="reessayer-fiche-espace">Réessayer</button>
+    </div>
+
     <article id="fiche-espace" hidden>
       <!-- Zone : FIL D'ARIANE -->
       <nav class="fil-ariane" aria-label="Fil d'Ariane">

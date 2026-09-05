@@ -55,7 +55,8 @@ prospace/
 │       ├── catalogue.js
 │       ├── espace.js
 │       ├── mes-espaces.js
-│       └── contact.js
+│       ├── contact.js
+│       └── equipe.js
 ├── resources/
 │   ├── main.scss
 │   └── scss/
@@ -143,7 +144,7 @@ Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement l
 Le projet ne consomme pas d'API distante. Ses données sont réparties dans deux fichiers JSON locaux chargés avec `fetch` :
 
 - `assets/data/espaces.json`, chargé depuis `commun.js`, contient les espaces, les favoris initiaux et les destinations du pied de page ;
-- `assets/data/equipe.json`, chargé uniquement depuis `contact.js`, contient les membres affichés dans le carrousel de l'équipe.
+- `assets/data/equipe.json`, chargé uniquement depuis `equipe.js`, contient les membres affichés dans le carrousel de l'équipe ainsi que les dimensions communes de leurs portraits.
 
 Chaque espace contient notamment :
 

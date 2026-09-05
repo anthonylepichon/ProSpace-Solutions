@@ -1,4 +1,8 @@
 {
+  "dimensionsPhoto": {
+    "largeur": 400,
+    "hauteur": 400
+  },
   "membres": [
     {
       "nom": "Alexandre Moreau",
