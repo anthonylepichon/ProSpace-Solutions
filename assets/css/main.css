@@ -15,15 +15,8 @@ body {
   margin: 0;
   background: #f8fafc;
   color: #0f172a;
-  overflow-x: hidden;
-}
-
-body,
-button,
-input,
-select,
-textarea {
   font-family: "DM Sans", Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 img {
@@ -214,7 +207,6 @@ h4 {
   color: #0f172a;
   font-weight: 700;
 }
-
 .logo:focus {
   transform: translateY(0);
 }
@@ -366,12 +358,10 @@ textarea:focus-visible {
   text-decoration: none;
   transition: color 150ms ease, background-color 150ms ease;
 }
-
 .navigation-site__lien:hover {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
 }
-
 .navigation-site__lien--actif {
   background: rgba(255, 255, 255, 0.1);
   color: #38bdf8;
@@ -534,7 +524,6 @@ textarea:focus-visible {
   line-height: 16px;
   text-align: center;
 }
-
 .pied-page__bas p {
   margin: 0;
   color: inherit;
@@ -557,7 +546,6 @@ textarea:focus-visible {
   text-underline-offset: 2px;
   transition: color 150ms ease;
 }
-
 #bouton-police-adaptee:hover {
   color: #38bdf8;
 }
@@ -593,11 +581,9 @@ textarea:focus-visible {
   box-shadow: 0 1px 2px rgba(2, 132, 199, 0.2);
   color: #ffffff;
 }
-
 .bouton--primaire:hover {
   background: #0369a1;
 }
-
 .bouton--primaire:active {
   background: #075985;
 }
@@ -632,13 +618,11 @@ textarea:focus-visible {
   border: 2px solid #e2e8f0;
   color: #475569;
 }
-
 .bouton--favori:hover {
   background: #f0f9ff;
   border-color: #0284c7;
   color: #0284c7;
 }
-
 .bouton--favori-actif {
   background: #fff1f2;
   border-color: #fb7185;
@@ -682,10 +666,12 @@ textarea:focus-visible {
   overflow: hidden;
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
-
 .carte-espace:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+}
+.carte-espace:hover .carte-espace__visuel > img {
+  transform: scale(1.05);
 }
 
 .carte-espace__visuel {
@@ -694,7 +680,6 @@ textarea:focus-visible {
   overflow: hidden;
   background: #e2e8f0;
 }
-
 .carte-espace__visuel::after {
   position: absolute;
   right: 0;
@@ -705,16 +690,11 @@ textarea:focus-visible {
   content: "";
   pointer-events: none;
 }
-
 .carte-espace__visuel > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 500ms ease;
-}
-
-.carte-espace:hover .carte-espace__visuel > img {
-  transform: scale(1.05);
 }
 
 .bouton-favori {
@@ -735,22 +715,18 @@ textarea:focus-visible {
   backdrop-filter: blur(4px);
   transition: color 150ms ease, background-color 150ms ease;
 }
-
 .bouton-favori img {
   width: 16px;
   height: 16px;
   filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
 }
-
 .bouton-favori:hover img {
   filter: brightness(0) saturate(100%) invert(39%) sepia(91%) saturate(2759%) hue-rotate(326deg) brightness(103%) contrast(91%);
 }
-
 .bouton-favori--actif {
   background: #f43f5e;
   box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.3);
 }
-
 .bouton-favori--actif img {
   filter: brightness(0) invert(1);
 }
@@ -770,9 +746,7 @@ textarea:focus-visible {
 }
 
 .carte-espace__localisation,
-.carte-espace__evaluation,
-.carte-espace__capacite,
-.pastille-equipement {
+.carte-espace__evaluation {
   display: inline-flex;
   align-items: center;
 }
@@ -798,13 +772,13 @@ textarea:focus-visible {
   line-height: 16px;
 }
 
-.evaluation,
-.evaluation__etoiles {
+.evaluation {
   display: inline-flex;
   align-items: center;
 }
-
 .evaluation__etoiles {
+  display: inline-flex;
+  align-items: center;
   gap: 2px;
 }
 
@@ -823,6 +797,8 @@ textarea:focus-visible {
 }
 
 .carte-espace__capacite {
+  display: inline-flex;
+  align-items: center;
   gap: 6px;
   color: #64748b;
   font-size: 14px;
@@ -839,12 +815,13 @@ textarea:focus-visible {
   margin: 0 2px;
   color: #cbd5e1;
 }
-
 .carte-espace__separateur::before {
   content: "·";
 }
 
 .pastille-equipement {
+  display: inline-flex;
+  align-items: center;
   gap: 4px;
   padding: 2px 8px;
   background: #f1f5f9;
@@ -932,7 +909,6 @@ input:hover,
 textarea:hover {
   border-color: #cbd5e1;
 }
-
 select:focus,
 input:focus,
 textarea:focus {
@@ -941,8 +917,8 @@ textarea:focus {
 }
 
 [aria-invalid=true] {
-  background: #fff1f2 !important;
-  border-color: #fb7185 !important;
+  background: #fff1f2;
+  border-color: #fb7185;
 }
 
 .erreur-formulaire {
@@ -966,7 +942,6 @@ textarea:focus {
   color: #94a3b8;
   text-align: center;
 }
-
 .panneau-etat h2,
 .panneau-etat h3 {
   margin: 0 0 4px;
@@ -975,17 +950,24 @@ textarea:focus {
   font-size: 18px;
   font-weight: 600;
 }
-
 .panneau-etat p {
   color: #94a3b8;
   font-size: 14px;
   line-height: 20px;
 }
+.panneau-etat p,
+.panneau-etat h2 {
+  margin-bottom: 0;
+}
+.panneau-etat--erreur {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 16px;
+}
 
 #aucun-resultat {
   gap: 0;
 }
-
 #aucun-resultat .panneau-etat__icone-recherche {
   display: inline-flex;
   width: 64px;
@@ -996,29 +978,16 @@ textarea:focus {
   background: #f1f5f9;
   border-radius: 16px;
 }
-
 #aucun-resultat .panneau-etat__icone-recherche img {
   width: 28px;
   height: 28px;
   filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
   opacity: 0.5;
 }
-
 #aucun-resultat h3 {
   margin-bottom: 4px;
   font-size: 18px;
   line-height: 28px;
-}
-
-.panneau-etat p,
-.panneau-etat h2 {
-  margin-bottom: 0;
-}
-
-.panneau-etat--erreur {
-  background: #fff1f2;
-  border: 1px solid #fecdd3;
-  border-radius: 16px;
 }
 
 .indicateur-chargement {
@@ -1047,7 +1016,6 @@ textarea:focus {
   opacity: 1;
   transition: opacity 300ms ease;
 }
-
 .carrousel-equipe__liste--en-animation {
   opacity: 0;
 }
@@ -1072,7 +1040,6 @@ textarea:focus {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
-
 .carte-membre__portrait img {
   width: 100%;
   height: 100%;
@@ -1080,7 +1047,6 @@ textarea:focus {
   object-position: top;
   transition: transform 500ms ease;
 }
-
 .carte-membre__portrait::after {
   position: absolute;
   inset: 0;
@@ -1131,12 +1097,10 @@ textarea:focus {
   font-weight: 600;
   text-decoration: none;
 }
-
 .carte-membre__email img {
   width: 14px;
   height: 14px;
 }
-
 .carte-membre__email:hover {
   color: #075985;
   text-decoration: underline;
@@ -1162,18 +1126,15 @@ textarea:focus {
   border-radius: 50%;
   transition: background-color 150ms ease, border-color 150ms ease;
 }
-
 .carrousel-equipe__fleche img {
   width: 18px;
   height: 18px;
   filter: brightness(0) saturate(100%) invert(44%) sepia(16%) saturate(645%) hue-rotate(176deg) brightness(92%) contrast(88%);
 }
-
 .carrousel-equipe__fleche:hover {
   background: #0284c7;
   border-color: #0284c7;
 }
-
 .carrousel-equipe__fleche:hover img {
   filter: brightness(0) invert(1);
 }
@@ -1194,11 +1155,9 @@ textarea:focus {
   border-radius: 999px;
   transition: width 200ms ease, background-color 200ms ease;
 }
-
 .carrousel-equipe__point:hover {
   background: #94a3b8;
 }
-
 .carrousel-equipe__point--actif {
   width: 24px;
   background: #0284c7;
@@ -1220,20 +1179,16 @@ textarea:focus {
   background: #0f172a;
   color: #ffffff;
 }
-
-.banniere-accueil::before,
-.banniere-accueil::after {
+.banniere-accueil::before, .banniere-accueil::after {
   position: absolute;
   z-index: 1;
   inset: 0;
   content: "";
   pointer-events: none;
 }
-
 .banniere-accueil::before {
   background: linear-gradient(90deg, #0f172a 0%, rgba(15, 23, 42, 0.75) 50%, rgba(15, 23, 42, 0.3) 100%);
 }
-
 .banniere-accueil::after {
   background: linear-gradient(0deg, rgba(15, 23, 42, 0.6) 0%, transparent 50%, transparent 100%);
 }
@@ -1404,7 +1359,6 @@ textarea:focus {
   line-height: 20px;
   transition: color 150ms ease;
 }
-
 .filtres__equipements label:hover {
   color: #0284c7;
 }
@@ -1484,14 +1438,20 @@ textarea:focus {
   align-items: center;
   gap: 6px;
 }
-
 .fil-ariane li:not(:last-child)::after {
   display: inline-block;
   width: 14px;
   height: 14px;
-  background: url("../images/icone-suivant.svg") center/14px 14px no-repeat;
+  background: url("../icons/icone-suivant.svg") center/14px 14px no-repeat;
   content: "";
   opacity: 0.6;
+}
+.fil-ariane li:nth-last-child(2) {
+  color: #64748b;
+}
+.fil-ariane li:last-child {
+  color: #0f172a;
+  font-weight: 500;
 }
 
 .fil-ariane a {
@@ -1499,18 +1459,8 @@ textarea:focus {
   text-decoration: none;
   transition: color 150ms ease;
 }
-
 .fil-ariane a:hover {
   color: #0284c7;
-}
-
-.fil-ariane li:nth-last-child(2) {
-  color: #64748b;
-}
-
-.fil-ariane li:last-child {
-  color: #0f172a;
-  font-weight: 500;
 }
 
 .en-tete-espace {
@@ -1531,8 +1481,7 @@ textarea:focus {
   color: #64748b;
 }
 
-.en-tete-espace__metadonnees p,
-.en-tete-espace__evaluation {
+.en-tete-espace__metadonnees p {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1545,14 +1494,17 @@ textarea:focus {
 .en-tete-espace__metadonnees > p:first-child > img {
   width: 15px;
   height: 15px;
-}
-
-.en-tete-espace__metadonnees > p:first-child > img {
   filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
 }
 
 .en-tete-espace__evaluation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .en-tete-espace__evaluation strong {
@@ -1595,7 +1547,6 @@ textarea:focus {
   object-fit: cover;
   transition: transform 700ms ease;
 }
-
 .galerie-espace img:hover {
   transform: scale(1.05);
 }
@@ -1719,18 +1670,14 @@ textarea:focus {
   margin-bottom: 28px;
 }
 
-.carte-tarifs th,
-.carte-tarifs td {
-  padding: 12px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
 .carte-tarifs tr:last-child th,
 .carte-tarifs tr:last-child td {
   border-bottom: 0;
 }
 
 .carte-tarifs th {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
   color: #64748b;
   font-size: 14px;
   font-weight: 400;
@@ -1751,6 +1698,8 @@ textarea:focus {
 }
 
 .carte-tarifs td {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
   color: #0f172a;
   font-family: "JetBrains Mono", Consolas, monospace;
   font-size: 20px;
@@ -1933,9 +1882,11 @@ textarea:focus {
   overflow: hidden;
   transition: box-shadow 200ms ease;
 }
-
 .carte-espace-sauvegarde:hover {
   box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+}
+.carte-espace-sauvegarde:hover .carte-espace-sauvegarde__visuel img {
+  transform: scale(1.05);
 }
 
 .carte-espace-sauvegarde__visuel {
@@ -1944,16 +1895,11 @@ textarea:focus {
   overflow: hidden;
   background: #e2e8f0;
 }
-
 .carte-espace-sauvegarde__visuel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 500ms ease;
-}
-
-.carte-espace-sauvegarde:hover .carte-espace-sauvegarde__visuel img {
-  transform: scale(1.05);
 }
 
 .carte-espace-sauvegarde__contenu {
@@ -1980,29 +1926,24 @@ textarea:focus {
   white-space: nowrap;
 }
 
-.carte-espace-sauvegarde__localisation,
-.carte-espace-sauvegarde__capacite,
-.carte-espace-sauvegarde__prix,
-.carte-espace-sauvegarde__evaluation {
+.carte-espace-sauvegarde__localisation {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.carte-espace-sauvegarde__localisation {
   margin: 0 0 10px;
   color: #64748b;
   font-size: 14px;
   line-height: 20px;
 }
 
-.carte-espace-sauvegarde__localisation img,
-.carte-espace-sauvegarde__capacite img {
+.carte-espace-sauvegarde__localisation img {
   width: 13px;
   height: 13px;
 }
 
 .carte-espace-sauvegarde__capacite img {
+  width: 13px;
+  height: 13px;
   filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
 }
 
@@ -2013,16 +1954,22 @@ textarea:focus {
   gap: 16px;
 }
 
-.carte-espace-sauvegarde__capacite,
-.carte-espace-sauvegarde__prix,
-.carte-espace-sauvegarde__evaluation {
+.carte-espace-sauvegarde__capacite {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: #64748b;
   font-size: 14px;
   line-height: 20px;
 }
 
 .carte-espace-sauvegarde__prix {
+  display: flex;
   align-items: baseline;
+  gap: 6px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .carte-espace-sauvegarde__prix strong {
@@ -2040,6 +1987,10 @@ textarea:focus {
 }
 
 .carte-espace-sauvegarde__evaluation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
   font-size: 12px;
   line-height: 16px;
 }
@@ -2088,7 +2039,6 @@ textarea:focus {
   background: #0f172a;
   color: #cbd5e1;
 }
-
 .banniere-contact::before {
   position: absolute;
   inset: 0;
@@ -2312,15 +2262,10 @@ textarea:focus {
   gap: 20px;
 }
 
-.carte-entreprise,
-.carte-reponse,
-.carte-temoignage {
-  border-radius: 16px;
-}
-
 .carte-entreprise {
   padding: 28px;
   background: #0f172a;
+  border-radius: 16px;
   color: #ffffff;
 }
 
@@ -2403,6 +2348,7 @@ textarea:focus {
   padding: 20px;
   background: #f0f9ff;
   border: 1px solid #bae6fd;
+  border-radius: 16px;
 }
 
 .carte-reponse > img {
@@ -2434,6 +2380,7 @@ textarea:focus {
   padding: 20px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
+  border-radius: 16px;
   color: #64748b;
 }
 
@@ -2560,12 +2507,10 @@ textarea:focus {
   line-height: 16px;
   text-decoration: none;
 }
-
 .carte-localisation > a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
 .carte-localisation > a img {
   width: 13px;
   height: 13px;

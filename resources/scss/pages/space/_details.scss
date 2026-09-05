@@ -1,0 +1,147 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .DISPOSITION-DETAIL-ESPACE
+// ---------------------------------------------------------
+.disposition-detail-espace {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CONTENU-DETAIL-ESPACE
+// ---------------------------------------------------------
+.contenu-detail-espace {
+  flex: 1;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CONTENU-DETAIL-ESPACE SECTION:NOT(:LAST-CHILD)
+// ---------------------------------------------------------
+.contenu-detail-espace section:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CONTENU-DETAIL-ESPACE H2
+// ---------------------------------------------------------
+.contenu-detail-espace h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .DESCRIPTION-ESPACE
+// ---------------------------------------------------------
+.description-espace {
+  margin: 0;
+  color: $couleur-ardoise-500;
+  font-size: 15px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-EQUIPEMENTS
+// ---------------------------------------------------------
+.liste-equipements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-EQUIPEMENTS LI
+// ---------------------------------------------------------
+.liste-equipements li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: $couleur-blanc;
+  border: 1px solid $couleur-ardoise-100;
+  border-radius: $rayon-standard;
+  color: $couleur-ardoise-600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-EQUIPEMENTS IMG
+// ---------------------------------------------------------
+.liste-equipements img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE
+// ---------------------------------------------------------
+.panneau-capacite {
+  padding: 24px;
+  background: $couleur-ciel-clair;
+  border: 1px solid $couleur-bordure-bleue;
+  border-radius: $rayon-standard;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE H2
+// ---------------------------------------------------------
+.panneau-capacite h2 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE > DIV
+// ---------------------------------------------------------
+.panneau-capacite > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE > DIV > IMG
+// ---------------------------------------------------------
+.panneau-capacite > div > img {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE P
+// ---------------------------------------------------------
+.panneau-capacite p {
+  margin: 0;
+  color: $couleur-ardoise-500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE STRONG
+// ---------------------------------------------------------
+.panneau-capacite strong {
+  color: $couleur-bleu-nuit;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .PANNEAU-CAPACITE__CONFIGURATION
+// ---------------------------------------------------------
+.panneau-capacite__configuration {
+  display: inline-block;
+  margin-top: 2px;
+  color: $couleur-texte-secondaire;
+}
+

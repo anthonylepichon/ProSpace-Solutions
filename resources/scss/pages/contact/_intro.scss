@@ -1,0 +1,76 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT
+// ---------------------------------------------------------
+.banniere-contact {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0;
+  background: $couleur-bleu-nuit;
+  color: $couleur-ardoise-300;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, $couleur-bleu 0%, transparent 50%), radial-gradient(circle at 80% 20%, $couleur-cyan 0%, transparent 40%);
+    content: "";
+    opacity: 0.1;
+  }
+}
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT__CONTENU
+// ---------------------------------------------------------
+.banniere-contact__contenu {
+  position: relative;
+  text-align: center;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT .SURTITRE
+// ---------------------------------------------------------
+.banniere-contact .surtitre {
+  margin-bottom: 16px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT H1
+// ---------------------------------------------------------
+.banniere-contact h1 {
+  margin: 0 0 16px;
+  color: $couleur-blanc;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 40px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT H1 SPAN
+// ---------------------------------------------------------
+.banniere-contact h1 span {
+  color: $couleur-cyan;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .BANNIERE-CONTACT P:LAST-CHILD
+// ---------------------------------------------------------
+.banniere-contact p:last-child {
+  max-width: 512px;
+  margin: 0 auto;
+  color: $couleur-ardoise-300;
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-CONTACT
+// ---------------------------------------------------------
+.section-contact {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+

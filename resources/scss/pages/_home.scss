@@ -1,64 +1,37 @@
 // ---------------------------------------------------------
-// Fichier : resources/scss/pages/_home.scss
-// Rôle : Définir les styles propres à une page du site. Ce fichier concerne home.
-// Tâches :
-// - Regrouper les règles SCSS relatives à home.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
-// ---------------------------------------------------------
-
-// ---------------------------------------------------------
-// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
-// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ASSEMBLAGE DES FEUILLES DE STYLES
 // ---------------------------------------------------------
 @use "../abstracts/variables" as *;
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL
-// Cette zone regroupe les règles liées à règles .banniere-accueil.
+// RÈGLES .BANNIERE-ACCUEIL
 // ---------------------------------------------------------
 .banniere-accueil {
   position: relative;
   overflow: hidden;
   background: $couleur-bleu-nuit;
   color: $couleur-blanc;
-}
 
-.banniere-accueil::before,
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+  }
 
-// ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL::AFTER
-// Cette zone regroupe les règles liées à règles .banniere-accueil::after.
-// ---------------------------------------------------------
-.banniere-accueil::after {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  content: "";
-  pointer-events: none;
-}
+  &::before {
+    background: linear-gradient(90deg, $couleur-bleu-nuit 0%, $couleur-bleu-nuit-75 50%, $couleur-bleu-nuit-30 100%);
+  }
 
-// ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL::BEFORE
-// Cette zone regroupe les règles liées à règles .banniere-accueil::before.
-// ---------------------------------------------------------
-.banniere-accueil::before {
-  background: linear-gradient(90deg, $couleur-bleu-nuit 0%, rgba(15, 23, 42, 0.75) 50%, rgba(15, 23, 42, 0.3) 100%);
+  &::after {
+    background: linear-gradient(0deg, $couleur-bleu-nuit-60 0%, transparent 50%, transparent 100%);
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL::AFTER
-// Cette zone regroupe les règles liées à règles .banniere-accueil::after.
-// ---------------------------------------------------------
-.banniere-accueil::after {
-  background: linear-gradient(0deg, rgba(15, 23, 42, 0.6) 0%, transparent 50%, transparent 100%);
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__IMAGE
-// Cette zone regroupe les règles liées à règles .banniere-accueil__image.
+// RÈGLES .BANNIERE-ACCUEIL__IMAGE
 // ---------------------------------------------------------
 .banniere-accueil__image {
   position: absolute;
@@ -70,8 +43,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__CONTENU
-// Cette zone regroupe les règles liées à règles .banniere-accueil__contenu.
+// RÈGLES .BANNIERE-ACCUEIL__CONTENU
 // ---------------------------------------------------------
 .banniere-accueil__contenu {
   position: relative;
@@ -81,16 +53,14 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__CONTENU > *
-// Cette zone regroupe les règles liées à règles .banniere-accueil__contenu > *.
+// RÈGLES .BANNIERE-ACCUEIL__CONTENU > *
 // ---------------------------------------------------------
 .banniere-accueil__contenu > * {
   max-width: 672px;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL H1
-// Cette zone regroupe les règles liées à règles .banniere-accueil h1.
+// RÈGLES .BANNIERE-ACCUEIL H1
 // ---------------------------------------------------------
 .banniere-accueil h1 {
   margin: 0 0 20px;
@@ -101,16 +71,14 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL H1 SPAN
-// Cette zone regroupe les règles liées à règles .banniere-accueil h1 span.
+// RÈGLES .BANNIERE-ACCUEIL H1 SPAN
 // ---------------------------------------------------------
 .banniere-accueil h1 span {
   color: $couleur-cyan;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .SURTITRE
-// Cette zone regroupe les règles liées à règles .surtitre.
+// RÈGLES .SURTITRE
 // ---------------------------------------------------------
 .surtitre {
   display: inline-flex;
@@ -118,8 +86,8 @@
   gap: 8px;
   margin: 0 0 20px;
   padding: 6px 12px;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: $couleur-cyan-10;
+  border: 1px solid $couleur-cyan-20;
   border-radius: 999px;
   color: $couleur-cyan;
   font-size: 12px;
@@ -130,8 +98,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .SURTITRE IMG
-// Cette zone regroupe les règles liées à règles .surtitre img.
+// RÈGLES .SURTITRE IMG
 // ---------------------------------------------------------
 .surtitre img {
   width: 12px;
@@ -140,8 +107,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__INTRODUCTION
-// Cette zone regroupe les règles liées à règles .banniere-accueil__introduction.
+// RÈGLES .BANNIERE-ACCUEIL__INTRODUCTION
 // ---------------------------------------------------------
 .banniere-accueil__introduction {
   max-width: 512px;
@@ -152,8 +118,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__AVANTAGES
-// Cette zone regroupe les règles liées à règles .banniere-accueil__avantages.
+// RÈGLES .BANNIERE-ACCUEIL__AVANTAGES
 // ---------------------------------------------------------
 .banniere-accueil__avantages {
   display: flex;
@@ -168,8 +133,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__AVANTAGES LI
-// Cette zone regroupe les règles liées à règles .banniere-accueil__avantages li.
+// RÈGLES .BANNIERE-ACCUEIL__AVANTAGES LI
 // ---------------------------------------------------------
 .banniere-accueil__avantages li {
   display: flex;
@@ -178,8 +142,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BANNIERE-ACCUEIL__AVANTAGES IMG
-// Cette zone regroupe les règles liées à règles .banniere-accueil__avantages img.
+// RÈGLES .BANNIERE-ACCUEIL__AVANTAGES IMG
 // ---------------------------------------------------------
 .banniere-accueil__avantages img {
   width: 15px;
@@ -188,8 +151,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .BARRE-FILTRES
-// Cette zone regroupe les règles liées à règles .barre-filtres.
+// RÈGLES .BARRE-FILTRES
 // ---------------------------------------------------------
 .barre-filtres {
   position: sticky;
@@ -197,12 +159,11 @@
   top: 64px;
   background: $couleur-blanc;
   border-bottom: 1px solid $couleur-ardoise-200;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  box-shadow: $ombre-legere;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES
-// Cette zone regroupe les règles liées à règles .filtres.
+// RÈGLES .FILTRES
 // ---------------------------------------------------------
 .filtres {
   display: flex;
@@ -214,8 +175,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__TITRE
-// Cette zone regroupe les règles liées à règles .filtres__titre.
+// RÈGLES .FILTRES__TITRE
 // ---------------------------------------------------------
 .filtres__titre {
   display: flex;
@@ -231,8 +191,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__TITRE IMG
-// Cette zone regroupe les règles liées à règles .filtres__titre img.
+// RÈGLES .FILTRES__TITRE IMG
 // ---------------------------------------------------------
 .filtres__titre img {
   width: 14px;
@@ -241,8 +200,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__SEPARATEUR
-// Cette zone regroupe les règles liées à règles .filtres__separateur.
+// RÈGLES .FILTRES__SEPARATEUR
 // ---------------------------------------------------------
 .filtres__separateur {
   width: 1px;
@@ -251,16 +209,14 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__LISTES-DEROULANTES
-// Cette zone regroupe les règles liées à règles .filtres__listes-deroulantes.
+// RÈGLES .FILTRES__LISTES-DEROULANTES
 // ---------------------------------------------------------
 .filtres__listes-deroulantes {
   display: contents;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES SELECT
-// Cette zone regroupe les règles liées à règles .filtres select.
+// RÈGLES .FILTRES SELECT
 // ---------------------------------------------------------
 .filtres select {
   width: auto;
@@ -275,8 +231,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__EQUIPEMENTS
-// Cette zone regroupe les règles liées à règles .filtres__equipements.
+// RÈGLES .FILTRES__EQUIPEMENTS
 // ---------------------------------------------------------
 .filtres__equipements {
   display: flex;
@@ -289,31 +244,25 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__EQUIPEMENTS LABEL
-// Cette zone regroupe les règles liées à règles .filtres__equipements label.
+// RÈGLES .FILTRES__EQUIPEMENTS LABEL
 // ---------------------------------------------------------
 .filtres__equipements label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #475569;
+  color: $couleur-ardoise-500;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   transition: color $transition-rapide;
+
+  &:hover {
+    color: $couleur-bleu;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__EQUIPEMENTS LABEL:HOVER
-// Cette zone regroupe les règles liées à règles .filtres__equipements label:hover.
-// ---------------------------------------------------------
-.filtres__equipements label:hover {
-  color: $couleur-bleu;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .FILTRES__EQUIPEMENTS INPUT
-// Cette zone regroupe les règles liées à règles .filtres__equipements input.
+// RÈGLES .FILTRES__EQUIPEMENTS INPUT
 // ---------------------------------------------------------
 .filtres__equipements input {
   width: 16px;
@@ -323,8 +272,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .RESUME-RESULTATS
-// Cette zone regroupe les règles liées à règles .resume-resultats.
+// RÈGLES .RESUME-RESULTATS
 // ---------------------------------------------------------
 .resume-resultats {
   margin: 0 0 0 auto;
@@ -335,8 +283,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .SECTION-CATALOGUE
-// Cette zone regroupe les règles liées à règles .section-catalogue.
+// RÈGLES .SECTION-CATALOGUE
 // ---------------------------------------------------------
 .section-catalogue {
   padding-top: 48px;
@@ -344,16 +291,14 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .SECTION-CATALOGUE__EN-TETE
-// Cette zone regroupe les règles liées à règles .section-catalogue__en-tete.
+// RÈGLES .SECTION-CATALOGUE__EN-TETE
 // ---------------------------------------------------------
 .section-catalogue__en-tete {
   margin-bottom: 24px;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .SECTION-CATALOGUE__EN-TETE H2
-// Cette zone regroupe les règles liées à règles .section-catalogue__en-tete h2.
+// RÈGLES .SECTION-CATALOGUE__EN-TETE H2
 // ---------------------------------------------------------
 .section-catalogue__en-tete h2 {
   margin: 0;
@@ -363,10 +308,9 @@
 }
 
 // ---------------------------------------------------------
-// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
-// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ADAPTATION AUX TAILLES D’ÉCRAN
 // ---------------------------------------------------------
-@media (min-width: 640px) {
+@media (min-width: $point-rupture-tablette) {
   .banniere-accueil__contenu {
     padding-top: 112px;
     padding-bottom: 112px;
@@ -382,20 +326,18 @@
 }
 
 // ---------------------------------------------------------
-// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
-// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ADAPTATION AUX TAILLES D’ÉCRAN
 // ---------------------------------------------------------
-@media (min-width: 1024px) {
+@media (min-width: $point-rupture-desktop) {
   .banniere-accueil h1 {
     font-size: 60px;
   }
 }
 
 // ---------------------------------------------------------
-// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
-// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
+// ADAPTATION AUX TAILLES D’ÉCRAN
 // ---------------------------------------------------------
-@media (max-width: 639px) {
+@media (max-width: ($point-rupture-tablette - 1px)) {
   .filtres__separateur--equipements {
     display: none;
   }

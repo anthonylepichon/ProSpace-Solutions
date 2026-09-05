@@ -1,0 +1,138 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .PAGE-ESPACE
+// ---------------------------------------------------------
+.page-espace {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .FIL-ARIANE OL
+// ---------------------------------------------------------
+.fil-ariane ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: $couleur-ardoise-400;
+  font-size: 14px;
+  line-height: 20px;
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .FIL-ARIANE LI
+// ---------------------------------------------------------
+.fil-ariane li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &:not(:last-child)::after {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("../icons/icone-suivant.svg") center / 14px 14px no-repeat;
+    content: "";
+    opacity: 0.6;
+  }
+
+  &:nth-last-child(2) {
+    color: $couleur-texte-secondaire;
+  }
+
+  &:last-child {
+    color: $couleur-bleu-nuit;
+    font-weight: 500;
+  }
+}
+
+// ---------------------------------------------------------
+// RÈGLES .FIL-ARIANE A
+// ---------------------------------------------------------
+.fil-ariane a {
+  color: $couleur-ardoise-400;
+  text-decoration: none;
+  transition: color $transition-rapide;
+
+  &:hover {
+    color: $couleur-bleu;
+  }
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE
+// ---------------------------------------------------------
+.en-tete-espace {
+  margin-bottom: 28px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE H1
+// ---------------------------------------------------------
+.en-tete-espace h1 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE__METADONNEES
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: $couleur-texte-secondaire;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE__EVALUATION
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE__METADONNEES > P:FIRST-CHILD > IMG
+// ---------------------------------------------------------
+.en-tete-espace__metadonnees > p:first-child > img {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE__EVALUATION
+// ---------------------------------------------------------
+.en-tete-espace__evaluation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .EN-TETE-ESPACE__EVALUATION STRONG
+// ---------------------------------------------------------
+.en-tete-espace__evaluation strong {
+  color: $couleur-bleu-nuit;
+  font-weight: 700;
+}
+
