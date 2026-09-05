@@ -1,23 +1,10 @@
 // ---------------------------------------------------------
-// Fichier : resources/scss/layout/_header.scss
-// Rôle : Définir la structure et les grandes zones communes des pages. Ce fichier concerne header.
-// Tâches :
-// - Regrouper les règles SCSS relatives à header.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
-// ---------------------------------------------------------
-
-// ---------------------------------------------------------
-// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
-// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ASSEMBLAGE DES FEUILLES DE STYLES
 // ---------------------------------------------------------
 @use "../abstracts/variables" as *;
 
 // ---------------------------------------------------------
-// Zone : RÈGLES #CONTENEUR-HEADER
-// Cette zone regroupe les règles liées à règles #conteneur-header.
+// RÈGLES #CONTENEUR-HEADER
 // ---------------------------------------------------------
 #conteneur-header {
   position: sticky;
@@ -26,18 +13,16 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .EN-TETE-SITE
-// Cette zone regroupe les règles liées à règles .en-tete-site.
+// RÈGLES .EN-TETE-SITE
 // ---------------------------------------------------------
 .en-tete-site {
   height: 64px;
   background: $couleur-bleu-nuit;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px $couleur-noir-10, 0 8px 10px -6px $couleur-noir-10;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .EN-TETE-SITE__CONTENU
-// Cette zone regroupe les règles liées à règles .en-tete-site__contenu.
+// RÈGLES .EN-TETE-SITE__CONTENU
 // ---------------------------------------------------------
 .en-tete-site__contenu {
   display: flex;
@@ -47,8 +32,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .IDENTITE-SITE
-// Cette zone regroupe les règles liées à règles .identite-site.
+// RÈGLES .IDENTITE-SITE
 // ---------------------------------------------------------
 .identite-site {
   display: inline-flex;
@@ -64,8 +48,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .IDENTITE-SITE__SYMBOLE
-// Cette zone regroupe les règles liées à règles .identite-site__symbole.
+// RÈGLES .IDENTITE-SITE__SYMBOLE
 // ---------------------------------------------------------
 .identite-site__symbole {
   display: inline-flex;
@@ -76,12 +59,11 @@
   justify-content: center;
   background: $couleur-bleu;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.3), 0 2px 4px -2px rgba(2, 132, 199, 0.3);
+  box-shadow: 0 4px 6px -1px $couleur-bleu-30, 0 2px 4px -2px $couleur-bleu-30;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .IDENTITE-SITE__SYMBOLE IMG
-// Cette zone regroupe les règles liées à règles .identite-site__symbole img.
+// RÈGLES .IDENTITE-SITE__SYMBOLE IMG
 // ---------------------------------------------------------
 .identite-site__symbole img {
   width: 17px;
@@ -90,24 +72,21 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .IDENTITE-SITE__NOM STRONG
-// Cette zone regroupe les règles liées à règles .identite-site__nom strong.
+// RÈGLES .IDENTITE-SITE__NOM STRONG
 // ---------------------------------------------------------
 .identite-site__nom strong {
   color: $couleur-cyan;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .NAVIGATION-SITE
-// Cette zone regroupe les règles liées à règles .navigation-site.
+// RÈGLES .NAVIGATION-SITE
 // ---------------------------------------------------------
 .navigation-site {
   display: block;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .NAVIGATION-SITE__LISTE
-// Cette zone regroupe les règles liées à règles .navigation-site__liste.
+// RÈGLES .NAVIGATION-SITE__LISTE
 // ---------------------------------------------------------
 .navigation-site__liste {
   display: flex;
@@ -117,8 +96,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .NAVIGATION-SITE__LIEN
-// Cette zone regroupe les règles liées à règles .navigation-site__lien.
+// RÈGLES .NAVIGATION-SITE__LIEN
 // ---------------------------------------------------------
 .navigation-site__lien {
   display: flex;
@@ -132,29 +110,20 @@
   line-height: 20px;
   text-decoration: none;
   transition: color $transition-rapide, background-color $transition-rapide;
+
+  &:hover {
+    background: $couleur-blanc-05;
+    color: $couleur-blanc;
+  }
+
+  &--actif {
+    background: $couleur-blanc-10;
+    color: $couleur-cyan;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .NAVIGATION-SITE__LIEN:HOVER
-// Cette zone regroupe les règles liées à règles .navigation-site__lien:hover.
-// ---------------------------------------------------------
-.navigation-site__lien:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: $couleur-blanc;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .NAVIGATION-SITE__LIEN--ACTIF
-// Cette zone regroupe les règles liées à règles .navigation-site__lien--actif.
-// ---------------------------------------------------------
-.navigation-site__lien--actif {
-  background: rgba(255, 255, 255, 0.1);
-  color: $couleur-cyan;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .COMPTEUR-FAVORIS
-// Cette zone regroupe les règles liées à règles .compteur-favoris.
+// RÈGLES .COMPTEUR-FAVORIS
 // ---------------------------------------------------------
 .compteur-favoris {
   display: inline-flex;
@@ -173,10 +142,9 @@
 }
 
 // ---------------------------------------------------------
-// Zone : ADAPTATION DE L'EN-TÊTE AUX PETITS ÉCRANS
-// Cette zone conserve les trois liens de navigation sans défilement horizontal.
+// ADAPTATION DE L'EN-TÊTE AUX PETITS ÉCRANS
 // ---------------------------------------------------------
-@media (max-width: 639px) {
+@media (max-width: ($point-rupture-tablette - 1px)) {
   .en-tete-site__contenu {
     gap: 8px;
   }
@@ -201,7 +169,7 @@
   }
 }
 
-@media (max-width: 374px) {
+@media (max-width: $point-rupture-petit-mobile) {
   .navigation-site__lien {
     padding-right: 5px;
     padding-left: 5px;

@@ -1,31 +1,16 @@
-// ---------------------------------------------------------
-// Fichier : resources/scss/components/_carousel.scss
-// Rôle : Définir la présentation d’un composant réutilisable. Ce fichier concerne carousel.
-// Tâches :
-// - Regrouper les règles SCSS relatives à carousel.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
-// ---------------------------------------------------------
-
-// ---------------------------------------------------------
-// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
-// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ASSEMBLAGE DES FEUILLES DE STYLES
 // ---------------------------------------------------------
 @use "../abstracts/variables" as *;
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE
-// Cette zone regroupe les règles liées à règles .carrousel-equipe.
+// RÈGLES .CARROUSEL-EQUIPE
 // ---------------------------------------------------------
 .carrousel-equipe {
   position: relative;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__LISTE
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__liste.
+// RÈGLES .CARROUSEL-EQUIPE__LISTE
 // ---------------------------------------------------------
 .carrousel-equipe__liste {
   display: flex;
@@ -34,19 +19,14 @@
   list-style: none;
   opacity: 1;
   transition: opacity 300ms ease;
+
+  &--en-animation {
+    opacity: 0;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__LISTE--EN-ANIMATION
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__liste--en-animation.
-// ---------------------------------------------------------
-.carrousel-equipe__liste--en-animation {
-  opacity: 0;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__ELEMENT
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__element.
+// RÈGLES .CARROUSEL-EQUIPE__ELEMENT
 // ---------------------------------------------------------
 .carrousel-equipe__element {
   width: calc(50% - 10px);
@@ -54,16 +34,14 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE
-// Cette zone regroupe les règles liées à règles .carte-membre.
+// RÈGLES .CARTE-MEMBRE
 // ---------------------------------------------------------
 .carte-membre {
   text-align: center;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE__PORTRAIT
-// Cette zone regroupe les règles liées à règles .carte-membre__portrait.
+// RÈGLES .CARTE-MEMBRE__PORTRAIT
 // ---------------------------------------------------------
 .carte-membre__portrait {
   position: relative;
@@ -72,65 +50,53 @@
   margin: 0 auto 16px;
   overflow: hidden;
   background: $couleur-ardoise-200;
-  border-radius: $rayon-grand;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-radius: $rayon-standard;
+  box-shadow: 0 4px 6px -1px $couleur-noir-10, 0 2px 4px -2px $couleur-noir-10;
   transition: transform 300ms ease, box-shadow 300ms ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 500ms ease;
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, $couleur-bleu-nuit-40, transparent);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE__PORTRAIT IMG
-// Cette zone regroupe les règles liées à règles .carte-membre__portrait img.
-// ---------------------------------------------------------
-.carte-membre__portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 500ms ease;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE__PORTRAIT::AFTER
-// Cette zone regroupe les règles liées à règles .carte-membre__portrait::after.
-// ---------------------------------------------------------
-.carte-membre__portrait::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(15, 23, 42, 0.4), transparent);
-  content: "";
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 300ms ease;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT
-// Cette zone regroupe les règles liées à règles .carte-membre:hover .carte-membre__portrait.
+// RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT
 // ---------------------------------------------------------
 .carte-membre:hover .carte-membre__portrait {
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px $couleur-noir-10, 0 8px 10px -6px $couleur-noir-10;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT IMG
-// Cette zone regroupe les règles liées à règles .carte-membre:hover .carte-membre__portrait img.
+// RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT IMG
 // ---------------------------------------------------------
 .carte-membre:hover .carte-membre__portrait img {
   transform: scale(1.05);
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT::AFTER
-// Cette zone regroupe les règles liées à règles .carte-membre:hover .carte-membre__portrait::after.
+// RÈGLES .CARTE-MEMBRE:HOVER .CARTE-MEMBRE__PORTRAIT::AFTER
 // ---------------------------------------------------------
 .carte-membre:hover .carte-membre__portrait::after {
   opacity: 1;
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE H3
-// Cette zone regroupe les règles liées à règles .carte-membre h3.
+// RÈGLES .CARTE-MEMBRE H3
 // ---------------------------------------------------------
 .carte-membre h3 {
   margin: 0 0 2px;
@@ -141,8 +107,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARTE-MEMBRE__FONCTION
-// Cette zone regroupe les règles liées à règles .carte-membre__fonction.
+// RÈGLES .CARTE-MEMBRE__FONCTION
 // ---------------------------------------------------------
 .carte-membre__fonction {
   margin: 0;
@@ -153,8 +118,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : LIEN EMAIL DES MEMBRES
-// Cette zone présente l’action permettant de contacter directement un membre de l’équipe.
+// LIEN EMAIL DES MEMBRES
 // ---------------------------------------------------------
 .carte-membre__email {
   display: inline-flex;
@@ -166,21 +130,20 @@
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-}
 
-.carte-membre__email img {
-  width: 14px;
-  height: 14px;
-}
+  img {
+    width: 14px;
+    height: 14px;
+  }
 
-.carte-membre__email:hover {
-  color: $couleur-bleu-actif;
-  text-decoration: underline;
+  &:hover {
+    color: $couleur-bleu-actif;
+    text-decoration: underline;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__COMMANDES
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__commandes.
+// RÈGLES .CARROUSEL-EQUIPE__COMMANDES
 // ---------------------------------------------------------
 .carrousel-equipe__commandes {
   display: flex;
@@ -191,8 +154,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__FLECHE
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__fleche.
+// RÈGLES .CARROUSEL-EQUIPE__FLECHE
 // ---------------------------------------------------------
 .carrousel-equipe__fleche {
   display: inline-flex;
@@ -205,38 +167,25 @@
   border: 2px solid $couleur-ardoise-200;
   border-radius: 50%;
   transition: background-color $transition-rapide, border-color $transition-rapide;
+
+  img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) saturate(100%) invert(44%) sepia(16%) saturate(645%) hue-rotate(176deg) brightness(92%) contrast(88%);
+  }
+
+  &:hover {
+    background: $couleur-bleu;
+    border-color: $couleur-bleu;
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__FLECHE IMG
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__fleche img.
-// ---------------------------------------------------------
-.carrousel-equipe__fleche img {
-  width: 18px;
-  height: 18px;
-  filter: brightness(0) saturate(100%) invert(44%) sepia(16%) saturate(645%) hue-rotate(176deg) brightness(92%) contrast(88%);
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__FLECHE:HOVER
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__fleche:hover.
-// ---------------------------------------------------------
-.carrousel-equipe__fleche:hover {
-  background: $couleur-bleu;
-  border-color: $couleur-bleu;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__FLECHE:HOVER IMG
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__fleche:hover img.
-// ---------------------------------------------------------
-.carrousel-equipe__fleche:hover img {
-  filter: brightness(0) invert(1);
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__POINTS
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__points.
+// RÈGLES .CARROUSEL-EQUIPE__POINTS
 // ---------------------------------------------------------
 .carrousel-equipe__points {
   display: flex;
@@ -246,8 +195,7 @@
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__POINT
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__point.
+// RÈGLES .CARROUSEL-EQUIPE__POINT
 // ---------------------------------------------------------
 .carrousel-equipe__point {
   width: 8px;
@@ -257,30 +205,21 @@
   border: 0;
   border-radius: 999px;
   transition: width $transition-carte, background-color $transition-carte;
+
+  &:hover {
+    background: $couleur-ardoise-400;
+  }
+
+  &--actif {
+    width: 24px;
+    background: $couleur-bleu;
+  }
 }
 
 // ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__POINT:HOVER
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__point:hover.
+// ADAPTATION AUX TAILLES D’ÉCRAN
 // ---------------------------------------------------------
-.carrousel-equipe__point:hover {
-  background: $couleur-ardoise-400;
-}
-
-// ---------------------------------------------------------
-// Zone : RÈGLES .CARROUSEL-EQUIPE__POINT--ACTIF
-// Cette zone regroupe les règles liées à règles .carrousel-equipe__point--actif.
-// ---------------------------------------------------------
-.carrousel-equipe__point--actif {
-  width: 24px;
-  background: $couleur-bleu;
-}
-
-// ---------------------------------------------------------
-// Zone : ADAPTATION AUX TAILLES D’ÉCRAN
-// Cette zone regroupe les règles liées à adaptation aux tailles d’écran.
-// ---------------------------------------------------------
-@media (min-width: 640px) {
+@media (min-width: $point-rupture-tablette) {
   .carrousel-equipe__element {
     width: calc(25% - 15px);
     flex-basis: calc(25% - 15px);

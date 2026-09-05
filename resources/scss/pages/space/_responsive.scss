@@ -1,0 +1,43 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// ADAPTATION AUX TAILLES D’ÉCRAN
+// ---------------------------------------------------------
+@media (min-width: $point-rupture-tablette) {
+  .en-tete-espace h1 {
+    font-size: 36px;
+  }
+
+  .galerie-espace {
+    height: 400px;
+  }
+
+  .liste-equipements li {
+    width: calc(50% - 6px);
+  }
+}
+
+// ---------------------------------------------------------
+// ADAPTATION AUX TAILLES D’ÉCRAN
+// ---------------------------------------------------------
+@media (min-width: $point-rupture-desktop) {
+  .disposition-detail-espace {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contenu-detail-espace {
+    width: calc(66.666% - 14px);
+  }
+
+  .carte-tarifs {
+    position: sticky;
+    top: 112px;
+    width: calc(33.333% - 26px);
+    flex: 0 0 calc(33.333% - 26px);
+  }
+}
+

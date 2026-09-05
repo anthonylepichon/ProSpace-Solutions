@@ -1,0 +1,227 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .COLONNE-LATERALE-CONTACT
+// ---------------------------------------------------------
+.colonne-laterale-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-ENTREPRISE
+// ---------------------------------------------------------
+.carte-entreprise {
+  padding: 28px;
+  background: $couleur-bleu-nuit;
+  border-radius: $rayon-standard;
+  color: $couleur-blanc;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-ENTREPRISE H2
+// ---------------------------------------------------------
+.carte-entreprise h2 {
+  margin: 0 0 4px;
+  color: $couleur-blanc;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-ENTREPRISE__SURTITRE
+// ---------------------------------------------------------
+.carte-entreprise__surtitre {
+  margin: 0 0 24px;
+  color: $couleur-cyan;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-ENTREPRISE ADDRESS
+// ---------------------------------------------------------
+.carte-entreprise address {
+  font-style: normal;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE
+// ---------------------------------------------------------
+.liste-informations-entreprise {
+  list-style: none;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE LI
+// ---------------------------------------------------------
+.liste-informations-entreprise li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE LI + LI
+// ---------------------------------------------------------
+.liste-informations-entreprise li + li {
+  margin-top: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE LI > IMG
+// ---------------------------------------------------------
+.liste-informations-entreprise li > img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  margin-top: 2px;
+  padding: 9px;
+  background: $couleur-blanc-10;
+  border-radius: $rayon-standard;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE DIV
+// ---------------------------------------------------------
+.liste-informations-entreprise div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE STRONG
+// ---------------------------------------------------------
+.liste-informations-entreprise strong {
+  margin-bottom: 2px;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .LISTE-INFORMATIONS-ENTREPRISE A
+// ---------------------------------------------------------
+.liste-informations-entreprise span,
+.liste-informations-entreprise a {
+  color: $couleur-blanc;
+  font-size: 14px;
+  line-height: 1.625;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-REPONSE
+// ---------------------------------------------------------
+.carte-reponse {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: $couleur-ciel-clair;
+  border: 1px solid $couleur-bordure-bleue;
+  border-radius: $rayon-standard;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-REPONSE > IMG
+// ---------------------------------------------------------
+.carte-reponse > img {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  padding: 11px;
+  background: $couleur-bleu-10;
+  border-radius: $rayon-standard;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-REPONSE H2
+// ---------------------------------------------------------
+.carte-reponse h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-REPONSE P
+// ---------------------------------------------------------
+.carte-reponse p {
+  margin: 0;
+  color: $couleur-texte-secondaire;
+  font-size: 12px;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TEMOIGNAGE
+// ---------------------------------------------------------
+.carte-temoignage {
+  margin: 0;
+  padding: 20px;
+  background: $couleur-blanc;
+  border: 1px solid $couleur-ardoise-200;
+  border-radius: $rayon-standard;
+  color: $couleur-texte-secondaire;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TEMOIGNAGE__EVALUATION
+// ---------------------------------------------------------
+.carte-temoignage__evaluation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  color: $couleur-etoile;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TEMOIGNAGE__EVALUATION STRONG
+// ---------------------------------------------------------
+.carte-temoignage__evaluation strong {
+  color: $couleur-bleu-nuit;
+  font-size: 14px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TEMOIGNAGE BLOCKQUOTE
+// ---------------------------------------------------------
+.carte-temoignage blockquote {
+  margin: 0;
+  color: $couleur-texte-secondaire;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.625;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TEMOIGNAGE FIGCAPTION
+// ---------------------------------------------------------
+.carte-temoignage figcaption {
+  margin-top: 8px;
+  color: $couleur-bleu-nuit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
