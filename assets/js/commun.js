@@ -6,7 +6,7 @@
  * - Charger l’en-tête, le pied de page et les données des espaces.
  * - Gérer la navigation, les favoris, les destinations et la police adaptée.
  * Liens avec les autres fichiers :
- * - assets/html/header.html et assets/html/footer.html pour les fragments communs.
+ * - partials/header.html et partials/footer.html pour les fragments communs.
  * - assets/js/espaces.json pour les données.
  * - Tous les autres scripts de page utilisent l’objet global ProSpace.
  * ---------------------------------------------------------
@@ -103,8 +103,8 @@
   async function chargerStructureCommune() {
     try {
       await Promise.all([
-        chargerFragment("conteneur-header", "assets/html/header.html"),
-        chargerFragment("conteneur-footer", "assets/html/footer.html")
+        chargerFragment("conteneur-header", "partials/header.html"),
+        chargerFragment("conteneur-footer", "partials/footer.html")
       ]);
 
       mettreAJourNavigation();

@@ -37,14 +37,14 @@ prospace/
 │   ├── espace.html
 │   ├── mes-espaces.html
 │   └── contact.html
+├── partials/
+│   ├── header.html
+│   └── footer.html
 ├── assets/
 │   ├── css/
 │   │   └── main.css
 │   ├── favicon/
 │   ├── fonts/
-│   ├── html/
-│   │   ├── header.html
-│   │   └── footer.html
 │   ├── icons/
 │   ├── images/
 │   └── js/
