@@ -43,6 +43,9 @@ prospace/
 ├── assets/
 │   ├── css/
 │   │   └── main.css
+│   ├── data/
+│   │   ├── equipe.json
+│   │   └── espaces.json
 │   ├── favicon/
 │   ├── fonts/
 │   ├── icons/
@@ -52,9 +55,7 @@ prospace/
 │       ├── catalogue.js
 │       ├── espace.js
 │       ├── mes-espaces.js
-│       ├── contact.js
-│       ├── equipe.json
-│       └── espaces.json
+│       └── contact.js
 ├── resources/
 │   ├── main.scss
 │   └── scss/
@@ -141,17 +142,17 @@ Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement l
 
 Le projet ne consomme pas d'API distante. Ses données sont réparties dans deux fichiers JSON locaux chargés avec `fetch` :
 
-- `assets/js/espaces.json`, chargé depuis `commun.js`, contient les espaces, les favoris initiaux et les destinations du pied de page ;
-- `assets/js/equipe.json`, chargé uniquement depuis `contact.js`, contient les membres affichés dans le carrousel de l'équipe.
+- `assets/data/espaces.json`, chargé depuis `commun.js`, contient les espaces, les favoris initiaux et les destinations du pied de page ;
+- `assets/data/equipe.json`, chargé uniquement depuis `contact.js`, contient les membres affichés dans le carrousel de l'équipe.
 
 Chaque espace contient notamment :
 
 - un identifiant unique utilisé dans les URL ;
-- un titre, une ville et une adresse ;
+- un titre, une ville utilisée pour les filtres, un libellé de ville détaillé et une adresse ;
 - une capacité et une liste d'équipements ;
 - les prix à l'heure, à la demi-journée et à la journée ;
 - une description, une note et un nombre d'avis ;
-- les noms, descriptions et dimensions des images.
+- une image de carte et une galerie dont chaque image possède son fichier, son texte alternatif et ses dimensions réelles.
 
 Chaque membre de l'équipe possède un nom, une fonction, une photographie et une adresse électronique professionnelle. Cette séparation permet de modifier le contenu du carrousel sans intervenir dans sa logique JavaScript.
 
