@@ -4,7 +4,7 @@
  * Rôle : Regrouper les services JavaScript partagés par toutes les pages.
  * Tâches :
  * - Charger l’en-tête, le pied de page et les données des espaces.
- * - Gérer la navigation, les favoris, les destinations et la police adaptée.
+ * - Gérer la navigation, les favoris et la police adaptée.
  * Liens avec les autres fichiers :
  * - partials/header.html et partials/footer.html pour les fragments communs.
  * - assets/data/espaces.json pour les données.
@@ -112,174 +112,9 @@
 
     try {
       await chargerFragment("conteneur-footer", "partials/footer.html");
-      await initialiserDestinations();
     } catch (erreurPiedPage) {
       console.error("Le pied de page ne peut pas être chargé.", erreurPiedPage);
     }
-  }
-
-  function estTexteNonVide(valeur) {
-    return typeof valeur === "string" && valeur.trim() !== "";
-  }
-
-  function estNombrePositif(valeur) {
-    return typeof valeur === "number" && Number.isFinite(valeur) && valeur > 0;
-  }
-
-  function imageEstValide(image) {
-    if (!image) {
-      return false;
-    }
-
-    if (!estTexteNonVide(image.src) || !estTexteNonVide(image.alt)) {
-      return false;
-    }
-
-    if (!Number.isInteger(image.width) || image.width <= 0) {
-      return false;
-    }
-
-    if (!Number.isInteger(image.height) || image.height <= 0) {
-      return false;
-    }
-
-    return true;
-  }
-
-  function tableauTextesEstValide(tableau, tableauObligatoire) {
-    if (!Array.isArray(tableau)) {
-      return false;
-    }
-
-    if (tableauObligatoire && tableau.length === 0) {
-      return false;
-    }
-
-    for (let index = 0; index < tableau.length; index++) {
-      if (!estTexteNonVide(tableau[index])) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  function espaceEstValide(espace) {
-    if (!espace) {
-      return false;
-    }
-
-    if (!estTexteNonVide(espace.id) || !estTexteNonVide(espace.title)) {
-      return false;
-    }
-
-    if (!estTexteNonVide(espace.city) || !estTexteNonVide(espace.displayCity)) {
-      return false;
-    }
-
-    if (!estTexteNonVide(espace.address) || !estTexteNonVide(espace.description)) {
-      return false;
-    }
-
-    if (!Number.isInteger(espace.capacity) || espace.capacity <= 0) {
-      return false;
-    }
-
-    if (!estNombrePositif(espace.priceHour)) {
-      return false;
-    }
-
-    if (!estNombrePositif(espace.priceHalfDay)) {
-      return false;
-    }
-
-    if (!estNombrePositif(espace.priceDay)) {
-      return false;
-    }
-
-    if (typeof espace.rating !== "number" || espace.rating < 0 || espace.rating > 5) {
-      return false;
-    }
-
-    if (!Number.isInteger(espace.reviews) || espace.reviews < 0) {
-      return false;
-    }
-
-    if (!tableauTextesEstValide(espace.amenities, false)) {
-      return false;
-    }
-
-    if (!imageEstValide(espace.cardImage)) {
-      return false;
-    }
-
-    if (!Array.isArray(espace.gallery) || espace.gallery.length === 0) {
-      return false;
-    }
-
-    for (let index = 0; index < espace.gallery.length; index++) {
-      if (!imageEstValide(espace.gallery[index])) {
-        return false;
-      }
-    }
-
-    if (!tableauTextesEstValide(espace.equipment, true)) {
-      return false;
-    }
-
-    return true;
-  }
-
-  function donneesCatalogueSontValides(donnees) {
-    if (!donnees) {
-      return false;
-    }
-
-    if (!Array.isArray(donnees.spaces) || donnees.spaces.length === 0) {
-      return false;
-    }
-
-    if (!Array.isArray(donnees.destinations) || !Array.isArray(donnees.defaultFavorites)) {
-      return false;
-    }
-
-    const identifiants = [];
-
-    for (let index = 0; index < donnees.spaces.length; index++) {
-      const espace = donnees.spaces[index];
-
-      if (!espaceEstValide(espace)) {
-        return false;
-      }
-
-      if (identifiants.indexOf(espace.id) !== -1) {
-        return false;
-      }
-
-      identifiants.push(espace.id);
-    }
-
-    for (let index = 0; index < donnees.defaultFavorites.length; index++) {
-      const identifiant = donnees.defaultFavorites[index];
-
-      if (!estTexteNonVide(identifiant) || identifiants.indexOf(identifiant) === -1) {
-        return false;
-      }
-    }
-
-    for (let index = 0; index < donnees.destinations.length; index++) {
-      const destination = donnees.destinations[index];
-
-      if (!destination || !estTexteNonVide(destination.label)) {
-        return false;
-      }
-
-      if (typeof destination.city !== "string") {
-        return false;
-      }
-    }
-
-    return true;
   }
 
   /*
@@ -317,12 +152,11 @@
 
     const donnees = await reponse.json();
 
-    if (!donneesCatalogueSontValides(donnees)) {
+    if (!Array.isArray(donnees.spaces) || !Array.isArray(donnees.defaultFavorites)) {
       throw new Error("Le format du catalogue est invalide.");
     }
 
     initialiserFavorisParDefaut(donnees.defaultFavorites);
-    nettoyerFavorisInconnus(donnees.spaces);
     mettreAJourCompteursFavoris();
     return donnees;
   }
@@ -449,40 +283,6 @@
 
     mettreAJourCompteursFavoris();
     return true;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Retirer les favoris qui ne correspondent plus au catalogue.
-   * Paramètres :
-   * - espaces : Tableau des espaces actuellement disponibles.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function nettoyerFavorisInconnus(espaces) {
-    const favoris = lireFavoris();
-    const favorisValides = [];
-
-    for (let indexFavori = 0; indexFavori < favoris.length; indexFavori++) {
-      const identifiant = favoris[indexFavori];
-      let favoriConnu = false;
-
-      for (let indexEspace = 0; indexEspace < espaces.length; indexEspace++) {
-        const espace = espaces[indexEspace];
-
-        if (espace.id === identifiant) {
-          favoriConnu = true;
-        }
-      }
-
-      if (favoriConnu) {
-        favorisValides.push(identifiant);
-      }
-    }
-
-    if (favorisValides.length !== favoris.length) {
-      enregistrerFavoris(favorisValides);
-    }
   }
 
   /*
@@ -650,49 +450,6 @@
     }
 
     return estFavori;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Construire la liste des destinations du pied de page.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Une promesse résolue à la fin du traitement.
-   * ---------------------------------------------------------
-   */
-  async function initialiserDestinations() {
-    const listeDestinations = document.getElementById("liste-destinations");
-
-    if (!listeDestinations) {
-      return;
-    }
-
-    try {
-      const donnees = await chargerDonnees();
-
-      listeDestinations.textContent = "";
-
-      for (let index = 0; index < donnees.destinations.length; index++) {
-        const destination = donnees.destinations[index];
-        const elementListe = document.createElement("li");
-        let elementDestination;
-
-        if (destination.city) {
-          elementDestination = document.createElement("a");
-          elementDestination.href = cheminRessource(
-            "index.html?ville=" + encodeURIComponent(destination.city) + "#espaces-disponibles"
-          );
-        } else {
-          elementDestination = document.createElement("span");
-        }
-
-        elementDestination.textContent = "Espaces à " + destination.label;
-        elementListe.appendChild(elementDestination);
-        listeDestinations.appendChild(elementListe);
-      }
-    } catch (erreur) {
-      console.error("Les destinations ne peuvent pas être chargées.", erreur);
-    }
   }
 
   /*

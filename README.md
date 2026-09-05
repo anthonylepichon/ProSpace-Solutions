@@ -143,7 +143,7 @@ Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement l
 
 Le projet ne consomme pas d'API distante. Ses données sont réparties dans deux fichiers JSON locaux chargés avec `fetch` :
 
-- `assets/data/espaces.json`, chargé depuis `commun.js`, contient les espaces, les favoris initiaux et les destinations du pied de page ;
+- `assets/data/espaces.json`, chargé depuis `commun.js`, contient les espaces et les favoris initiaux ;
 - `assets/data/equipe.json`, chargé uniquement depuis `equipe.js`, contient les membres affichés dans le carrousel de l'équipe ainsi que les dimensions communes de leurs portraits.
 
 Chaque espace contient notamment :
@@ -176,14 +176,6 @@ pages/contact.html?espace=wagram-opera
 ```
 
 `contact.js` lit le paramètre `espace` et présélectionne le sujet associé à la demande.
-
-### Préfiltrage facultatif par ville
-
-```text
-index.html?ville=Bordeaux
-```
-
-`catalogue.js` lit le paramètre `ville` et applique le filtre lorsqu'il correspond à une option existante. Ce comportement facilite l'accès au catalogue depuis les destinations du pied de page.
 
 ## Stockage local
 

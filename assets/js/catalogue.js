@@ -292,33 +292,6 @@
 
   /*
    * ---------------------------------------------------------
-   * Rôle : Appliquer au filtre la ville présente dans l’adresse.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function appliquerVilleDepuisUrl() {
-    const parametres = new URLSearchParams(window.location.search);
-    const ville = parametres.get("ville");
-    let villeValide = false;
-    const options = filtreVille.querySelectorAll("option");
-
-    for (let index = 0; index < options.length; index++) {
-      const option = options[index];
-
-      if (option.value === ville) {
-        villeValide = true;
-      }
-    }
-
-    if (ville && villeValide) {
-      filtreVille.value = ville;
-    }
-  }
-
-  /*
-   * ---------------------------------------------------------
    * Rôle : Charger les données et initialiser le catalogue.
    * Paramètres :
    * - Aucun.
@@ -335,7 +308,6 @@
     try {
       espaces = await ProSpace.chargerEspaces();
       afficherVilles();
-      appliquerVilleDepuisUrl();
       afficherResultats();
     } catch (erreur) {
       erreurChargement.hidden = false;

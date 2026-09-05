@@ -1013,11 +1013,6 @@ textarea:focus {
   flex-wrap: wrap;
   gap: 20px;
   list-style: none;
-  opacity: 1;
-  transition: opacity 300ms ease;
-}
-.carrousel-equipe__liste--en-animation {
-  opacity: 0;
 }
 
 .carrousel-equipe__element {

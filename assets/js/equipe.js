@@ -3,7 +3,7 @@
  * Fichier : assets/js/equipe.js
  * Rôle : Gérer l’affichage et le carrousel de l’équipe.
  * Tâches :
- * - Charger et valider les membres depuis le fichier JSON.
+ * - Charger les membres depuis le fichier JSON.
  * - Construire les cartes et piloter la navigation du carrousel.
  * Liens avec les autres fichiers :
  * - pages/contact.html fournit les conteneurs et les commandes.
@@ -23,31 +23,6 @@
   let dimensionsPhoto = null;
   let indexEquipe = 0;
   const nombreVisible = 4;
-  let animationEnCours = false;
-
-  function estTexteNonVide(valeur) {
-    return typeof valeur === "string" && valeur.trim() !== "";
-  }
-
-  function membreEstValide(membre) {
-    if (!membre) {
-      return false;
-    }
-
-    if (!estTexteNonVide(membre.nom) || !estTexteNonVide(membre.fonction)) {
-      return false;
-    }
-
-    if (!estTexteNonVide(membre.photo) || !estTexteNonVide(membre.email)) {
-      return false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(membre.email)) {
-      return false;
-    }
-
-    return true;
-  }
 
   /*
    * ---------------------------------------------------------
@@ -68,28 +43,12 @@
 
     const donnees = await reponse.json();
 
-    if (!donnees.dimensionsPhoto) {
-      throw new Error("La liste des membres de l'équipe est vide ou invalide.");
-    }
-
-    if (!Number.isInteger(donnees.dimensionsPhoto.largeur) || donnees.dimensionsPhoto.largeur <= 0) {
-      throw new Error("La largeur des portraits est invalide.");
-    }
-
-    if (!Number.isInteger(donnees.dimensionsPhoto.hauteur) || donnees.dimensionsPhoto.hauteur <= 0) {
-      throw new Error("La hauteur des portraits est invalide.");
-    }
-
     if (!Array.isArray(donnees.membres) || donnees.membres.length === 0) {
       throw new Error("La liste des membres de l'équipe est vide ou invalide.");
     }
 
-    for (let index = 0; index < donnees.membres.length; index++) {
-      const membre = donnees.membres[index];
-
-      if (!membreEstValide(membre)) {
-        throw new Error("Les informations d'un membre de l'équipe sont invalides.");
-      }
+    if (!donnees.dimensionsPhoto) {
+      throw new Error("Les dimensions des portraits sont manquantes.");
     }
 
     return donnees;
@@ -230,51 +189,15 @@
 
   /*
    * ---------------------------------------------------------
-   * Rôle : Changer la position du carrousel avec une transition.
+   * Rôle : Changer la position du carrousel.
    * Paramètres :
    * - nouvelIndex : Nouvelle position de départ du carrousel.
    * Retour : Aucune valeur.
    * ---------------------------------------------------------
    */
-  function afficherEquipeAvecTransition(nouvelIndex) {
-    if (animationEnCours) {
-      return;
-    }
-
-    animationEnCours = true;
-    listeEquipe.classList.add("carrousel-equipe__liste--en-animation");
-
-    attendreFinTransition(function () {
-      indexEquipe = nouvelIndex;
-      afficherEquipe();
-      listeEquipe.classList.remove("carrousel-equipe__liste--en-animation");
-
-      attendreFinTransition(function () {
-        animationEnCours = false;
-      });
-    });
-  }
-
-  function attendreFinTransition(action) {
-    const style = window.getComputedStyle(listeEquipe);
-    const duree = parseFloat(style.transitionDuration) || 0;
-    const delai = parseFloat(style.transitionDelay) || 0;
-
-    if (duree + delai === 0) {
-      action();
-      return;
-    }
-
-    function terminerTransition(event) {
-      if (event.target === listeEquipe && event.propertyName === "opacity") {
-        listeEquipe.removeEventListener("transitionend", terminerTransition);
-        listeEquipe.removeEventListener("transitioncancel", terminerTransition);
-        action();
-      }
-    }
-
-    listeEquipe.addEventListener("transitionend", terminerTransition);
-    listeEquipe.addEventListener("transitioncancel", terminerTransition);
+  function changerPositionEquipe(nouvelIndex) {
+    indexEquipe = nouvelIndex;
+    afficherEquipe();
   }
 
   /*
@@ -294,7 +217,7 @@
       point.setAttribute("aria-label", "Afficher " + membre.nom + " en premier");
 
       point.addEventListener("click", function () {
-        afficherEquipeAvecTransition(index);
+        changerPositionEquipe(index);
       });
 
       navigationEquipe.appendChild(point);
@@ -327,23 +250,11 @@
     }
 
     boutonPrecedent.addEventListener("click", function () {
-      afficherEquipeAvecTransition((indexEquipe - 1 + equipe.length) % equipe.length);
+      changerPositionEquipe((indexEquipe - 1 + equipe.length) % equipe.length);
     });
 
     boutonSuivant.addEventListener("click", function () {
-      afficherEquipeAvecTransition((indexEquipe + 1) % equipe.length);
-    });
-
-    listeEquipe.parentElement.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        afficherEquipeAvecTransition((indexEquipe - 1 + equipe.length) % equipe.length);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        afficherEquipeAvecTransition((indexEquipe + 1) % equipe.length);
-      }
+      changerPositionEquipe((indexEquipe + 1) % equipe.length);
     });
   }
 

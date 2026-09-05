@@ -3,9 +3,8 @@
   Rôle : Définir le pied de page commun chargé dans toutes les pages.
   Tâches :
   - Présenter la marque, les destinations, les services et les liens légaux.
-  - Afficher les destinations alimentées par les données du catalogue.
   Liens avec les autres fichiers :
-  - assets/js/commun.js charge ce fragment, remplace la racine des liens et complète les destinations.
+  - assets/js/commun.js charge ce fragment et remplace la racine des liens.
   - resources/scss/layout/_footer.scss définit sa présentation.
 -->
 
@@ -34,7 +33,15 @@
             <!-- ---------------------------------------------------------------------------- -->
             <nav class="pied-page__navigation" aria-labelledby="titre-destinations">
                 <h2 id="titre-destinations">Destinations</h2>
-                <ul id="liste-destinations"></ul>
+                <ul>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Paris</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Lyon</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Bordeaux</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Nantes</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Marseille</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Toulouse</a></li>
+                    <li><a href="{{racine}}/index.html#espaces-disponibles">Espaces à Lille</a></li>
+                </ul>
             </nav>
 
             <!-- ---------------------------------------------------------------------------- -->

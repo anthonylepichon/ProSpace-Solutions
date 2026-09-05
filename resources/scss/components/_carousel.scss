@@ -17,12 +17,6 @@
   flex-wrap: wrap;
   gap: 20px;
   list-style: none;
-  opacity: 1;
-  transition: opacity 300ms ease;
-
-  &--en-animation {
-    opacity: 0;
-  }
 }
 
 // ---------------------------------------------------------

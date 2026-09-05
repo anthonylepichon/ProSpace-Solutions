@@ -323,35 +323,5 @@
   "defaultFavorites": [
     "wagram-opera",
     "lyon-confluence"
-  ],
-  "destinations": [
-    {
-      "label": "Paris",
-      "city": "Paris"
-    },
-    {
-      "label": "Lyon",
-      "city": "Lyon"
-    },
-    {
-      "label": "Bordeaux",
-      "city": "Bordeaux"
-    },
-    {
-      "label": "Nantes",
-      "city": "Nantes"
-    },
-    {
-      "label": "Marseille",
-      "city": "Marseille"
-    },
-    {
-      "label": "Toulouse",
-      "city": ""
-    },
-    {
-      "label": "Lille",
-      "city": ""
-    }
   ]
 }
