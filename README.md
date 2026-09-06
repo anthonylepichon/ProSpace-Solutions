@@ -70,6 +70,30 @@ prospace/
 
 Les fragments `header.html` et `footer.html` sont chargés sur chaque page par `commun.js`. Le repère personnalisé `{{racine}}` est remplacé par `.` ou `..` selon l'emplacement de la page. Cela permet de partager le même en-tête et le même pied de page sans casser les chemins relatifs.
 
+## Schémas techniques
+
+Les schémas suivants présentent la structure HTML des différentes pages ainsi que les éléments communs de l'application. Ils correspondent aux captures exportées au format JPG dans le dossier `documents/conceptualisation/Schéma technique`. Le fichier source Draw.io n'est pas intégré ci-dessous.
+
+### En-tête et pied de page communs
+
+![Schéma technique de l'en-tête et du pied de page communs](documents/conceptualisation/Sch%C3%A9ma%20technique/header%20et%20footer.jpg)
+
+### Page d'accueil
+
+![Schéma technique de la page d'accueil](documents/conceptualisation/Sch%C3%A9ma%20technique/index.jpg)
+
+### Page de présentation d'un espace
+
+![Schéma technique de la page de présentation d'un espace](documents/conceptualisation/Sch%C3%A9ma%20technique/espace.jpg)
+
+### Page Mes espaces
+
+![Schéma technique de la page Mes espaces](documents/conceptualisation/Sch%C3%A9ma%20technique/mes-espaces.jpg)
+
+### Page Contact
+
+![Schéma technique de la page Contact](documents/conceptualisation/Sch%C3%A9ma%20technique/contact.jpg)
+
 ## Installation et utilisation
 
 Cloner le dépôt :
