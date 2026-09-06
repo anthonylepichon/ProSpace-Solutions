@@ -1,0 +1,92 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-LOCALISATION
+// ---------------------------------------------------------
+.section-localisation {
+  padding-top: 0;
+  padding-bottom: 64px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-LOCALISATION
+// ---------------------------------------------------------
+.carte-localisation {
+  display: flex;
+  height: 224px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, $couleur-ardoise-100 0%, $couleur-ciel-clair 50%, $couleur-ardoise-100 100%);
+  border: 1px solid $couleur-ardoise-200;
+  border-radius: $rayon-standard;
+  box-shadow: $ombre-legere;
+  color: $couleur-texte-secondaire;
+  text-align: center;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-LOCALISATION > IMG
+// ---------------------------------------------------------
+.carte-localisation > img {
+  width: 48px;
+  height: 48px;
+  padding: 13px;
+  background: $couleur-bleu-10;
+  border-radius: $rayon-standard;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-LOCALISATION H2
+// ---------------------------------------------------------
+.carte-localisation h2 {
+  margin: 0;
+  color: $couleur-bleu-nuit;
+  font-family: $police-texte;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-LOCALISATION P
+// ---------------------------------------------------------
+.carte-localisation p {
+  margin: 4px 0 0;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-LOCALISATION > A
+// ---------------------------------------------------------
+.carte-localisation > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  color: $couleur-bleu;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  img {
+    width: 13px;
+    height: 13px;
+    filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+  }
+}
+

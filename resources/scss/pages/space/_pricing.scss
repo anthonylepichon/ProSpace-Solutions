@@ -1,0 +1,176 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS
+// ---------------------------------------------------------
+.carte-tarifs {
+  @include surface-carte;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px $couleur-ardoise-300-60, 0 8px 10px -6px $couleur-ardoise-300-60;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS H2
+// ---------------------------------------------------------
+.carte-tarifs h2 {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TABLE
+// ---------------------------------------------------------
+.carte-tarifs table {
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TR:LAST-CHILD TD
+// ---------------------------------------------------------
+.carte-tarifs tr:last-child th,
+.carte-tarifs tr:last-child td {
+  border-bottom: 0;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TH
+// ---------------------------------------------------------
+.carte-tarifs th {
+  padding: 12px 0;
+  border-bottom: 1px solid $couleur-ardoise-100;
+  color: $couleur-texte-secondaire;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TH SPAN
+// ---------------------------------------------------------
+.carte-tarifs th span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TH IMG
+// ---------------------------------------------------------
+.carte-tarifs th img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(13%) saturate(561%) hue-rotate(176deg) brightness(89%) contrast(86%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS TD
+// ---------------------------------------------------------
+.carte-tarifs td {
+  padding: 12px 0;
+  border-bottom: 1px solid $couleur-ardoise-100;
+  color: $couleur-bleu-nuit;
+  font-family: $police-chasse-fixe;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TH
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant th {
+  color: $couleur-bleu-nuit;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TH IMG
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant th img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(1598%) hue-rotate(166deg) brightness(86%) contrast(101%);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__MISE-EN-AVANT TD
+// ---------------------------------------------------------
+.carte-tarifs__mise-en-avant td {
+  color: $couleur-bleu;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS
+// ---------------------------------------------------------
+.carte-tarifs__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton {
+  width: 100%;
+  gap: 10px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--FAVORI
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--favori {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--PRIMAIRE
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--primaire {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  box-shadow: 0 10px 15px -3px $couleur-bleu-25;
+  font-weight: 700;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON IMG
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton img {
+  width: 17px;
+  height: 17px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__ACTIONS .BOUTON--PRIMAIRE IMG
+// ---------------------------------------------------------
+.carte-tarifs__actions .bouton--primaire img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+// ---------------------------------------------------------
+// RÈGLES .CARTE-TARIFS__NOTE
+// ---------------------------------------------------------
+.carte-tarifs__note {
+  margin: 16px 0 0;
+  color: $couleur-ardoise-400;
+  font-size: 12px;
+  line-height: 1.625;
+  text-align: center;
+}
+

@@ -1,0 +1,55 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-EQUIPE
+// ---------------------------------------------------------
+.section-equipe {
+  padding: 80px 0;
+  background: $couleur-blanc;
+  border-top: 1px solid $couleur-ardoise-100;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-EQUIPE__EN-TETE
+// ---------------------------------------------------------
+.section-equipe__en-tete {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-EQUIPE__EN-TETE .SURTITRE
+// ---------------------------------------------------------
+.section-equipe__en-tete .surtitre {
+  margin-bottom: 12px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-EQUIPE__EN-TETE H2
+// ---------------------------------------------------------
+.section-equipe__en-tete h2 {
+  margin: 0 0 16px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 36px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .SECTION-EQUIPE__EN-TETE > P:LAST-CHILD
+// ---------------------------------------------------------
+.section-equipe__en-tete > p:last-child {
+  max-width: 512px;
+  margin: 0 auto;
+  color: $couleur-texte-secondaire;
+  font-size: 16px;
+  line-height: 1.625;
+}
+

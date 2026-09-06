@@ -1,23 +1,10 @@
 // ---------------------------------------------------------
-// Fichier : resources/scss/base/_typography.scss
-// Rôle : Définir les styles fondamentaux communs à tout le site. Ce fichier concerne typography.
-// Tâches :
-// - Regrouper les règles SCSS relatives à typography.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
-// ---------------------------------------------------------
-
-// ---------------------------------------------------------
-// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
-// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ASSEMBLAGE DES FEUILLES DE STYLES
 // ---------------------------------------------------------
 @use "../abstracts/variables" as *;
 
 // ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
+// POLICES LOCALES
 // ---------------------------------------------------------
 @font-face {
   font-family: "Outfit";
@@ -27,10 +14,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "Outfit";
   src: url("../fonts/outfit-latin-500-normal.woff2") format("woff2");
@@ -39,10 +22,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "Outfit";
   src: url("../fonts/outfit-latin-600-normal.woff2") format("woff2");
@@ -51,10 +30,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "Outfit";
   src: url("../fonts/outfit-latin-700-normal.woff2") format("woff2");
@@ -63,10 +38,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "Outfit";
   src: url("../fonts/outfit-latin-800-normal.woff2") format("woff2");
@@ -75,10 +46,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "DM Sans";
   src: url("../fonts/dm-sans-latin-400-normal.woff2") format("woff2");
@@ -87,10 +54,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "DM Sans";
   src: url("../fonts/dm-sans-latin-400-italic.woff2") format("woff2");
@@ -99,10 +62,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "DM Sans";
   src: url("../fonts/dm-sans-latin-500-normal.woff2") format("woff2");
@@ -111,10 +70,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "DM Sans";
   src: url("../fonts/dm-sans-latin-600-normal.woff2") format("woff2");
@@ -123,10 +78,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
@@ -135,10 +86,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../fonts/jetbrains-mono-latin-600-normal.woff2") format("woff2");
@@ -147,10 +94,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "JetBrains Mono";
   src: url("../fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2");
@@ -159,10 +102,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "OpenDyslexic";
   src: url("../fonts/opendyslexic-latin-400-normal.woff2") format("woff2");
@@ -171,10 +110,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "OpenDyslexic";
   src: url("../fonts/opendyslexic-latin-400-italic.woff2") format("woff2");
@@ -183,10 +118,6 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : POLICES LOCALES
-// Cette zone regroupe les règles liées à polices locales.
-// ---------------------------------------------------------
 @font-face {
   font-family: "OpenDyslexic";
   src: url("../fonts/opendyslexic-latin-700-normal.woff2") format("woff2");
@@ -195,36 +126,28 @@
   font-display: swap;
 }
 
-// ---------------------------------------------------------
-// Zone : RÈGLES BODY
-// Cette zone regroupe les règles liées à règles body.
-// ---------------------------------------------------------
 body {
   font-size: 16px;
   line-height: 1.5;
 }
 
+// ---------------------------------------------------------
+// RÈGLES  des paragraphes
+// ---------------------------------------------------------
 h1,
 h2,
 h3,
 h4,
-
-// ---------------------------------------------------------
-// Zone : RÈGLES P
-// Cette zone regroupe les règles liées à règles p.
-// ---------------------------------------------------------
 p {
   margin-top: 0;
 }
 
+// ---------------------------------------------------------
+// RÈGLES Titres H4
+// ---------------------------------------------------------
 h1,
 h2,
 h3,
-
-// ---------------------------------------------------------
-// Zone : RÈGLES H4
-// Cette zone regroupe les règles liées à règles h4.
-// ---------------------------------------------------------
 h4 {
   color: $couleur-bleu-nuit;
   font-family: $police-titres;

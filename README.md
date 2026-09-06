@@ -37,14 +37,17 @@ prospace/
 │   ├── espace.html
 │   ├── mes-espaces.html
 │   └── contact.html
+├── partials/
+│   ├── header.html
+│   └── footer.html
 ├── assets/
 │   ├── css/
 │   │   └── main.css
+│   ├── data/
+│   │   ├── equipe.json
+│   │   └── espaces.json
 │   ├── favicon/
 │   ├── fonts/
-│   ├── html/
-│   │   ├── header.html
-│   │   └── footer.html
 │   ├── icons/
 │   ├── images/
 │   └── js/
@@ -53,8 +56,7 @@ prospace/
 │       ├── espace.js
 │       ├── mes-espaces.js
 │       ├── contact.js
-│       ├── equipe.json
-│       └── espaces.json
+│       └── equipe.js
 ├── resources/
 │   ├── main.scss
 │   └── scss/
@@ -67,6 +69,30 @@ prospace/
 ```
 
 Les fragments `header.html` et `footer.html` sont chargés sur chaque page par `commun.js`. Le repère personnalisé `{{racine}}` est remplacé par `.` ou `..` selon l'emplacement de la page. Cela permet de partager le même en-tête et le même pied de page sans casser les chemins relatifs.
+
+## Schémas techniques
+
+Les schémas suivants présentent la structure HTML des différentes pages ainsi que les éléments communs de l'application. Ils correspondent aux captures exportées au format JPG dans le dossier `documents/conceptualisation/Schéma technique`. Le fichier source Draw.io n'est pas intégré ci-dessous.
+
+### En-tête et pied de page communs
+
+![Schéma technique de l'en-tête et du pied de page communs](documents/conceptualisation/Sch%C3%A9ma%20technique/header%20et%20footer.jpg)
+
+### Page d'accueil
+
+![Schéma technique de la page d'accueil](documents/conceptualisation/Sch%C3%A9ma%20technique/index.jpg)
+
+### Page de présentation d'un espace
+
+![Schéma technique de la page de présentation d'un espace](documents/conceptualisation/Sch%C3%A9ma%20technique/espace.jpg)
+
+### Page Mes espaces
+
+![Schéma technique de la page Mes espaces](documents/conceptualisation/Sch%C3%A9ma%20technique/mes-espaces.jpg)
+
+### Page Contact
+
+![Schéma technique de la page Contact](documents/conceptualisation/Sch%C3%A9ma%20technique/contact.jpg)
 
 ## Installation et utilisation
 
@@ -141,17 +167,17 @@ Après chaque nouvelle fusion dans `main`, GitHub Pages publie automatiquement l
 
 Le projet ne consomme pas d'API distante. Ses données sont réparties dans deux fichiers JSON locaux chargés avec `fetch` :
 
-- `assets/js/espaces.json`, chargé depuis `commun.js`, contient les espaces, les favoris initiaux et les destinations du pied de page ;
-- `assets/js/equipe.json`, chargé uniquement depuis `contact.js`, contient les membres affichés dans le carrousel de l'équipe.
+- `assets/data/espaces.json`, chargé depuis `commun.js`, contient les espaces et les favoris initiaux ;
+- `assets/data/equipe.json`, chargé uniquement depuis `equipe.js`, contient les membres affichés dans le carrousel de l'équipe ainsi que les dimensions communes de leurs portraits.
 
 Chaque espace contient notamment :
 
 - un identifiant unique utilisé dans les URL ;
-- un titre, une ville et une adresse ;
+- un titre, une ville utilisée pour les filtres, un libellé de ville détaillé et une adresse ;
 - une capacité et une liste d'équipements ;
 - les prix à l'heure, à la demi-journée et à la journée ;
 - une description, une note et un nombre d'avis ;
-- les noms, descriptions et dimensions des images.
+- une image de carte et une galerie dont chaque image possède son fichier, son texte alternatif et ses dimensions réelles.
 
 Chaque membre de l'équipe possède un nom, une fonction, une photographie et une adresse électronique professionnelle. Cette séparation permet de modifier le contenu du carrousel sans intervenir dans sa logique JavaScript.
 
@@ -174,14 +200,6 @@ pages/contact.html?espace=wagram-opera
 ```
 
 `contact.js` lit le paramètre `espace` et présélectionne le sujet associé à la demande.
-
-### Préfiltrage facultatif par ville
-
-```text
-index.html?ville=Bordeaux
-```
-
-`catalogue.js` lit le paramètre `ville` et applique le filtre lorsqu'il correspond à une option existante. Ce comportement facilite l'accès au catalogue depuis les destinations du pied de page.
 
 ## Stockage local
 

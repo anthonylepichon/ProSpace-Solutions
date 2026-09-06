@@ -1,14 +1,13 @@
 /*
  * ---------------------------------------------------------
  * Fichier : assets/js/contact.js
- * Rôle : Gérer le formulaire de contact et le carrousel de l’équipe.
+ * Rôle : Gérer le formulaire de contact.
  * Tâches :
  * - Valider les champs et afficher la confirmation d’envoi.
- * - Préremplir une demande liée à un espace et piloter le carrousel.
+ * - Préremplir une demande liée à un espace.
  * Liens avec les autres fichiers :
  * - pages/contact.html fournit le formulaire et les conteneurs.
  * - assets/js/commun.js fournit les chemins vers les ressources.
- * - assets/js/equipe.json fournit les informations des membres de l'équipe.
  * ---------------------------------------------------------
  */
 
@@ -46,7 +45,11 @@
    * ---------------------------------------------------------
    */
   function obtenirMessageErreur(champ) {
-    const valeur = champ.type === "checkbox" ? "" : champ.value.trim();
+    let valeur = "";
+
+    if (champ.type !== "checkbox") {
+      valeur = champ.value.trim();
+    }
 
     if (champ.id === "nom" && valeur === "") {
       return "Le nom complet est requis.";
@@ -129,23 +132,26 @@
     let premierChampInvalide = null;
     let nombreErreurs = 0;
 
-    champsObligatoires.forEach(function (champ) {
+    for (let index = 0; index < champsObligatoires.length; index++) {
+      const champ = champsObligatoires[index];
+
       if (!mettreAJourErreur(champ)) {
-        nombreErreurs += 1;
+        nombreErreurs++;
 
         if (!premierChampInvalide) {
           premierChampInvalide = champ;
         }
       }
-    });
+    }
 
     if (nombreErreurs > 0) {
       resumeErreurs.textContent =
-        "Le formulaire contient " +
-        nombreErreurs +
-        " erreur" +
-        (nombreErreurs > 1 ? "s" : "") +
-        ". Corrigez les champs indiqués.";
+        "Le formulaire contient " + nombreErreurs + " erreur. Corrigez le champ indiqué.";
+
+      if (nombreErreurs > 1) {
+        resumeErreurs.textContent =
+          "Le formulaire contient " + nombreErreurs + " erreurs. Corrigez les champs indiqués.";
+      }
       resumeErreurs.hidden = false;
       premierChampInvalide.focus();
       return false;
@@ -164,8 +170,13 @@
    * ---------------------------------------------------------
    */
   function initialiserValidation() {
-    champsObligatoires.forEach(function (champ) {
-      const evenementPrincipal = champ.type === "checkbox" || champ.tagName === "SELECT" ? "change" : "input";
+    for (let index = 0; index < champsObligatoires.length; index++) {
+      const champ = champsObligatoires[index];
+      let evenementPrincipal = "input";
+
+      if (champ.type === "checkbox" || champ.tagName === "SELECT") {
+        evenementPrincipal = "change";
+      }
 
       champ.addEventListener("blur", function () {
         mettreAJourErreur(champ);
@@ -176,7 +187,7 @@
           mettreAJourErreur(champ);
         }
       });
-    });
+    }
   }
 
   /*
@@ -205,7 +216,8 @@
   function reinitialiserFormulaire() {
     formulaire.reset();
 
-    champsObligatoires.forEach(function (champ) {
+    for (let index = 0; index < champsObligatoires.length; index++) {
+      const champ = champsObligatoires[index];
       champ.removeAttribute("aria-invalid");
       const elementErreur = document.getElementById("erreur-" + champ.id);
 
@@ -213,7 +225,7 @@
         elementErreur.textContent = "";
         elementErreur.hidden = true;
       }
-    });
+    }
 
     masquerResumeErreurs();
     confirmation.hidden = true;
@@ -239,9 +251,13 @@
 
     try {
       const espaces = await window.ProSpace.chargerEspaces();
-      const espace = espaces.find(function (element) {
-        return element.id === identifiantEspace;
-      });
+      let espace = null;
+
+      for (let index = 0; index < espaces.length; index++) {
+        if (espaces[index].id === identifiantEspace) {
+          espace = espaces[index];
+        }
+      }
 
       if (!espace) {
         statutPreremplissage.textContent = "L'espace demandé n'a pas été trouvé. Le formulaire reste disponible.";
@@ -291,270 +307,5 @@
     preremplirDepuisEspace();
   }
 
-  const listeEquipe = document.getElementById("liste-equipe");
-  const navigationEquipe = document.getElementById("navigation-equipe");
-  const statutEquipe = document.getElementById("statut-equipe");
-  const boutonPrecedent = document.getElementById("equipe-precedente");
-  const boutonSuivant = document.getElementById("equipe-suivante");
-  const commandesEquipe = document.getElementById("commandes-equipe");
-  let equipe = [];
-  let indexEquipe = 0;
-  const nombreVisible = 4;
-  let animationEnCours = false;
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Charger les membres de l'équipe depuis le fichier JSON.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Une promesse contenant la liste des membres.
-   * ---------------------------------------------------------
-   */
-  async function chargerEquipe() {
-    const reponse = await fetch(
-      window.ProSpace.cheminRessource("assets/js/equipe.json")
-    );
-
-    if (!reponse.ok) {
-      throw new Error("Impossible de charger les membres de l'équipe.");
-    }
-
-    const donnees = await reponse.json();
-
-    if (!Array.isArray(donnees.membres) || donnees.membres.length === 0) {
-      throw new Error("La liste des membres de l'équipe est vide ou invalide.");
-    }
-
-    return donnees.membres;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Afficher un message si les membres ne peuvent pas être chargés.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function afficherErreurEquipe() {
-    const message = document.createElement("li");
-    message.className = "panneau-etat";
-    message.textContent = "L'équipe ne peut pas être affichée pour le moment.";
-
-    viderElement(listeEquipe);
-    listeEquipe.appendChild(message);
-    commandesEquipe.hidden = true;
-    statutEquipe.textContent = message.textContent;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Construire la carte HTML d’un membre de l’équipe.
-   * Paramètres :
-   * - membre : Objet contenant les informations du membre.
-   * - position : Position du membre dans l’équipe.
-   * Retour : La carte HTML du membre.
-   * ---------------------------------------------------------
-   */
-  function creerCarteMembre(membre, position) {
-    const elementListe = document.createElement("li");
-    const carte = document.createElement("article");
-    const portrait = document.createElement("div");
-    const photo = document.createElement("img");
-    const nom = document.createElement("h3");
-    const fonction = document.createElement("p");
-    const lienEmail = document.createElement("a");
-
-    elementListe.className = "carrousel-equipe__element";
-    elementListe.setAttribute("aria-posinset", String(position + 1));
-    elementListe.setAttribute("aria-setsize", String(equipe.length));
-    carte.className = "carte-membre";
-    portrait.className = "carte-membre__portrait";
-
-    photo.src = window.ProSpace.cheminRessource("assets/images/" + membre.photo);
-    photo.alt = "Portrait de " + membre.nom;
-    photo.width = 400;
-    photo.height = 400;
-    photo.loading = "lazy";
-
-    nom.textContent = membre.nom;
-    fonction.textContent = membre.fonction;
-    fonction.className = "carte-membre__fonction";
-    lienEmail.className = "carte-membre__email";
-    lienEmail.href = "mailto:" + membre.email;
-    lienEmail.appendChild(window.ProSpace.creerIcone("email"));
-    lienEmail.appendChild(document.createTextNode("Envoyer un email"));
-
-    portrait.appendChild(photo);
-    carte.appendChild(portrait);
-    carte.appendChild(nom);
-    carte.appendChild(fonction);
-    carte.appendChild(lienEmail);
-    elementListe.appendChild(carte);
-
-    return elementListe;
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Supprimer tous les enfants d’un élément HTML.
-   * Paramètres :
-   * - element : Élément HTML à vider.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function viderElement(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Actualiser les indicateurs du carrousel.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function mettreAJourPoints() {
-    const points = navigationEquipe.querySelectorAll("button");
-
-    points.forEach(function (point, index) {
-      const estActif = index === indexEquipe;
-      point.classList.toggle("carrousel-equipe__point--actif", estActif);
-
-      if (estActif) {
-        point.setAttribute("aria-current", "true");
-      } else {
-        point.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Afficher les membres visibles dans le carrousel.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function afficherEquipe() {
-    const fragment = document.createDocumentFragment();
-    const nomsVisibles = [];
-
-    viderElement(listeEquipe);
-
-    for (let positionAffichee = 0; positionAffichee < nombreVisible; positionAffichee += 1) {
-      const positionEquipe = (indexEquipe + positionAffichee) % equipe.length;
-      const membre = equipe[positionEquipe];
-      fragment.appendChild(creerCarteMembre(membre, positionEquipe));
-      nomsVisibles.push(membre.nom);
-    }
-
-    listeEquipe.appendChild(fragment);
-    statutEquipe.textContent = "Membres affichés : " + nomsVisibles.join(", ") + ".";
-    mettreAJourPoints();
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Changer la position du carrousel avec une transition.
-   * Paramètres :
-   * - nouvelIndex : Nouvelle position de départ du carrousel.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function afficherEquipeAvecTransition(nouvelIndex) {
-    if (animationEnCours) {
-      return;
-    }
-
-    animationEnCours = true;
-    listeEquipe.classList.add("carrousel-equipe__liste--en-animation");
-    indexEquipe = nouvelIndex;
-    afficherEquipe();
-
-    window.setTimeout(function () {
-      listeEquipe.classList.remove("carrousel-equipe__liste--en-animation");
-      animationEnCours = false;
-    }, 400);
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Construire les boutons de position du carrousel.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  function creerNavigationEquipe() {
-    equipe.forEach(function (membre, index) {
-      const point = document.createElement("button");
-      point.type = "button";
-      point.className = "carrousel-equipe__point";
-      point.setAttribute("aria-label", "Afficher " + membre.nom + " en premier");
-
-      point.addEventListener("click", function () {
-        afficherEquipeAvecTransition(index);
-      });
-
-      navigationEquipe.appendChild(point);
-    });
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Préparer et démarrer le carrousel de l’équipe.
-   * Paramètres :
-   * - Aucun.
-   * Retour : Aucune valeur.
-   * ---------------------------------------------------------
-   */
-  async function initialiserCarousel() {
-    if (!listeEquipe || !navigationEquipe || !boutonPrecedent || !boutonSuivant || !commandesEquipe) {
-      return;
-    }
-
-    try {
-      equipe = await chargerEquipe();
-      creerNavigationEquipe();
-      afficherEquipe();
-      commandesEquipe.hidden = false;
-    } catch (erreur) {
-      afficherErreurEquipe();
-      return;
-    }
-
-    boutonPrecedent.addEventListener("click", function () {
-      afficherEquipeAvecTransition((indexEquipe - 1 + equipe.length) % equipe.length);
-    });
-
-    boutonSuivant.addEventListener("click", function () {
-      afficherEquipeAvecTransition((indexEquipe + 1) % equipe.length);
-    });
-
-    listeEquipe.parentElement.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        afficherEquipeAvecTransition((indexEquipe - 1 + equipe.length) % equipe.length);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        afficherEquipeAvecTransition((indexEquipe + 1) % equipe.length);
-      }
-    });
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Zone : EXPOSITION ET INITIALISATION
-   * Cette zone rend les services partagés disponibles et lance les comportements de la page.
-   * ---------------------------------------------------------
-   */
   initialiserFormulaire();
-  initialiserCarousel();
 })();

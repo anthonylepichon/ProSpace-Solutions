@@ -1,18 +1,7 @@
 // ---------------------------------------------------------
-// Fichier : resources/scss/abstracts/_variables.scss
-// Rôle : Définir les outils et valeurs partagés par les feuilles de styles. Ce fichier concerne variables.
-// Tâches :
-// - Regrouper les règles SCSS relatives à variables.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
+// VARIABLES PARTAGÉES
 // ---------------------------------------------------------
 
-// ---------------------------------------------------------
-// Zone : VARIABLES PARTAGÉES
-// Cette zone regroupe les règles liées à variables partagées.
-// ---------------------------------------------------------
 $couleur-bleu-nuit: #0f172a;
 $couleur-bleu-nuit-adoucie: #1e293b;
 $couleur-bleu: #0284c7;
@@ -23,24 +12,53 @@ $couleur-ciel-clair: #f0f9ff;
 $couleur-bordure-bleue: #bae6fd;
 $couleur-blanc-casse: #f8fafc;
 $couleur-blanc: #ffffff;
+$couleur-noir: #000000;
 $couleur-ardoise-100: #f1f5f9;
 $couleur-ardoise-200: #e2e8f0;
 $couleur-ardoise-300: #cbd5e1;
 $couleur-ardoise-400: #94a3b8;
+$couleur-ardoise-500: #475569;
+$couleur-ardoise-600: #334155;
 $couleur-texte-secondaire: #64748b;
 $couleur-erreur: #f43f5e;
 $couleur-erreur-foncee: #e11d48;
 $couleur-erreur-claire: #fff1f2;
+$couleur-erreur-bordure: #fecdd3;
+$couleur-erreur-bordure-survol: #fda4af;
+$couleur-erreur-bordure-active: #fb7185;
 $couleur-succes-claire: #d1fae5;
 $couleur-etoile: #fbbf24;
+$couleur-bleu-nuit-10: rgba($couleur-bleu-nuit, 0.1);
+$couleur-bleu-nuit-30: rgba($couleur-bleu-nuit, 0.3);
+$couleur-bleu-nuit-40: rgba($couleur-bleu-nuit, 0.4);
+$couleur-bleu-nuit-60: rgba($couleur-bleu-nuit, 0.6);
+$couleur-bleu-nuit-75: rgba($couleur-bleu-nuit, 0.75);
+$couleur-bleu-10: rgba($couleur-bleu, 0.1);
+$couleur-bleu-20: rgba($couleur-bleu, 0.2);
+$couleur-bleu-25: rgba($couleur-bleu, 0.25);
+$couleur-bleu-30: rgba($couleur-bleu, 0.3);
+$couleur-cyan-10: rgba($couleur-cyan, 0.1);
+$couleur-cyan-20: rgba($couleur-cyan, 0.2);
+$couleur-cyan-25: rgba($couleur-cyan, 0.25);
+$couleur-blanc-05: rgba($couleur-blanc, 0.05);
+$couleur-blanc-10: rgba($couleur-blanc, 0.1);
+$couleur-blanc-85: rgba($couleur-blanc, 0.85);
+$couleur-noir-10: rgba($couleur-noir, 0.1);
+$couleur-noir-30: rgba($couleur-noir, 0.3);
+$couleur-erreur-30: rgba($couleur-erreur, 0.3);
+$couleur-ardoise-100-80: rgba($couleur-ardoise-100, 0.8);
+$couleur-ardoise-200-80: rgba($couleur-ardoise-200, 0.8);
+$couleur-ardoise-300-60: rgba($couleur-ardoise-300, 0.6);
 $police-titres: "Outfit", Arial, sans-serif;
 $police-texte: "DM Sans", Arial, sans-serif;
 $police-chasse-fixe: "JetBrains Mono", Consolas, monospace;
 $police-adaptee: "OpenDyslexic", Arial, sans-serif;
 $largeur-conteneur: 1280px;
+$point-rupture-petit-mobile: 374px;
+$point-rupture-tablette: 640px;
+$point-rupture-desktop: 1024px;
 $rayon-petit: 10px;
-$rayon-moyen: 16px;
-$rayon-grand: 16px;
+$rayon-standard: 16px;
 $ombre-legere: 0 1px 2px rgba(15, 23, 42, 0.05);
 $transition-rapide: 150ms ease;
 $transition-carte: 200ms ease;

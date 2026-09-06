@@ -18,10 +18,15 @@
 <body>
   <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone  HEADER : Cette div reçoit le fichier header.html chargé par commun.js. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <div id="conteneur-header"></div>
 
   <main class="page-espaces-sauvegardes conteneur">
+    <!-- ---------------------------------------------------------------------------- -->
+    <!-- Zone  chargement -->
+    <!-- ---------------------------------------------------------------------------- -->
     <div class="page-espaces-sauvegardes__en-tete">
       <div>
         <h1>Mes Espaces Sauvegardés</h1>
@@ -33,29 +38,37 @@
       </button>
     </div>
 
+    <!-- ---------------------------------------------------------------------------- -->
     <!-- Section : Aucun favori -->
+    <!-- ---------------------------------------------------------------------------- -->
     <section class="panneau-etat page-espaces-sauvegardes__etat-vide" id="selection-vide" hidden>
       <span class="page-espaces-sauvegardes__icone-vide">
         <img src="../assets/icons/icone-favori.svg" alt="Favori">
       </span>
-      <h2 id="titre-selection-vide">Aucun espace sauvegardé</h2>
+      <h2 id="titre-selection-vide" tabindex="-1">Aucun espace sauvegardé</h2>
       <p>
         Ajoutez des espaces à vos favoris depuis le catalogue en cliquant sur l'icône
         <img class="page-espaces-sauvegardes__coeur-integre" src="../assets/icons/icone-favori.svg" alt="cœur">.
       </p>
     </section>
 
+    <!-- ---------------------------------------------------------------------------- -->
     <!-- Section : Favoris sauvegardés -->
+    <!-- ---------------------------------------------------------------------------- -->
     <section id="conteneur-selection" hidden>
       <h2 class="visuellement-cache" id="titre-liste-selection">Liste de mes espaces sauvegardés</h2>
       <div class="liste-espaces-sauvegardes" id="liste-selection"></div>
     </section>
   </main>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <div id="conteneur-footer"></div>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone JAVASCRIPT : Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <script src="../assets/js/commun.js"></script>
   <script src="../assets/js/mes-espaces.js"></script>
 </body>

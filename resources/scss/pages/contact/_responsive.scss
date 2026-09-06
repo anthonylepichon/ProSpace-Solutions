@@ -1,0 +1,57 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// ADAPTATION AUX TAILLES D’ÉCRAN
+// ---------------------------------------------------------
+@media (min-width: $point-rupture-tablette) {
+  .banniere-contact {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .banniere-contact h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .banniere-contact p:last-child {
+    font-size: 18px;
+  }
+
+  .ligne-formulaire {
+    flex-direction: row;
+  }
+
+  .section-equipe__en-tete h2 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .carte-localisation {
+    height: 288px;
+  }
+}
+
+// ---------------------------------------------------------
+// ADAPTATION AUX TAILLES D’ÉCRAN
+// ---------------------------------------------------------
+@media (min-width: $point-rupture-desktop) {
+  .disposition-contact {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .carte-formulaire-contact {
+    width: calc(60% - 16px);
+    flex: 0 0 calc(60% - 16px);
+  }
+
+  .colonne-laterale-contact {
+    width: calc(40% - 24px);
+    flex: 0 0 calc(40% - 24px);
+  }
+}
+

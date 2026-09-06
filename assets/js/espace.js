@@ -22,6 +22,8 @@
   const boutonFavori = document.getElementById("bouton-favori-espace");
   const lienContact = document.getElementById("lien-contact-espace");
   const listeEquipements = document.getElementById("liste-equipements");
+  const erreurFiche = document.getElementById("erreur-fiche-espace");
+  const boutonReessayer = document.getElementById("reessayer-fiche-espace");
 
   /*
    * ---------------------------------------------------------
@@ -73,16 +75,7 @@
    */
   function afficherEtoiles(espace) {
     const conteneur = document.getElementById("etoiles-espace");
-
-    for (let index = 1; index <= 5; index += 1) {
-      const estPleine = index <= Math.round(espace.rating);
-      const icone = window.ProSpace.creerIcone(
-        estPleine ? "etoile-pleine" : "etoile",
-        estPleine ? "icone--etoile" : "icone--etoile-vide"
-      );
-
-      conteneur.appendChild(icone);
-    }
+    window.ProSpace.remplirEtoiles(conteneur, espace.rating);
 
     renseignerTexte(
       "libelle-note-espace",
@@ -99,27 +92,16 @@
    * ---------------------------------------------------------
    */
   function afficherEquipements(equipements) {
-    equipements.forEach(function (equipement) {
+    for (let index = 0; index < equipements.length; index++) {
+      const equipement = equipements[index];
       const elementListe = document.createElement("li");
       const libelle = document.createElement("span");
 
-      elementListe.appendChild(window.ProSpace.creerIcone("validation"));
+      elementListe.appendChild(window.ProSpace.creerIcone("validation", "", true));
       libelle.textContent = equipement;
       elementListe.appendChild(libelle);
       listeEquipements.appendChild(elementListe);
-    });
-  }
-
-  /*
-   * ---------------------------------------------------------
-   * Rôle : Vérifier si un espace est actuellement sauvegardé.
-   * Paramètres :
-   * - identifiant : Identifiant unique de l’espace.
-   * Retour : Vrai si l’espace est sauvegardé, sinon faux.
-   * ---------------------------------------------------------
-   */
-  function espaceEstFavori(identifiant) {
-    return window.ProSpace.lireFavoris().includes(identifiant);
+    }
   }
 
   /*
@@ -131,20 +113,13 @@
    * ---------------------------------------------------------
    */
   function mettreAJourBoutonFavori(espace) {
-    const estFavori = espaceEstFavori(espace.id);
     const libelle = document.getElementById("libelle-favori");
-    const icone = boutonFavori.querySelector("img");
-
-    boutonFavori.classList.toggle("bouton--favori-actif", estFavori);
-    libelle.textContent = estFavori
-      ? "Sauvegardé en Favoris"
-      : "Sauvegarder en Favoris";
-
-    if (icone) {
-      icone.src = window.ProSpace.cheminRessource(
-        "assets/icons/icone-favori" + (estFavori ? "-plein" : "") + ".svg"
-      );
-    }
+    window.ProSpace.mettreAJourBoutonFavori(
+      boutonFavori,
+      espace,
+      "bouton--favori-actif",
+      libelle
+    );
   }
 
   /*
@@ -162,10 +137,6 @@
       window.ProSpace.basculerFavori(espace.id);
       mettreAJourBoutonFavori(espace);
     });
-
-    window.addEventListener("prospace:favoris-modifies", function () {
-      mettreAJourBoutonFavori(espace);
-    });
   }
 
   /*
@@ -178,7 +149,7 @@
    */
   function mettreAJourReferencement(espace) {
     const description =
-      "Découvrez " + espace.title + " à " + espace.city +
+      "Découvrez " + espace.title + " à " + espace.displayCity +
       ", un espace professionnel équipé pour accueillir jusqu'à " + espace.capacity + " personnes.";
     const metaDescription = document.querySelector('meta[name="description"]');
 
@@ -196,9 +167,13 @@
    * ---------------------------------------------------------
    */
   function afficherEspace(espace) {
+    const imagePrincipale = espace.gallery[0];
+    const imageSecondaireGauche = espace.gallery[1] || imagePrincipale;
+    const imageSecondaireDroite = espace.gallery[2] || imagePrincipale;
+
     renseignerTexte("titre-espace", espace.title);
     renseignerTexte("titre-espace-fil-ariane", espace.title);
-    renseignerTexte("ville-espace", espace.city);
+    renseignerTexte("ville-espace", espace.displayCity);
     renseignerTexte("adresse-espace", espace.address);
     renseignerTexte("note-espace", espace.rating);
     renseignerTexte("nombre-avis-espace", espace.reviews);
@@ -210,24 +185,24 @@
 
     ajouterImage(
       document.getElementById("galerie-principale"),
-      espace.images[0],
-      espace.imageAlts[0],
-      espace.imageWidth,
-      espace.imageHeight
+      imagePrincipale.src,
+      imagePrincipale.alt,
+      imagePrincipale.width,
+      imagePrincipale.height
     );
     ajouterImage(
       document.getElementById("galerie-secondaire"),
-      espace.images[1] || espace.images[0],
-      espace.imageAlts[1],
-      espace.imageWidth,
-      espace.imageHeight
+      imageSecondaireGauche.src,
+      imageSecondaireGauche.alt,
+      imageSecondaireGauche.width,
+      imageSecondaireGauche.height
     );
     ajouterImage(
       document.getElementById("galerie-secondaire"),
-      espace.images[2] || espace.images[0],
-      espace.imageAlts[2],
-      espace.imageWidth,
-      espace.imageHeight
+      imageSecondaireDroite.src,
+      imageSecondaireDroite.alt,
+      imageSecondaireDroite.width,
+      imageSecondaireDroite.height
     );
 
     document.querySelector(".galerie-espace").setAttribute(
@@ -273,11 +248,18 @@
       return;
     }
 
+    erreurFiche.hidden = true;
+    boutonReessayer.disabled = true;
+
     try {
       const espaces = await window.ProSpace.chargerEspaces();
-      const espace = espaces.find(function (element) {
-        return element.id === identifiant;
-      });
+      let espace = null;
+
+      for (let index = 0; index < espaces.length; index++) {
+        if (espaces[index].id === identifiant) {
+          espace = espaces[index];
+        }
+      }
 
       if (!espace) {
         retournerAuCatalogue();
@@ -286,8 +268,11 @@
 
       afficherEspace(espace);
     } catch (erreurChargement) {
-      retournerAuCatalogue();
+      erreurFiche.hidden = false;
+      console.error("Impossible de charger la fiche de l’espace.", erreurChargement);
     }
+
+    boutonReessayer.disabled = false;
   }
 
   /*
@@ -296,5 +281,6 @@
    * Cette zone rend les services partagés disponibles et lance les comportements de la page.
    * ---------------------------------------------------------
    */
+  boutonReessayer.addEventListener("click", initialiserFiche);
   initialiserFiche();
 })();

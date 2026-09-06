@@ -1,17 +1,5 @@
 // ---------------------------------------------------------
-// Fichier : resources/scss/base/_reset.scss
-// Rôle : Définir les styles fondamentaux communs à tout le site. Ce fichier concerne reset.
-// Tâches :
-// - Regrouper les règles SCSS relatives à reset.
-// - Conserver une présentation cohérente sur les différentes tailles d’écran.
-// Liens avec les autres fichiers :
-// - resources/scss/main.scss importe ce fichier lors de la compilation.
-// - assets/css/main.css reçoit les règles CSS compilées utilisées par les pages HTML.
-// ---------------------------------------------------------
-
-// ---------------------------------------------------------
-// Zone : ASSEMBLAGE DES FEUILLES DE STYLES
-// Cette zone regroupe les règles liées à assemblage des feuilles de styles.
+// ASSEMBLAGE DES FEUILLES DE STYLES
 // ---------------------------------------------------------
 @use "../abstracts/variables" as *;
 
@@ -31,15 +19,8 @@ body {
   margin: 0;
   background: $couleur-blanc-casse;
   color: $couleur-bleu-nuit;
-  overflow-x: hidden;
-}
-
-body,
-button,
-input,
-select,
-textarea {
   font-family: $police-texte;
+  overflow-x: hidden;
 }
 
 img {

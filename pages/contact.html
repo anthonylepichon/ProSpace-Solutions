@@ -18,11 +18,15 @@
 <body>
     <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
 
+    <!-- ---------------------------------------------------------------------------- -->
     <!-- Zone HEADER : Ce conteneur reçoit le fichier header.html chargé par commun.js. -->
+    <!-- ---------------------------------------------------------------------------- -->
     <div id="conteneur-header"></div>
 
     <main>
+        <!-- ---------------------------------------------------------------------------- -->
         <!-- Section : BANNIERE -->
+        <!-- ---------------------------------------------------------------------------- -->
         <section class="banniere-contact">
             <div class="conteneur banniere-contact__contenu">
                 <p class="surtitre">
@@ -37,7 +41,9 @@
             </div>
         </section>
 
+        <!-- ---------------------------------------------------------------------------- -->
         <!-- Section CONTACT -->
+        <!-- ---------------------------------------------------------------------------- -->
         <section class="section-contact conteneur">
             <div class="disposition-contact">
                 <div class="carte-formulaire-contact">
@@ -124,7 +130,9 @@
                         </form>
                     </div>
 
+                    <!-- ---------------------------------------------------------------------------- -->
                     <!-- Section CONFIRMATION -->
+                    <!-- ---------------------------------------------------------------------------- -->
                     <section class="panneau-confirmation-contact" id="confirmation-contact" aria-live="polite" hidden>
                         <img src="../assets/icons/icone-validation.svg" alt="Message envoyé avec succès">
                         <h2>Message envoyé !</h2>
@@ -142,7 +150,9 @@
                 </div>
 
                 <aside class="colonne-laterale-contact" aria-label="Informations de contact">
+                    <!-- ---------------------------------------------------------------------------- -->
                     <!-- Section INFORMATIONS -->
+                    <!-- ---------------------------------------------------------------------------- -->
                     <section class="carte-entreprise">
                         <h2 id="titre-entreprise">ProSpace Solutions</h2>
                         <p class="carte-entreprise__surtitre">Informations entreprise</p>
@@ -179,7 +189,9 @@
                         </address>
                     </section>
 
+                    <!-- ---------------------------------------------------------------------------- -->
                     <!-- Section REPONSE -->
+                    <!-- ---------------------------------------------------------------------------- -->
                     <section class="carte-reponse">
                         <img src="../assets/icons/icone-horaires.svg" alt="Délai de réponse">
                         <div>
@@ -193,12 +205,12 @@
 
                     <figure class="carte-temoignage">
                         <p class="carte-temoignage__evaluation">
-                            <span class="carte-temoignage__etoiles">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 1 sur 5">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 2 sur 5">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 3 sur 5">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 4 sur 5">
-                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="Étoile 5 sur 5">
+                            <span class="carte-temoignage__etoiles" aria-hidden="true">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
+                                <img src="../assets/icons/icone-etoile-pleine.svg" alt="">
                             </span>
                             <strong>4.8 / 5</strong>
                             <span class="visuellement-cache">Note de 4,8 sur 5</span>
@@ -214,7 +226,9 @@
             </div>
         </section>
 
+        <!-- ---------------------------------------------------------------------------- -->
         <!-- Section  EQUIPE -->
+        <!-- ---------------------------------------------------------------------------- -->
         <section class="section-equipe">
             <div class="conteneur">
                 <div class="section-equipe__en-tete">
@@ -247,7 +261,9 @@
             </div>
         </section>
 
+        <!-- ---------------------------------------------------------------------------- -->
         <!-- Section LOCALISATION -->
+        <!-- ---------------------------------------------------------------------------- -->
         <section class="section-localisation conteneur">
             <div class="carte-localisation">
                 <img src="../assets/icons/icone-localisation.svg" alt="Localisation">
@@ -264,12 +280,17 @@
         </section>
     </main>
 
+    <!-- ---------------------------------------------------------------------------- -->
     <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+    <!-- ---------------------------------------------------------------------------- -->
     <div id="conteneur-footer"></div>
 
+    <!-- ---------------------------------------------------------------------------- -->
     <!-- Zone JAVASCRIPT : Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+    <!-- ---------------------------------------------------------------------------- -->
     <script src="../assets/js/commun.js"></script>
     <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/equipe.js"></script>
 </body>
 
 </html>

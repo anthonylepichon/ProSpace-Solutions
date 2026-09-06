@@ -18,10 +18,18 @@
 <body>
   <a class="logo" href="#page-accueil">Aller à la page d'accueil</a>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone HEADER : Cette div reçoit le fichier header.html chargé par commun.js. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <div id="conteneur-header"></div>
 
   <main class="page-espace conteneur">
+    <div class="panneau-etat panneau-etat--erreur" id="erreur-fiche-espace" aria-live="polite" hidden>
+      <h1>Impossible de charger cet espace</h1>
+      <p>Vérifiez votre connexion, puis réessayez.</p>
+      <button class="bouton bouton--primaire" type="button" id="reessayer-fiche-espace">Réessayer</button>
+    </div>
+
     <article id="fiche-espace" hidden>
       <!-- Zone : FIL D'ARIANE -->
       <nav class="fil-ariane" aria-label="Fil d'Ariane">
@@ -48,13 +56,21 @@
         </div>
       </div>
 
+      <!-- ---------------------------------------------------------------------------- -->
       <!-- Section : GALERIE DE PHOTOS -->
+      <!-- ---------------------------------------------------------------------------- -->
       <section class="galerie-espace" aria-label="Galerie de l'espace">
         <div class="galerie-espace__principale" id="galerie-principale"></div>
         <div class="galerie-espace__secondaire" id="galerie-secondaire"></div>
       </section>
 
+      <!-- ---------------------------------------------------------------------------- -->
+      <!-- Zone : Description détaillée -->
+      <!-- ---------------------------------------------------------------------------- -->
       <div class="disposition-detail-espace">
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- Zone : Gauche -->
+        <!-- ---------------------------------------------------------------------------- -->
         <div class="contenu-detail-espace">
           <section>
             <h2 id="titre-a-propos">À propos de cet espace</h2>
@@ -79,6 +95,9 @@
           </section>
         </div>
 
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- Zone : Droite -->
+        <!-- ---------------------------------------------------------------------------- -->
         <aside class="carte-tarifs">
           <h2 id="titre-tarifs">Tarifs</h2>
           <table>
@@ -130,10 +149,14 @@
     </article>
   </main>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone FOOTER : Cette div reçoit le fichier footer.html chargé par commun.js. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <div id="conteneur-footer"></div>
 
+  <!-- ---------------------------------------------------------------------------- -->
   <!-- Zone : SCRIPTS JAVASCRIPT, Ces scripts sont placés en fin de page et activent la structure commune puis les interactions propres à la page. -->
+  <!-- ---------------------------------------------------------------------------- -->
   <script src="../assets/js/commun.js"></script>
   <script src="../assets/js/espace.js"></script>
 </body>

@@ -1,0 +1,60 @@
+// ---------------------------------------------------------
+// ASSEMBLAGE DES FEUILLES DE STYLES
+// ---------------------------------------------------------
+@use "../../abstracts/variables" as *;
+
+// ---------------------------------------------------------
+// RÈGLES .GALERIE-ESPACE
+// ---------------------------------------------------------
+.galerie-espace {
+  display: flex;
+  gap: 12px;
+  height: 260px;
+  margin-bottom: 48px;
+  overflow: hidden;
+  border-radius: $rayon-standard;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .GALERIE-ESPACE__PRINCIPALE
+// ---------------------------------------------------------
+.galerie-espace__principale {
+  width: calc(66.666% - 4px);
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .GALERIE-ESPACE__SECONDAIRE
+// ---------------------------------------------------------
+.galerie-espace__secondaire {
+  display: flex;
+  width: calc(33.333% - 8px);
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .GALERIE-ESPACE__SECONDAIRE IMG
+// ---------------------------------------------------------
+.galerie-espace__secondaire img {
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  background: $couleur-ardoise-200;
+}
+
+// ---------------------------------------------------------
+// RÈGLES .GALERIE-ESPACE IMG
+// ---------------------------------------------------------
+.galerie-espace img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
