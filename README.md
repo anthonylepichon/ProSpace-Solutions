@@ -141,20 +141,6 @@ git switch main
 git pull origin main
 ```
 
-Avec l'offre gratuite de GitHub, le dépôt doit être public pour utiliser GitHub Pages. La visibilité se modifie dans **Settings → General → Danger Zone → Change repository visibility**. Il faut vérifier avant cette opération qu'aucun secret, fichier `.env` ou document privé n'est présent dans le dépôt ou son historique.
-
-La publication se configure ensuite dans **Settings → Pages → Build and deployment** avec les valeurs suivantes :
-
-- **Source :** `Deploy from a branch` ;
-- **Branch :** `main` ;
-- **Folder :** `/(root)`.
-
-Le fichier `index.html` se trouvant à la racine, le dossier `/docs` ne doit pas être choisi comme source. Après l'enregistrement de la configuration, GitHub construit et publie automatiquement le site. L'adresse attendue est :
-
-```text
-https://anthonylepichon.github.io/ProSpace-Solutions/
-```
-
 Une fiche dynamique peut être contrôlée directement avec :
 
 ```text
