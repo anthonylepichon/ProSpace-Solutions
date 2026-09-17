@@ -230,9 +230,9 @@ Le cahier des charges fixe un objectif supérieur à 90 pour le SEO et l'accessi
 | Accueil | 96 | 100 | 96 | 100 |
 | Fiche espace | 94 | 100 | 94 | 100 |
 | Mes espaces | 93 | 100 | 93 | 100 |
-| Contact | 90 | 100 | 90 | 100 |
+| Contact | 91 | 100 | 91 | 100 |
 
-Toutes les pages obtiennent 100 en SEO. Les pages Accueil, Fiche espace et Mes espaces dépassent 90 en accessibilité. La page Contact atteint 90, mais ne dépasse pas encore strictement l'objectif fixé par le cahier des charges.
+Toutes les pages obtiennent 100 en SEO. Les pages Accueil, Fiche espace, Contact et Mes espaces dépassent 90 en accessibilité.
 
 ### Captures Desktop
 
